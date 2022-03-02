@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/app/core/colors.dart';
 
 class LeftMenu extends StatelessWidget {
   const LeftMenu({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class LeftMenu extends StatelessWidget {
       height: 683,
       width: 84,
       decoration: BoxDecoration(
-        color: Color(0xFFFF7315),
+        color: BaseColors.ebonyClay,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(20),
           bottomLeft: Radius.circular(20),
