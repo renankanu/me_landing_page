@@ -18,14 +18,11 @@ class HomeView extends GetView<HomeController> {
           children: [
             LeftMenu(),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 184, vertical: 64),
+              padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 476,
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -35,7 +32,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                         SizedBox(height: 16),
                         Text(
-                          "Eu sou Renan Santos.\nDesenvolvedor Flutter.",
+                          "Eu sou Renan Santos. Desenvolvedor Flutter.",
                           style: Get.textTheme.headline3!.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: 40,
@@ -43,7 +40,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                         SizedBox(height: 48),
                         Text(
-                          "Frontend developer based in tehran, Iran.\nI am coding with a clean and beautiful problem solving in mind.",
+                          "Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.",
                           style: Get.textTheme.bodyText2!.copyWith(
                             fontSize: 18,
                           ),
@@ -60,10 +57,27 @@ class HomeView extends GetView<HomeController> {
                               color: BaseColors.deepBlush,
                             ),
                           ],
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 12,
+                            horizontal: 22,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: BaseColors.atomicTangerine,
+                          ),
+                          child: Text(
+                            'Mobile Developer',
+                            style: Get.textTheme.button!.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
                         )
                       ],
                     ),
                   ),
+                  SizedBox(width: 60),
                   Container(
                     height: 416,
                     width: 446,
@@ -100,7 +114,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             )
