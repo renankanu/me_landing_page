@@ -29,7 +29,6 @@
 .packages
 .pub-cache/
 .pub/
-/build/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -44,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+build/f553c14f8abc3351f6693900c1547afa
+build/flutter_assets
+build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill

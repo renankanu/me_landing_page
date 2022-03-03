@@ -26,12 +26,12 @@ class HomeView extends GetView<HomeController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        SelectableText(
                           'Olá!',
                           style: Get.textTheme.headline5,
                         ),
                         SizedBox(height: 16),
-                        Text(
+                        SelectableText(
                           "Eu sou Renan Santos. Desenvolvedor Flutter.",
                           style: Get.textTheme.headline3!.copyWith(
                             fontWeight: FontWeight.w600,
@@ -39,13 +39,13 @@ class HomeView extends GetView<HomeController> {
                           ),
                         ),
                         SizedBox(height: 48),
-                        Text(
+                        SelectableText(
                           "Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.",
                           style: Get.textTheme.bodyText2!.copyWith(
                             fontSize: 18,
                           ),
                         ),
-                        SizedBox(height: 16),
+                        SizedBox(height: 32),
                         Row(
                           children: [
                             SocialButton(
@@ -63,11 +63,12 @@ class HomeView extends GetView<HomeController> {
                             vertical: 12,
                             horizontal: 22,
                           ),
+                          margin: EdgeInsets.only(top: 32),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(20),
                             color: BaseColors.atomicTangerine,
                           ),
-                          child: Text(
+                          child: SelectableText(
                             'Mobile Developer',
                             style: Get.textTheme.button!.copyWith(
                               color: Colors.white,
