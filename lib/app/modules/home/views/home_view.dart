@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
         child: Stack(
           children: [
             LeftMenu(),
-            Center(
+            SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
                 child: Row(
