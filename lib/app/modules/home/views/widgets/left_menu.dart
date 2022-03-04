@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:me_landing_page/app/core/colors.dart';
-import 'package:me_landing_page/app/core/images.dart';
+
+import '../../../../core/colors.dart';
+import '../../../../core/images.dart';
 
 class LeftMenu extends StatelessWidget {
   const LeftMenu({Key? key}) : super(key: key);

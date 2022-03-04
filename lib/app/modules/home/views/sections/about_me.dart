@@ -12,7 +12,7 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    final double height = MediaQuery.of(context).size.height;
     return Container(
       constraints: BoxConstraints(minHeight: height),
       child: Center(
@@ -35,7 +35,7 @@ class AboutMe extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     SelectableText(
-                      "Eu sou Renan Santos. Desenvolvedor Flutter.",
+                      'Eu sou Renan Santos. Desenvolvedor Flutter.',
                       style: Get.textTheme.headline3!.copyWith(
                         fontWeight: FontWeight.w600,
                         fontSize: 40,
@@ -43,7 +43,7 @@ class AboutMe extends StatelessWidget {
                     ),
                     const SizedBox(height: 48),
                     SelectableText(
-                      "Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.",
+                      'Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.',
                       style: Get.textTheme.bodyText2!.copyWith(
                         fontSize: 18,
                       ),

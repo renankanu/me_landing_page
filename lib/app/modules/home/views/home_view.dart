@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:me_landing_page/app/core/colors.dart';
-import 'package:me_landing_page/app/modules/home/views/sections/skills.dart';
-import 'package:me_landing_page/app/modules/home/views/widgets/left_menu.dart';
 
+import '../../../core/colors.dart';
 import '../controllers/home_controller.dart';
 import 'sections/about_me.dart';
+import 'sections/skills.dart';
+import 'widgets/left_menu.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);

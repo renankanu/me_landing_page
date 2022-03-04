@@ -10,7 +10,7 @@ void main() {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "RenanKanu;",
+      title: 'RenanKanu;',
       initialRoute: AppPages.initial,
       getPages: AppPages.routes,
       theme: Themes.lightTheme,
