@@ -78,10 +78,10 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                     ),
-                    SizedBox(width: 60),
+                    SizedBox(width: 194),
                     Container(
-                      height: 416,
-                      width: 446,
+                      height: 432,
+                      width: 462,
                       child: Stack(
                         children: [
                           Positioned(
