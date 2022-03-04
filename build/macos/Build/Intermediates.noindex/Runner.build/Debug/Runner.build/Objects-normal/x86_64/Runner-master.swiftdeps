@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)"
+options: "3277f82f776cd6166b605713af7c88c9"
+build_time: [1646393248, 226061000]
+inputs:
+  "/Users/renankanu/Developer/Kanu/me_landing_page/macos/Runner/MainFlutterWindow.swift": [1632074291, 741252116]
+  "/Users/renankanu/Developer/Kanu/me_landing_page/macos/Runner/AppDelegate.swift": [1632074291, 739327418]
+  "/Users/renankanu/Developer/Kanu/me_landing_page/macos/Flutter/GeneratedPluginRegistrant.swift": [1646393234, 300790735]
