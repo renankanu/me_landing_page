@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/colors.dart';
-import '../../../../core/images.dart';
+import '../../../../core/core.dart';
 import '../widgets/social_button.dart';
 
 class AboutMe extends StatelessWidget {
@@ -12,9 +11,7 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    return Container(
-      constraints: BoxConstraints(minHeight: height),
+    return BaseContainer(
       child: Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
@@ -24,7 +21,7 @@ class AboutMe extends StatelessWidget {
             children: [
               Container(
                 constraints: const BoxConstraints(
-                  maxWidth: 476,
+                  maxWidth: 490,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

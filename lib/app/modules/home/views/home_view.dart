@@ -16,12 +16,15 @@ class HomeView extends GetView<HomeController> {
       body: Stack(
         children: [
           const LeftMenu(),
-          SingleChildScrollView(
-            child: Column(
-              children: const [
-                AboutMe(),
-                Skills(),
-              ],
+          SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  AboutMe(),
+                  Skills(),
+                ],
+              ),
             ),
           )
         ],
