@@ -12,8 +12,9 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     return Container(
-      constraints: BoxConstraints(minHeight: Get.height),
+      constraints: BoxConstraints(minHeight: height),
       child: Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
@@ -22,7 +23,7 @@ class AboutMe extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 476,
                 ),
                 child: Column(
@@ -32,7 +33,7 @@ class AboutMe extends StatelessWidget {
                       'Olá!',
                       style: Get.textTheme.headline5,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     SelectableText(
                       "Eu sou Renan Santos. Desenvolvedor Flutter.",
                       style: Get.textTheme.headline3!.copyWith(
@@ -40,16 +41,16 @@ class AboutMe extends StatelessWidget {
                         fontSize: 40,
                       ),
                     ),
-                    SizedBox(height: 48),
+                    const SizedBox(height: 48),
                     SelectableText(
                       "Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.",
                       style: Get.textTheme.bodyText2!.copyWith(
                         fontSize: 18,
                       ),
                     ),
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
                     Row(
-                      children: [
+                      children: const [
                         SocialButton(
                           iconName: BaseImages.icLinkedin,
                           color: BaseColors.cornflowerBlue,
@@ -61,11 +62,11 @@ class AboutMe extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         vertical: 12,
                         horizontal: 22,
                       ),
-                      margin: EdgeInsets.only(top: 32),
+                      margin: const EdgeInsets.only(top: 32),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: BaseColors.atomicTangerine,
@@ -80,8 +81,8 @@ class AboutMe extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: 194),
-              Container(
+              const SizedBox(width: 194),
+              SizedBox(
                 height: 432,
                 width: 462,
                 child: Stack(
@@ -107,7 +108,7 @@ class AboutMe extends StatelessWidget {
                     Container(
                       width: 406,
                       height: 406,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           image: AssetImage(BaseImages.me),

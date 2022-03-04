@@ -4,7 +4,7 @@ import 'package:me_landing_page/app/core/colors.dart';
 class Themes {
   Themes._();
   static final lightTheme = ThemeData.light().copyWith(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline1: TextStyle(
         fontFamily: 'Poppins',
         color: BaseColors.mineShaft,
@@ -49,7 +49,7 @@ class Themes {
   );
 
   static final darkTheme = ThemeData.dark().copyWith(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       headline1: TextStyle(
         fontFamily: 'Poppins',
         color: BaseColors.mineShaft,

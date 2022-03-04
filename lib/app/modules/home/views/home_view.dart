@@ -8,24 +8,23 @@ import '../controllers/home_controller.dart';
 import 'sections/about_me.dart';
 
 class HomeView extends GetView<HomeController> {
+  const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BaseColors.vistaWhite,
-      body: Container(
-        child: Stack(
-          children: [
-            LeftMenu(),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  AboutMe(),
-                  Skills(),
-                ],
-              ),
-            )
-          ],
-        ),
+      body: Stack(
+        children: [
+          const LeftMenu(),
+          SingleChildScrollView(
+            child: Column(
+              children: const [
+                AboutMe(),
+                Skills(),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

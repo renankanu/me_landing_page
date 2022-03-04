@@ -11,7 +11,7 @@ class LeftMenu extends StatelessWidget {
     return Container(
       height: 683,
       width: 68,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: BaseColors.ebonyClay,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(20),
@@ -20,6 +20,7 @@ class LeftMenu extends StatelessWidget {
         ),
       ),
       child: SingleChildScrollView(
+        primary: false,
         child: Column(
           children: [
             Padding(
@@ -31,24 +32,24 @@ class LeftMenu extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               color: BaseColors.burntSienna,
               thickness: 1,
               height: 1,
             ),
-            MenuButton(
+            const MenuButton(
               isSelected: true,
               assetIcon: BaseImages.icHome,
             ),
-            MenuButton(
+            const MenuButton(
               isSelected: false,
               assetIcon: BaseImages.icSkill,
             ),
-            MenuButton(
+            const MenuButton(
               isSelected: false,
               assetIcon: BaseImages.icRepo,
             ),
-            MenuButton(
+            const MenuButton(
               isSelected: false,
               assetIcon: BaseImages.icExperience,
             ),

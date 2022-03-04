@@ -9,7 +9,7 @@ class Skills extends StatelessWidget {
     return Container(
       color: Colors.red,
       constraints: BoxConstraints(minHeight: Get.height),
-      child: Text('Skills'),
+      child: const Text('Skills'),
     );
   }
 }
