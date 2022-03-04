@@ -14,7 +14,7 @@ class AboutMe extends StatelessWidget {
     return BaseContainer(
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
+          padding: const EdgeInsets.only(top: 64),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,

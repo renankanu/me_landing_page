@@ -14,6 +14,7 @@ class BaseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 80),
       color: backgroundColor ?? Colors.transparent,
       constraints: BoxConstraints(
         minHeight: height * 0.9,
