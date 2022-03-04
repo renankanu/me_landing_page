@@ -8,4 +8,13 @@ abstract class BaseImages {
   static const String icRepo = 'assets/icons/ic_repo.png';
   static const String icExperience = 'assets/icons/ic_experience.png';
   static const String icReactNative = 'assets/icons/ic_react_native.png';
+  static const String icJs = 'assets/icons/ic_js.png';
+  static const String icTs = 'assets/icons/ic_ts.png';
+  static const String icFireBase = 'assets/icons/ic_firebase.png';
+  static const String icDocker = 'assets/icons/ic_docker.png';
+  static const String icAppleStore = 'assets/icons/ic_app_store_ios.png';
+  static const String icGooglePlay = 'assets/icons/ic_google_play.png';
+  static const String icGit = 'assets/icons/ic_git.png';
+  static const String icPhp = 'assets/icons/ic_php.png';
+  static const String icAws = 'assets/icons/ic_aws.png';
 }

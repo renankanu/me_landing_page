@@ -34,8 +34,8 @@ class Skills extends StatelessWidget {
           ),
           const SizedBox(height: 60),
           Wrap(
-            runSpacing: 10,
-            spacing: 80,
+            runSpacing: 40,
+            spacing: 100,
             children: const [
               ItemCardSkill(
                 imageSkill: '',
@@ -46,6 +46,60 @@ class Skills extends StatelessWidget {
               ItemCardSkill(
                 imageSkill: BaseImages.icReactNative,
                 titleSkill: 'React Native',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icJs,
+                titleSkill: 'JavaScript',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icTs,
+                titleSkill: 'TypeScript',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icFireBase,
+                titleSkill: 'Firebase',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icAppleStore,
+                titleSkill: 'Apple Store',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icGooglePlay,
+                titleSkill: 'Google Play',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icGit,
+                titleSkill: 'Git',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icPhp,
+                titleSkill: 'PHP',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icDocker,
+                titleSkill: 'Docker',
+                descriptionSkill:
+                    'Desenvolvimento de aplicativos utilizando Flutter',
+              ),
+              ItemCardSkill(
+                imageSkill: BaseImages.icAws,
+                titleSkill: 'AWS',
                 descriptionSkill:
                     'Desenvolvimento de aplicativos utilizando Flutter',
               ),
