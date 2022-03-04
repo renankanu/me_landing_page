@@ -33,77 +33,79 @@ class Skills extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 60),
-          Wrap(
-            runSpacing: 40,
-            spacing: 100,
-            children: const [
-              ItemCardSkill(
-                imageSkill: '',
-                titleSkill: 'Flutter',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icReactNative,
-                titleSkill: 'React Native',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icJs,
-                titleSkill: 'JavaScript',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icTs,
-                titleSkill: 'TypeScript',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icFireBase,
-                titleSkill: 'Firebase',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icAppleStore,
-                titleSkill: 'Apple Store',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icGooglePlay,
-                titleSkill: 'Google Play',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icGit,
-                titleSkill: 'Git',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icPhp,
-                titleSkill: 'PHP',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icDocker,
-                titleSkill: 'Docker',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-              ItemCardSkill(
-                imageSkill: BaseImages.icAws,
-                titleSkill: 'AWS',
-                descriptionSkill:
-                    'Desenvolvimento de aplicativos utilizando Flutter',
-              ),
-            ],
+          Center(
+            child: Wrap(
+              runSpacing: 40,
+              spacing: 40,
+              children: const [
+                ItemCardSkill(
+                  imageSkill: '',
+                  titleSkill: 'Flutter',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icReactNative,
+                  titleSkill: 'React Native',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icJs,
+                  titleSkill: 'JavaScript',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icTs,
+                  titleSkill: 'TypeScript',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icFireBase,
+                  titleSkill: 'Firebase',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icAppleStore,
+                  titleSkill: 'Apple Store',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icGooglePlay,
+                  titleSkill: 'Google Play',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icGit,
+                  titleSkill: 'Git',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icPhp,
+                  titleSkill: 'PHP',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icDocker,
+                  titleSkill: 'Docker',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icAws,
+                  titleSkill: 'AWS',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -148,8 +150,7 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
         scale: scale,
         child: Container(
           padding: const EdgeInsets.all(20),
-          width: 300,
-          height: 280,
+          width: 210,
           decoration: BoxDecoration(
             color: BaseColors.vistaWhite,
             boxShadow: [
@@ -171,10 +172,10 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
             children: [
               Visibility(
                 visible: widget.titleSkill == 'Flutter',
-                child: const FlutterLogo(size: 100),
+                child: const FlutterLogo(size: 80),
                 replacement: Image.asset(
                   widget.imageSkill,
-                  height: 100,
+                  height: 80,
                 ),
               ),
               const SizedBox(height: 8),
@@ -185,10 +186,6 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
                 ),
               ),
               const SizedBox(height: 12),
-              SelectableText(
-                widget.descriptionSkill,
-                textAlign: TextAlign.center,
-              ),
             ],
           ),
         ),
