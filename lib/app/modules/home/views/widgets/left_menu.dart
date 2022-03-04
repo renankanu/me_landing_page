@@ -19,39 +19,41 @@ class LeftMenu extends StatelessWidget {
           bottomRight: Radius.circular(20),
         ),
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Text(
-              'RK;',
-              style: Get.textTheme.headline4!.copyWith(
-                color: BaseColors.burntSienna,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'RK;',
+                style: Get.textTheme.headline4!.copyWith(
+                  color: BaseColors.burntSienna,
+                ),
               ),
             ),
-          ),
-          Divider(
-            color: BaseColors.burntSienna,
-            thickness: 1,
-            height: 1,
-          ),
-          MenuButton(
-            isSelected: true,
-            assetIcon: BaseImages.icHome,
-          ),
-          MenuButton(
-            isSelected: false,
-            assetIcon: BaseImages.icSkill,
-          ),
-          MenuButton(
-            isSelected: false,
-            assetIcon: BaseImages.icRepo,
-          ),
-          MenuButton(
-            isSelected: false,
-            assetIcon: BaseImages.icExperience,
-          ),
-        ],
+            Divider(
+              color: BaseColors.burntSienna,
+              thickness: 1,
+              height: 1,
+            ),
+            MenuButton(
+              isSelected: true,
+              assetIcon: BaseImages.icHome,
+            ),
+            MenuButton(
+              isSelected: false,
+              assetIcon: BaseImages.icSkill,
+            ),
+            MenuButton(
+              isSelected: false,
+              assetIcon: BaseImages.icRepo,
+            ),
+            MenuButton(
+              isSelected: false,
+              assetIcon: BaseImages.icExperience,
+            ),
+          ],
+        ),
       ),
     );
   }
