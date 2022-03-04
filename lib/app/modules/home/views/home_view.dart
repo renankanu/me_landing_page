@@ -21,7 +21,6 @@ class HomeView extends GetView<HomeController> {
                 padding: const EdgeInsets.only(left: 184, top: 64, right: 80),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       constraints: BoxConstraints(
@@ -82,6 +81,7 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
                     ),
+                    SizedBox(width: 194),
                     Container(
                       height: 432,
                       width: 462,
