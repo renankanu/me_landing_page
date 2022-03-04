@@ -32,25 +32,53 @@ class Skills extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            height: 200,
-            width: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: BaseColors.burntSienna,
-              boxShadow: [
-                BoxShadow(
-                  color: BaseColors.ebonyClay.withOpacity(0.5),
-                  blurRadius: 10,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-              border: Border.all(
-                color: BaseColors.ebonyClay,
-                width: 2,
-              ),
-            ),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              ItemCardSkill(),
+              ItemCardSkill(),
+              ItemCardSkill(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ItemCardSkill extends StatelessWidget {
+  const ItemCardSkill({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+        // borderRadius: BorderRadius.circular(10),
+        color: BaseColors.vistaWhite,
+        boxShadow: [
+          BoxShadow(
+            color: BaseColors.ebonyClay.withOpacity(0.5),
+            blurRadius: 10,
+            offset: const Offset(4, 4),
+          ),
+        ],
+        border: const Border(
+          left: BorderSide(
+            color: BaseColors.ebonyClay,
+            width: 4,
+          ),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          FlutterLogo(size: 80),
+          Text('Flutter'),
+          Text('Flutter'),
         ],
       ),
     );
