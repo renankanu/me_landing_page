@@ -53793,7 +53793,7 @@ $S:0}
 A.a_9.prototype={}
 A.pt.prototype={
 N(a,b){var s=null,r=b.a0(t.w).f
-return A.dG(s,this.c,B.aX,new A.aS(1440,1440,r.a.b*0.9,1/0),s,s,s,B.wU,s)}}
+return A.dG(s,this.c,B.aX,new A.aS(1440,1440,r.a.b*0.9,1/0),s,s,s,B.wQ,s)}}
 A.zI.prototype={
 Wx(){$.b7()
 var s=$.cW
@@ -53810,7 +53810,7 @@ A.mH.prototype={
 N(a,b){return new A.tC(A.nD(B.bo,A.b([B.xx,A.nz(A.a8t(A.Lq(B.y9,B.cf,B.b8),null),null,17976931348623157e292)],t.p),B.cO),B.wh,null)}}
 A.xE.prototype={
 N(a,b){var s=null,r="assets/images/dots.png",q=$.b7(),p=A.UD("Ol\xe1!",A.qE(q).ak.f),o=A.UD("Eu sou Renan Santos. Desenvolvedor Flutter.",A.qE(q).ak.c.W0(40,B.lf)),n=A.UD("Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conhe\xe7o algumas tecnologias mas hoje estou focado em Flutter.",A.qE(q).ak.Q.EI(18)),m=A.U2(B.yd,B.cf,B.dK,B.b8),l=A.pv(20),k=t.p
-return new A.pt(A.pL(new A.id(B.wQ,A.U2(A.b([A.dG(s,A.Lq(A.b([p,B.Dk,o,B.Dm,n,B.Dl,m,A.dG(s,A.UD("Mobile Developer",A.qE(q).ak.cx.kI(B.j)),s,s,new A.d5(B.wk,s,s,l,s,s,B.a6),s,B.wO,B.wT,s)],k),B.ce,B.b8),s,B.uI,s,s,s,s,s),B.Di,A.nz(A.nD(B.bo,A.b([A.Bp(s,A.Pw(r,B.aY,200,s),s,s,s,0,0,s),A.Bp(0,A.Pw(r,B.aY,200,s),s,s,0,s,s,s),A.dG(s,s,s,s,B.uK,406,s,s,406)],k),B.cO),432,462)],k),B.ce,B.AO,B.b8),s),s,s),s)}}
+return new A.pt(A.pL(new A.id(B.wU,A.U2(A.b([A.dG(s,A.Lq(A.b([p,B.Dk,o,B.Dm,n,B.Dl,m,A.dG(s,A.UD("Mobile Developer",A.qE(q).ak.cx.kI(B.j)),s,s,new A.d5(B.wk,s,s,l,s,s,B.a6),s,B.wO,B.wT,s)],k),B.ce,B.b8),s,B.uI,s,s,s,s,s),B.Di,A.nz(A.nD(B.bo,A.b([A.Bp(s,A.Pw(r,B.aY,200,s),s,s,s,0,0,s),A.Bp(0,A.Pw(r,B.aY,200,s),s,s,0,s,s,s),A.dG(s,s,s,s,B.uK,406,s,s,406)],k),B.cO),432,462)],k),B.ce,B.AO,B.b8),s),s,s),s)}}
 A.CJ.prototype={
 N(a,b){var s=null,r=t.p,q=A.U2(A.b([A.a8E("Minhas Skills",s,A.qE($.b7()).ak.b.EI(38),s,s),B.Dj,A.dG(s,s,s,s,new A.d5(B.aY,s,s,A.pv(4),s,s,B.a6),4,s,s,200)],r),B.cf,B.dK,B.qt),p=A.pv(10),o=A.b([new A.j1(0,B.kk,A.az(B.d.aB(127.5),32,34,52),B.Bo,10)],t.xq)
 return new A.pt(A.Lq(A.b([q,A.dG(s,s,s,s,new A.d5(B.aY,s,A.adB(B.er,2),p,o,s,B.a6),200,s,s,200)],r),B.ce,B.b8),s)}}
@@ -56234,12 +56234,12 @@ B.aJ=new A.b5(0,0,0,0)
 B.wN=new A.b5(0,20,0,20)
 B.wO=new A.b5(0,32,0,0)
 B.wP=new A.b5(0,48,0,0)
-B.wQ=new A.b5(0,64,0,0)
+B.wQ=new A.b5(124,0,124,0)
 B.wR=new A.b5(16,0,16,0)
 B.wS=new A.b5(20,20,20,20)
 B.wT=new A.b5(22,12,22,12)
+B.wU=new A.b5(40,64,0,0)
 B.KB=new A.b5(4,4,4,5)
-B.wU=new A.b5(80,0,80,0)
 B.wV=new A.b5(8,0,8,0)
 B.lb=new A.b5(0.5,1,0.5,1)
 B.lc=new A.qm(null)
