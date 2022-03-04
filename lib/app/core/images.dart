@@ -7,4 +7,5 @@ abstract class BaseImages {
   static const String icSkill = 'assets/icons/ic_skill.png';
   static const String icRepo = 'assets/icons/ic_repo.png';
   static const String icExperience = 'assets/icons/ic_experience.png';
+  static const String icReactNative = 'assets/icons/ic_react_native.png';
 }
