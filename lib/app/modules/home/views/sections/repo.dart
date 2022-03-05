@@ -13,7 +13,7 @@ class Repo extends StatelessWidget {
     return BaseContainer(
       child: Column(
         children: [
-          Text('Repo'),
+          const Text('Repo'),
           Query(
             options: QueryOptions(document: gql(pinnedQuery)),
             builder: (
@@ -22,10 +22,10 @@ class Repo extends StatelessWidget {
               FetchMore? fetchMore,
             }) {
               if (result.hasException) {
-                return Text('Error');
+                return const Text('Error');
               }
               log(result.data.toString());
-              return Text('Pinned');
+              return const Text('Pinned');
             },
           )
         ],
