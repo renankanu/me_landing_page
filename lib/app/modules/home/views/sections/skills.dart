@@ -41,7 +41,12 @@ class Skills extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 80),
+          const SizedBox(height: 10),
+          SelectableText(
+            'Essas são as minhas skills, que eu tenho, eu gosto de aprender e estou sempre em busca de novas habilidades.',
+            style: Get.textTheme.bodyMedium!.copyWith(),
+          ),
+          const SizedBox(height: 60),
           Center(
             child: Wrap(
               runSpacing: 40,
@@ -162,10 +167,11 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
           width: 210,
           decoration: BoxDecoration(
             color: BaseColors.vistaWhite,
+            borderRadius: BorderRadius.circular(6),
             boxShadow: [
               BoxShadow(
-                color: BaseColors.ebonyClay.withOpacity(0.8),
-                blurRadius: 5,
+                color: BaseColors.ebonyClay.withOpacity(0.3),
+                blurRadius: 10,
                 offset: Offset.zero,
               ),
             ],
@@ -175,20 +181,20 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
             children: [
               Visibility(
                 visible: widget.titleSkill == 'Flutter',
-                child: const FlutterLogo(size: 80),
+                child: const FlutterLogo(size: 60),
                 replacement: Image.asset(
                   widget.imageSkill,
-                  height: 80,
-                ),
-              ),
-              const SizedBox(height: 8),
-              SelectableText(
-                widget.titleSkill,
-                style: Get.textTheme.headline5!.copyWith(
-                  fontWeight: FontWeight.w500,
+                  height: 60,
                 ),
               ),
               const SizedBox(height: 12),
+              SelectableText(
+                widget.titleSkill,
+                style: Get.textTheme.headline6!.copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: BaseColors.trout,
+                ),
+              ),
             ],
           ),
         ),
