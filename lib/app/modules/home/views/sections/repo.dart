@@ -1,9 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../../../../core/core.dart';
+import '../../../../core/utils/date_format_util.dart';
+import '../../../../core/widgets/base_title_section.dart';
 
 class Repo extends StatelessWidget {
   const Repo({Key? key}) : super(key: key);
@@ -13,7 +15,13 @@ class Repo extends StatelessWidget {
     return BaseContainer(
       child: Column(
         children: [
-          const Text('Repo'),
+          const BaseTitleSection(title: 'Repositórios'),
+          const SizedBox(height: 10),
+          SelectableText(
+            'Esses são alguns dos meus repositórios do GitHub',
+            style: Get.textTheme.bodyMedium!.copyWith(),
+          ),
+          const SizedBox(height: 60),
           Query(
             options: QueryOptions(document: gql(pinnedQuery)),
             builder: (
@@ -24,8 +32,118 @@ class Repo extends StatelessWidget {
               if (result.hasException) {
                 return const Text('Error');
               }
-              log(result.data.toString());
-              return const Text('Pinned');
+              if (result.isLoading) {
+                return const Text('Loading');
+              }
+              final repositoriesPinned =
+                  result.data!['viewer']['pinnedItems']['nodes'] as List;
+              return Padding(
+                padding: const EdgeInsets.only(top: 60),
+                child: Column(
+                  children: [
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: repositoriesPinned.map((repository) {
+                        return Container(
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          child: Card(
+                            shadowColor: BaseColors.burntSienna,
+                            elevation: 5,
+                            color: BaseColors.trout,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 16,
+                                horizontal: 20,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    repository['name'].toString(),
+                                    style: Get.textTheme.bodyText1!.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  SizedBox(
+                                    height: 40,
+                                    child: Text(
+                                      repository['description'].toString(),
+                                      style: Get.textTheme.bodyText2!.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 18),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            width: 14,
+                                            height: 14,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                Radius.circular(20),
+                                              ),
+                                              color: HexColor(
+                                                repository['primaryLanguage']
+                                                        ['color']
+                                                    .toString(),
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Text(
+                                            repository['primaryLanguage']
+                                                    ['name']
+                                                .toString(),
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white.withOpacity(0.8),
+                                              fontSize: 11,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            BaseImages.icCalendar,
+                                            height: 18,
+                                            color: Colors.white,
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Text(
+                                            DateFormateUtils
+                                                .converterDateWithHours(
+                                              repository['updatedAt']
+                                                  .toString(),
+                                            ),
+                                            style: TextStyle(
+                                              color:
+                                                  Colors.white.withOpacity(0.8),
+                                              fontSize: 11,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
+              );
             },
           )
         ],

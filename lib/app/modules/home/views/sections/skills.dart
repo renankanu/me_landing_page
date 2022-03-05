@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
+import '../../../../core/widgets/base_title_section.dart';
 import '../../controllers/home_controller.dart';
 
 class Skills extends StatefulWidget {
@@ -18,34 +19,8 @@ class _SkillsState extends BaseState<Skills, HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 100,
-                height: 4,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: BaseColors.burntSienna,
-                ),
-              ),
-              const SizedBox(width: 40),
-              SelectableText(
-                'Minhas Skills',
-                style: Get.textTheme.headline2!.copyWith(
-                  fontSize: 38,
-                ),
-              ),
-              const SizedBox(width: 40),
-              Container(
-                width: 100,
-                height: 4,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: BaseColors.burntSienna,
-                ),
-              )
-            ],
+          const BaseTitleSection(
+            title: 'Minhas Skills',
           ),
           const SizedBox(height: 10),
           SelectableText(

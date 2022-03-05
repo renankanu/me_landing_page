@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'app/core/config/firebase_config.dart';
@@ -16,7 +17,7 @@ Future<void> main() async {
     options: platformOptions,
   );
   await dotenv.load(fileName: '.env');
-
+  initializeDateFormatting();
   runApp(const App());
 }
 
