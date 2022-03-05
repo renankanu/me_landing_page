@@ -143,25 +143,46 @@ class ItemCardSkill extends StatefulWidget {
   State<ItemCardSkill> createState() => _ItemCardSkillState();
 }
 
-class _ItemCardSkillState extends State<ItemCardSkill> {
+class _ItemCardSkillState extends State<ItemCardSkill>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
   double scale = 1;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 100),
+      vsync: this,
+    );
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInBack,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      onHover: (value) {
-        if (value) {
-          setState(() {
-            scale = 1.02;
-          });
-        } else {
-          setState(() {
-            scale = 1;
-          });
-        }
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (event) {
+        setState(() {});
+        _controller.forward();
       },
-      child: Transform.scale(
-        scale: scale,
+      onExit: (event) {
+        setState(() {});
+        _controller.reverse();
+      },
+      child: ScaleTransition(
+        scale: Tween(begin: 0.96, end: 1.0).animate(_animation),
         child: Container(
           padding: const EdgeInsets.all(20),
           width: 210,
