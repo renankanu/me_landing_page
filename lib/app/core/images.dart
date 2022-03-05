@@ -17,4 +17,5 @@ abstract class BaseImages {
   static const String icGit = 'assets/icons/ic_git.png';
   static const String icPhp = 'assets/icons/ic_php.png';
   static const String icAws = 'assets/icons/ic_aws.png';
+  static const String icDart = 'assets/icons/ic_dart.png';
 }

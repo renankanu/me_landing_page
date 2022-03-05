@@ -55,68 +55,50 @@ class Skills extends StatelessWidget {
                 ItemCardSkill(
                   imageSkill: '',
                   titleSkill: 'Flutter',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icFireBase,
                   titleSkill: 'Firebase',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icAppleStore,
                   titleSkill: 'Apple Store',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icGooglePlay,
                   titleSkill: 'Google Play',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icGit,
                   titleSkill: 'Git',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icPhp,
                   titleSkill: 'PHP',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icDocker,
                   titleSkill: 'Docker',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icAws,
                   titleSkill: 'AWS',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icReactNative,
                   titleSkill: 'React Native',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icJs,
                   titleSkill: 'JavaScript',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
                 ItemCardSkill(
                   imageSkill: BaseImages.icTs,
                   titleSkill: 'TypeScript',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icDart,
+                  titleSkill: 'Dart',
                 ),
               ],
             ),
@@ -132,12 +114,10 @@ class ItemCardSkill extends StatefulWidget {
     Key? key,
     required this.imageSkill,
     required this.titleSkill,
-    required this.descriptionSkill,
   }) : super(key: key);
 
   final String imageSkill;
   final String titleSkill;
-  final String descriptionSkill;
 
   @override
   State<ItemCardSkill> createState() => _ItemCardSkillState();
