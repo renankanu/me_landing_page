@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
+import '../../controllers/home_controller.dart';
 
-class Skills extends StatelessWidget {
+class Skills extends StatefulWidget {
   const Skills({Key? key}) : super(key: key);
 
+  @override
+  State<Skills> createState() => _SkillsState();
+}
+
+class _SkillsState extends BaseState<Skills, HomeController> {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
@@ -48,59 +54,21 @@ class Skills extends StatelessWidget {
           ),
           const SizedBox(height: 60),
           Center(
-            child: Wrap(
-              runSpacing: 40,
-              spacing: 40,
-              children: const [
-                ItemCardSkill(
-                  imageSkill: '',
-                  titleSkill: 'Flutter',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icFireBase,
-                  titleSkill: 'Firebase',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icAppleStore,
-                  titleSkill: 'Apple Store',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icGooglePlay,
-                  titleSkill: 'Google Play',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icGit,
-                  titleSkill: 'Git',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icPhp,
-                  titleSkill: 'PHP',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icDocker,
-                  titleSkill: 'Docker',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icAws,
-                  titleSkill: 'AWS',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icReactNative,
-                  titleSkill: 'React Native',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icJs,
-                  titleSkill: 'JavaScript',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icTs,
-                  titleSkill: 'TypeScript',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icDart,
-                  titleSkill: 'Dart',
-                ),
-              ],
+            child: Obx(
+              () => Wrap(
+                runSpacing: 40,
+                spacing: 40,
+                children: [
+                  ...controller.skills
+                      .map(
+                        (skill) => ItemCardSkill(
+                          imageSkill: skill.icon,
+                          titleSkill: skill.name,
+                        ),
+                      )
+                      .toList(),
+                ],
+              ),
             ),
           ),
         ],
@@ -127,7 +95,6 @@ class _ItemCardSkillState extends State<ItemCardSkill>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
-  double scale = 1;
 
   @override
   void initState() {
@@ -138,7 +105,7 @@ class _ItemCardSkillState extends State<ItemCardSkill>
 
     _animation = CurvedAnimation(
       parent: _controller,
-      curve: Curves.easeInBack,
+      curve: Curves.easeInOutBack,
     );
     super.initState();
   }
@@ -162,7 +129,7 @@ class _ItemCardSkillState extends State<ItemCardSkill>
         _controller.reverse();
       },
       child: ScaleTransition(
-        scale: Tween(begin: 0.96, end: 1.0).animate(_animation),
+        scale: Tween(begin: 1.0, end: 1.1).animate(_animation),
         child: Container(
           padding: const EdgeInsets.all(20),
           width: 210,
@@ -184,7 +151,7 @@ class _ItemCardSkillState extends State<ItemCardSkill>
                 visible: widget.titleSkill == 'Flutter',
                 child: const FlutterLogo(size: 60),
                 replacement: Image.asset(
-                  widget.imageSkill,
+                  getIconByName(widget.imageSkill),
                   height: 60,
                 ),
               ),

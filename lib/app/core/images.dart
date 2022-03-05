@@ -19,3 +19,5 @@ abstract class BaseImages {
   static const String icAws = 'assets/icons/ic_aws.png';
   static const String icDart = 'assets/icons/ic_dart.png';
 }
+
+String getIconByName(String icon) => 'assets/icons/$icon.png';
