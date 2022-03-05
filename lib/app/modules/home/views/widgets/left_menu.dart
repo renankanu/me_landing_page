@@ -26,7 +26,7 @@ class LeftMenu extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Text(
+              child: SelectableText(
                 'RK;',
                 style: Get.textTheme.headline4!.copyWith(
                   color: BaseColors.burntSienna,

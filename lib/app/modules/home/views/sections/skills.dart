@@ -15,7 +15,7 @@ class Skills extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              SelectableText(
                 'Minhas Skills',
                 style: Get.textTheme.headline2!.copyWith(
                   fontSize: 38,
@@ -146,47 +146,43 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
           });
         }
       },
-      child: Transform.scale(
-        scale: scale,
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          width: 210,
-          decoration: BoxDecoration(
-            color: BaseColors.vistaWhite,
-            boxShadow: [
-              BoxShadow(
-                color: BaseColors.ebonyClay.withOpacity(0.5),
-                blurRadius: 4,
-                offset: const Offset(4, 4),
-              ),
-            ],
-            border: const Border(
-              left: BorderSide(
-                color: BaseColors.ebonyClay,
-                width: 4,
+      child: Material(
+        elevation: 10,
+        child: Transform.scale(
+          scale: scale,
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            width: 210,
+            decoration: BoxDecoration(
+              color: BaseColors.vistaWhite,
+              border: Border(
+                left: BorderSide(
+                  color: BaseColors.ebonyClay.withOpacity(0.5),
+                  width: 6,
+                ),
               ),
             ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Visibility(
-                visible: widget.titleSkill == 'Flutter',
-                child: const FlutterLogo(size: 80),
-                replacement: Image.asset(
-                  widget.imageSkill,
-                  height: 80,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Visibility(
+                  visible: widget.titleSkill == 'Flutter',
+                  child: const FlutterLogo(size: 80),
+                  replacement: Image.asset(
+                    widget.imageSkill,
+                    height: 80,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              SelectableText(
-                widget.titleSkill,
-                style: Get.textTheme.headline5!.copyWith(
-                  fontWeight: FontWeight.w500,
+                const SizedBox(height: 8),
+                SelectableText(
+                  widget.titleSkill,
+                  style: Get.textTheme.headline5!.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-            ],
+                const SizedBox(height: 12),
+              ],
+            ),
           ),
         ),
       ),
