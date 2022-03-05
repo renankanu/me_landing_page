@@ -10,11 +10,20 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseContainer(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              Container(
+                width: 100,
+                height: 4,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: BaseColors.burntSienna,
+                ),
+              ),
+              const SizedBox(width: 40),
               SelectableText(
                 'Minhas Skills',
                 style: Get.textTheme.headline2!.copyWith(
@@ -23,7 +32,7 @@ class Skills extends StatelessWidget {
               ),
               const SizedBox(width: 40),
               Container(
-                width: 200,
+                width: 100,
                 height: 4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
@@ -32,7 +41,7 @@ class Skills extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 60),
+          const SizedBox(height: 80),
           Center(
             child: Wrap(
               runSpacing: 40,
@@ -41,24 +50,6 @@ class Skills extends StatelessWidget {
                 ItemCardSkill(
                   imageSkill: '',
                   titleSkill: 'Flutter',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icReactNative,
-                  titleSkill: 'React Native',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icJs,
-                  titleSkill: 'JavaScript',
-                  descriptionSkill:
-                      'Desenvolvimento de aplicativos utilizando Flutter',
-                ),
-                ItemCardSkill(
-                  imageSkill: BaseImages.icTs,
-                  titleSkill: 'TypeScript',
                   descriptionSkill:
                       'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
@@ -104,6 +95,24 @@ class Skills extends StatelessWidget {
                   descriptionSkill:
                       'Desenvolvimento de aplicativos utilizando Flutter',
                 ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icReactNative,
+                  titleSkill: 'React Native',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icJs,
+                  titleSkill: 'JavaScript',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
+                ItemCardSkill(
+                  imageSkill: BaseImages.icTs,
+                  titleSkill: 'TypeScript',
+                  descriptionSkill:
+                      'Desenvolvimento de aplicativos utilizando Flutter',
+                ),
               ],
             ),
           ),
@@ -138,7 +147,7 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
       onHover: (value) {
         if (value) {
           setState(() {
-            scale = 1.01;
+            scale = 1.02;
           });
         } else {
           setState(() {
@@ -146,43 +155,41 @@ class _ItemCardSkillState extends State<ItemCardSkill> {
           });
         }
       },
-      child: Material(
-        elevation: 10,
-        child: Transform.scale(
-          scale: scale,
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            width: 210,
-            decoration: BoxDecoration(
-              color: BaseColors.vistaWhite,
-              border: Border(
-                left: BorderSide(
-                  color: BaseColors.ebonyClay.withOpacity(0.5),
-                  width: 6,
+      child: Transform.scale(
+        scale: scale,
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          width: 210,
+          decoration: BoxDecoration(
+            color: BaseColors.vistaWhite,
+            boxShadow: [
+              BoxShadow(
+                color: BaseColors.ebonyClay.withOpacity(0.8),
+                blurRadius: 5,
+                offset: Offset.zero,
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Visibility(
+                visible: widget.titleSkill == 'Flutter',
+                child: const FlutterLogo(size: 80),
+                replacement: Image.asset(
+                  widget.imageSkill,
+                  height: 80,
                 ),
               ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Visibility(
-                  visible: widget.titleSkill == 'Flutter',
-                  child: const FlutterLogo(size: 80),
-                  replacement: Image.asset(
-                    widget.imageSkill,
-                    height: 80,
-                  ),
+              const SizedBox(height: 8),
+              SelectableText(
+                widget.titleSkill,
+                style: Get.textTheme.headline5!.copyWith(
+                  fontWeight: FontWeight.w500,
                 ),
-                const SizedBox(height: 8),
-                SelectableText(
-                  widget.titleSkill,
-                  style: Get.textTheme.headline5!.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 12),
-              ],
-            ),
+              ),
+              const SizedBox(height: 12),
+            ],
           ),
         ),
       ),

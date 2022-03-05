@@ -11,4 +11,5 @@ class BaseColors {
   static const mirage = Color(0xFF1F233C);
   static const burntSienna = Color(0xFFED595D);
   static const mercury = Color(0xFFE3E3E3);
+  static const trout = Color(0xFF4D4E5D);
 }
