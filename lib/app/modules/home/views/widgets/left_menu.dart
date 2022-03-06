@@ -4,9 +4,23 @@ import 'package:get/get.dart';
 import '../../../../core/colors.dart';
 import '../../../../core/images.dart';
 import '../../../../core/section_keys.dart';
+import '../../controllers/home_controller.dart';
 
 class LeftMenu extends StatelessWidget {
-  const LeftMenu({Key? key}) : super(key: key);
+  LeftMenu({Key? key}) : super(key: key);
+  final _controller = Get.find<HomeController>();
+  final List<String> _sectionsIcons = [
+    BaseImages.icHome,
+    BaseImages.icSkill,
+    BaseImages.icRepo,
+    BaseImages.icExperience,
+  ];
+  final List<GlobalKey<State<StatefulWidget>>> _sectionsNames = [
+    SectionKeys.about,
+    SectionKeys.skills,
+    SectionKeys.repo,
+    SectionKeys.xp,
+  ];
 
   void scrollToSpecificContext(BuildContext context) {
     Scrollable.ensureVisible(
@@ -47,29 +61,22 @@ class LeftMenu extends StatelessWidget {
               thickness: 1,
               height: 1,
             ),
-            MenuButton(
-              isSelected: true,
-              assetIcon: BaseImages.icHome,
-              onTap: () =>
-                  scrollToSpecificContext(SectionKeys.about.currentContext!),
-            ),
-            MenuButton(
-              isSelected: false,
-              assetIcon: BaseImages.icSkill,
-              onTap: () =>
-                  scrollToSpecificContext(SectionKeys.skills.currentContext!),
-            ),
-            MenuButton(
-              isSelected: false,
-              assetIcon: BaseImages.icRepo,
-              onTap: () =>
-                  scrollToSpecificContext(SectionKeys.repo.currentContext!),
-            ),
-            MenuButton(
-              isSelected: false,
-              assetIcon: BaseImages.icExperience,
-              onTap: () =>
-                  scrollToSpecificContext(SectionKeys.xp.currentContext!),
+            ..._sectionsIcons.map(
+              (sectionIcon) {
+                final index = _sectionsIcons.indexOf(sectionIcon);
+                return Obx(
+                  () => MenuButton(
+                    isSelected: index == _controller.selectedIndex,
+                    assetIcon: sectionIcon,
+                    onTap: () {
+                      scrollToSpecificContext(
+                        _sectionsNames[index].currentContext!,
+                      );
+                      _controller.selectedIndex = index;
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),

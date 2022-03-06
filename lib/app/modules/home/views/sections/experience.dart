@@ -14,7 +14,6 @@ class Experience extends StatelessWidget {
     return BaseContainer(
       key: SectionKeys.xp,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const BaseTitleSection(title: 'Meu Resumo'),
           const SizedBox(height: 10),

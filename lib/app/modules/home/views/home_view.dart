@@ -30,7 +30,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
           ),
-          const LeftMenu(),
+          LeftMenu(),
         ],
       ),
     );
