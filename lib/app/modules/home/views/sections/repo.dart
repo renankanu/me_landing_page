@@ -36,7 +36,17 @@ class Repo extends StatelessWidget {
                 );
               }
               if (result.isLoading) {
-                return const Text('Carregando...');
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text('Carregando...'),
+                    SizedBox(width: 10),
+                    CircularProgressIndicator(
+                      strokeWidth: 4,
+                      color: BaseColors.ebonyClay,
+                    ),
+                  ],
+                );
               }
               if (result.data != null) {
                 final repositoriesPinned =
@@ -52,7 +62,7 @@ class Repo extends StatelessWidget {
                           return Container(
                             constraints: const BoxConstraints(maxWidth: 400),
                             child: Card(
-                              shadowColor: BaseColors.burntSienna,
+                              shadowColor: BaseColors.ebonyClay,
                               elevation: 5,
                               color: BaseColors.trout,
                               child: Padding(
