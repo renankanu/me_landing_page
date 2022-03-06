@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../core/colors.dart';
 import '../controllers/home_controller.dart';
 import 'sections/about_me.dart';
+import 'sections/experience.dart';
 import 'sections/repo.dart';
 import 'sections/skills.dart';
 import 'widgets/left_menu.dart';
@@ -25,6 +26,7 @@ class HomeView extends GetView<HomeController> {
                   AboutMe(),
                   Skills(),
                   Repo(),
+                  Experience(),
                 ],
               ),
             ),
