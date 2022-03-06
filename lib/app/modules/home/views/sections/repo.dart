@@ -30,120 +30,127 @@ class Repo extends StatelessWidget {
               FetchMore? fetchMore,
             }) {
               if (result.hasException) {
-                return const Text('Error');
+                return Text(
+                  'Opps! Algo deu errado!',
+                  style: Get.textTheme.headline2,
+                );
               }
               if (result.isLoading) {
-                return const Text('Loading');
+                return const Text('Carregando...');
               }
-              final repositoriesPinned =
-                  result.data!['viewer']['pinnedItems']['nodes'] as List;
-              return Padding(
-                padding: const EdgeInsets.only(top: 60),
-                child: Column(
-                  children: [
-                    Wrap(
-                      spacing: 10,
-                      runSpacing: 10,
-                      children: repositoriesPinned.map((repository) {
-                        return Container(
-                          constraints: const BoxConstraints(maxWidth: 400),
-                          child: Card(
-                            shadowColor: BaseColors.burntSienna,
-                            elevation: 5,
-                            color: BaseColors.trout,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 16,
-                                horizontal: 20,
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    repository['name'].toString(),
-                                    style: Get.textTheme.bodyText1!.copyWith(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  SizedBox(
-                                    height: 40,
-                                    child: Text(
-                                      repository['description'].toString(),
-                                      style: Get.textTheme.bodyText2!.copyWith(
+              if (result.data != null) {
+                final repositoriesPinned =
+                    result.data!['viewer']['pinnedItems']['nodes'] as List;
+                return Padding(
+                  padding: const EdgeInsets.only(top: 60),
+                  child: Column(
+                    children: [
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: repositoriesPinned.map((repository) {
+                          return Container(
+                            constraints: const BoxConstraints(maxWidth: 400),
+                            child: Card(
+                              shadowColor: BaseColors.burntSienna,
+                              elevation: 5,
+                              color: BaseColors.trout,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 20,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      repository['name'].toString(),
+                                      style: Get.textTheme.bodyText1!.copyWith(
                                         color: Colors.white,
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 18),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Container(
-                                            width: 14,
-                                            height: 14,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                Radius.circular(20),
+                                    const SizedBox(height: 10),
+                                    SizedBox(
+                                      height: 40,
+                                      child: Text(
+                                        repository['description'].toString(),
+                                        style:
+                                            Get.textTheme.bodyText2!.copyWith(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 18),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                              width: 14,
+                                              height: 14,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    const BorderRadius.all(
+                                                  Radius.circular(20),
+                                                ),
+                                                color: HexColor(
+                                                  repository['primaryLanguage']
+                                                          ['color']
+                                                      .toString(),
+                                                ),
                                               ),
-                                              color: HexColor(
-                                                repository['primaryLanguage']
-                                                        ['color']
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Text(
+                                              repository['primaryLanguage']
+                                                      ['name']
+                                                  .toString(),
+                                              style: TextStyle(
+                                                color: Colors.white
+                                                    .withOpacity(0.8),
+                                                fontSize: 11,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(
+                                              BaseImages.icCalendar,
+                                              height: 18,
+                                              color: Colors.white,
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Text(
+                                              DateFormateUtils
+                                                  .converterDateWithHours(
+                                                repository['updatedAt']
                                                     .toString(),
                                               ),
+                                              style: TextStyle(
+                                                color: Colors.white
+                                                    .withOpacity(0.8),
+                                                fontSize: 11,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            repository['primaryLanguage']
-                                                    ['name']
-                                                .toString(),
-                                            style: TextStyle(
-                                              color:
-                                                  Colors.white.withOpacity(0.8),
-                                              fontSize: 11,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            BaseImages.icCalendar,
-                                            height: 18,
-                                            color: Colors.white,
-                                          ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            DateFormateUtils
-                                                .converterDateWithHours(
-                                              repository['updatedAt']
-                                                  .toString(),
-                                            ),
-                                            style: TextStyle(
-                                              color:
-                                                  Colors.white.withOpacity(0.8),
-                                              fontSize: 11,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  )
-                                ],
+                                          ],
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
-              );
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                );
+              }
+              return const SizedBox.shrink();
             },
           )
         ],
