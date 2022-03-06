@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
+import '../../../../core/section_keys.dart';
 import '../widgets/social_button.dart';
 
 class AboutMe extends StatelessWidget {
@@ -12,6 +13,7 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
+      key: SectionKeys.about,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.only(left: 40),

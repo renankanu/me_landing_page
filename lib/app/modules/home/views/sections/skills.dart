@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
+import '../../../../core/section_keys.dart';
 import '../../../../core/widgets/base_title_section.dart';
 import '../../controllers/home_controller.dart';
 
@@ -16,6 +17,7 @@ class _SkillsState extends BaseState<Skills, HomeController> {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
+      key: SectionKeys.skills,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

@@ -4,6 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../../../core/core.dart';
+import '../../../../core/section_keys.dart';
 import '../../../../core/utils/date_format_util.dart';
 import '../../../../core/widgets/base_title_section.dart';
 
@@ -13,6 +14,7 @@ class Repo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
+      key: SectionKeys.repo,
       child: Column(
         children: [
           const BaseTitleSection(title: 'Repositórios'),

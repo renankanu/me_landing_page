@@ -17,7 +17,6 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: BaseColors.vistaWhite,
       body: Stack(
         children: [
-          const LeftMenu(),
           SizedBox(
             width: double.maxFinite,
             child: SingleChildScrollView(
@@ -30,7 +29,8 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
             ),
-          )
+          ),
+          const LeftMenu(),
         ],
       ),
     );
