@@ -80,10 +80,10 @@ class AboutMe extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: Responsive.getWidth(context, 0.101)),
+              const SizedBox(width: 194),
               SizedBox(
-                height: Responsive.getWidth(context, 0.225),
-                width: Responsive.getWidth(context, 0.240),
+                height: 432,
+                width: 462,
                 child: Stack(
                   children: [
                     Positioned(
@@ -91,7 +91,7 @@ class AboutMe extends StatelessWidget {
                       right: 0,
                       child: Image.asset(
                         BaseImages.dots,
-                        height: Responsive.getWidth(context, 0.106),
+                        height: 200,
                         color: BaseColors.burntSienna,
                       ),
                     ),
@@ -100,7 +100,7 @@ class AboutMe extends StatelessWidget {
                       left: 0,
                       child: Image.asset(
                         BaseImages.dots,
-                        height: Responsive.getWidth(context, 0.106),
+                        height: 200,
                         color: BaseColors.burntSienna,
                       ),
                     ),
