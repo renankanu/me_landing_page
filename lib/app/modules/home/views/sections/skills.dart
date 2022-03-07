@@ -35,16 +35,14 @@ class _SkillsState extends BaseState<Skills, HomeController> {
               () => Wrap(
                 runSpacing: 40,
                 spacing: 40,
-                children: [
-                  ...controller.skills
-                      .map(
-                        (skill) => ItemCardSkill(
-                          imageSkill: skill.icon,
-                          titleSkill: skill.name,
-                        ),
-                      )
-                      .toList(),
-                ],
+                children: controller.skills
+                    .map(
+                      (skill) => ItemCardSkill(
+                        imageSkill: skill.icon,
+                        titleSkill: skill.name,
+                      ),
+                    )
+                    .toList(),
               ),
             ),
           ),
@@ -110,6 +108,7 @@ class _ItemCardSkillState extends State<ItemCardSkill>
         child: Container(
           padding: const EdgeInsets.all(20),
           width: 210,
+          height: 210,
           decoration: BoxDecoration(
             color: BaseColors.vistaWhite,
             borderRadius: BorderRadius.circular(6),
@@ -122,17 +121,16 @@ class _ItemCardSkillState extends State<ItemCardSkill>
             ],
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Visibility(
                 visible: widget.titleSkill == 'Flutter',
-                child: const FlutterLogo(size: 60),
+                child: const FlutterLogo(size: 80),
                 replacement: Image.asset(
                   getIconByName(widget.imageSkill),
-                  height: 60,
+                  height: 80,
                 ),
               ),
-              const SizedBox(height: 12),
               SelectableText(
                 widget.titleSkill,
                 style: Get.textTheme.headline6!.copyWith(

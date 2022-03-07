@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core.dart';
+
 class BaseContainer extends StatelessWidget {
   const BaseContainer({
     Key? key,
@@ -10,11 +12,24 @@ class BaseContainer extends StatelessWidget {
   final Widget child;
   final Color? backgroundColor;
 
+  double _getHorizontalPadding(BuildContext context) {
+    if (Responsive.isMobile(context)) {
+      return 24;
+    }
+    if (Responsive.isTablet(context)) {
+      return 48;
+    }
+    return 124;
+  }
+
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 124, vertical: 64),
+      padding: EdgeInsets.symmetric(
+        horizontal: _getHorizontalPadding(context),
+        vertical: 64,
+      ),
       color: backgroundColor ?? Colors.transparent,
       constraints: BoxConstraints(
         minHeight: height * 0.9,
