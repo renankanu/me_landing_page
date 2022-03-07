@@ -14,74 +14,75 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseContainer(
       key: SectionKeys.about,
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                constraints: const BoxConstraints(
-                  maxWidth: 490,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SelectableText(
-                      'Olá!',
-                      style: Get.textTheme.headline5,
-                    ),
-                    const SizedBox(height: 16),
-                    SelectableText(
-                      'Eu sou Renan Santos. Desenvolvedor Flutter.',
-                      style: Get.textTheme.headline3!.copyWith(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 40,
-                      ),
-                    ),
-                    const SizedBox(height: 48),
-                    SelectableText(
-                      'Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.',
-                      style: Get.textTheme.bodyText2!.copyWith(
-                        fontSize: 18,
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-                    Row(
-                      children: const [
-                        SocialButton(
-                          iconName: BaseImages.icLinkedin,
-                          color: BaseColors.cornflowerBlue,
-                        ),
-                        SocialButton(
-                          iconName: BaseImages.icGithub,
-                          color: BaseColors.deepBlush,
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 12,
-                        horizontal: 22,
-                      ),
-                      margin: const EdgeInsets.only(top: 32),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: BaseColors.atomicTangerine,
-                      ),
-                      child: SelectableText(
-                        'Mobile Developer',
-                        style: Get.textTheme.button!.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Container(
+              constraints: const BoxConstraints(
+                maxWidth: 490,
               ),
-              const SizedBox(width: 194),
-              SizedBox(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SelectableText(
+                    'Olá!',
+                    style: Get.textTheme.headline5,
+                  ),
+                  const SizedBox(height: 16),
+                  SelectableText(
+                    'Eu sou Renan Santos. Desenvolvedor Flutter.',
+                    style: Get.textTheme.headline3!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 40,
+                    ),
+                  ),
+                  const SizedBox(height: 48),
+                  SelectableText(
+                    'Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.',
+                    style: Get.textTheme.bodyText2!.copyWith(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                  Row(
+                    children: const [
+                      SocialButton(
+                        iconName: BaseImages.icLinkedin,
+                        color: BaseColors.cornflowerBlue,
+                      ),
+                      SocialButton(
+                        iconName: BaseImages.icGithub,
+                        color: BaseColors.deepBlush,
+                      ),
+                    ],
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 22,
+                    ),
+                    margin: const EdgeInsets.only(top: 32),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: BaseColors.atomicTangerine,
+                    ),
+                    child: SelectableText(
+                      'Mobile Developer',
+                      style: Get.textTheme.button!.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(width: 48),
+          Expanded(
+            child: Center(
+              child: SizedBox(
                 height: 432,
                 width: 462,
                 child: Stack(
@@ -118,9 +119,9 @@ class AboutMe extends StatelessWidget {
                   ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
