@@ -12,7 +12,7 @@ class Experience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
-      key: SectionKeys.xp,
+      key: SectionKeys.experience,
       child: Column(
         children: [
           const BaseTitleSection(title: 'Meu Resumo'),

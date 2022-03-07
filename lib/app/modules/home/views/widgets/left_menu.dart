@@ -18,8 +18,8 @@ class LeftMenu extends StatelessWidget {
   final List<GlobalKey<State<StatefulWidget>>> _sectionsNames = [
     SectionKeys.about,
     SectionKeys.skills,
-    SectionKeys.repo,
-    SectionKeys.xp,
+    SectionKeys.repositories,
+    SectionKeys.experience,
   ];
 
   void scrollToSpecificContext(BuildContext context) {
@@ -49,10 +49,21 @@ class LeftMenu extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: SelectableText(
-                'RK;',
-                style: Get.textTheme.headline4!.copyWith(
-                  color: BaseColors.burntSienna,
+              child: SelectableText.rich(
+                TextSpan(
+                  text: 'R',
+                  style: Get.textTheme.headline4!.copyWith(
+                    color: BaseColors.burntSienna,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'K;',
+                      style: Get.textTheme.headline4!.copyWith(
+                        color: BaseColors.burntSienna,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -102,19 +113,27 @@ class MenuButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(top: 48),
-        height: isSelected ? 50 : 40,
-        width: isSelected ? 50 : 40,
-        decoration: BoxDecoration(
-          color: isSelected ? BaseColors.burntSienna : Colors.white,
-          borderRadius: BorderRadius.circular(30),
-        ),
+        margin: const EdgeInsets.only(top: 24),
+        height: 60,
+        width: 60,
         child: Center(
-          child: Image.asset(
-            assetIcon,
-            height: isSelected ? 30 : 24,
-            width: isSelected ? 30 : 24,
-            color: isSelected ? Colors.white : BaseColors.ebonyClay,
+          child: AnimatedContainer(
+            duration: const Duration(seconds: 1),
+            curve: Curves.fastOutSlowIn,
+            height: isSelected ? 50 : 40,
+            width: isSelected ? 50 : 40,
+            decoration: BoxDecoration(
+              color: isSelected ? BaseColors.burntSienna : Colors.white,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Center(
+              child: Image.asset(
+                assetIcon,
+                height: isSelected ? 30 : 24,
+                width: isSelected ? 30 : 24,
+                color: isSelected ? Colors.white : BaseColors.ebonyClay,
+              ),
+            ),
           ),
         ),
       ),

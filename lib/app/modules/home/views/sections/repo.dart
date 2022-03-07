@@ -14,7 +14,7 @@ class Repo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
-      key: SectionKeys.repo,
+      key: SectionKeys.repositories,
       child: Column(
         children: [
           const BaseTitleSection(title: 'Repositórios'),
