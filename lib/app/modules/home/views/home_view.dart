@@ -16,6 +16,18 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BaseColors.vistaWhite,
+      appBar: !Responsive.isDesktop(context)
+          ? AppBar(
+              backgroundColor: BaseColors.ebonyClay,
+              elevation: 0,
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {},
+                ),
+              ],
+            )
+          : null,
       body: Stack(
         children: [
           SizedBox(
