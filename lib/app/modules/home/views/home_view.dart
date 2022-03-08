@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/colors.dart';
+import '../../../core/responsive.dart';
 import '../controllers/home_controller.dart';
 import 'sections/about_me.dart';
 import 'sections/experience.dart';
@@ -30,7 +31,10 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
           ),
-          LeftMenu(),
+          Visibility(
+            visible: Responsive.isDesktop(context),
+            child: LeftMenu(),
+          ),
         ],
       ),
     );
