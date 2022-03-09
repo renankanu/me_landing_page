@@ -23,18 +23,38 @@ class Experience extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 60),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ContainerExperience(
-                title: 'EXPERIÊNCIA DE TRABALHO',
-                itemExperienceEducation: _generateWorkList(),
-              ),
-              ContainerExperience(
-                title: 'FORMAÇÃO E CURSOS',
-                itemExperienceEducation: _generateEducationList(),
-              ),
-            ],
+          Visibility(
+            visible: !Responsive.isMobile(context),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ContainerExperience(
+                    title: 'EXPERIÊNCIA DE TRABALHO',
+                    itemExperienceEducation: _generateWorkList(),
+                  ),
+                ),
+                Expanded(
+                  child: ContainerExperience(
+                    title: 'FORMAÇÃO E CURSOS',
+                    itemExperienceEducation: _generateEducationList(),
+                  ),
+                ),
+              ],
+            ),
+            replacement: Column(
+              children: [
+                ContainerExperience(
+                  title: 'EXPERIÊNCIA DE TRABALHO',
+                  itemExperienceEducation: _generateWorkList(),
+                ),
+                const SizedBox(height: 20),
+                ContainerExperience(
+                  title: 'FORMAÇÃO E CURSOS',
+                  itemExperienceEducation: _generateEducationList(),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 40),
           SelectableText(
@@ -100,52 +120,50 @@ class ContainerExperience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: Get.textTheme.headline6!.copyWith(
-              fontWeight: FontWeight.w700,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: Get.textTheme.headline6!.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.only(top: 10),
+          height: 4,
+          width: 100,
+          color: BaseColors.burntSienna,
+        ),
+        const SizedBox(height: 40),
+        Stack(
+          children: [
+            Positioned(
+              left: 6,
+              top: 0,
+              bottom: 0,
+              child: Container(
+                width: 2,
+                color: BaseColors.burntSienna,
+              ),
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(top: 10),
-            height: 4,
-            width: 100,
-            color: BaseColors.burntSienna,
-          ),
-          const SizedBox(height: 40),
-          Stack(
-            children: [
-              Positioned(
-                left: 6,
-                top: 0,
-                bottom: 0,
-                child: Container(
-                  width: 2,
-                  color: BaseColors.burntSienna,
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ...itemExperienceEducation
-                      .map(
-                        (item) => ItemXpEducation(
-                          titleItem: item.title,
-                          period: item.period,
-                          xps: item.description,
-                        ),
-                      )
-                      .toList(),
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ...itemExperienceEducation
+                    .map(
+                      (item) => ItemXpEducation(
+                        titleItem: item.title,
+                        period: item.period,
+                        xps: item.description,
+                      ),
+                    )
+                    .toList(),
+              ],
+            ),
+          ],
+        )
+      ],
     );
   }
 }
