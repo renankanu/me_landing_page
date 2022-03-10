@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../core/colors.dart';
-import '../../../core/responsive.dart';
+import '../../../core/core.dart';
 import '../controllers/home_controller.dart';
 import 'sections/about_me.dart';
 import 'sections/experience.dart';
@@ -14,18 +13,24 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: BaseColors.vistaWhite,
+      drawerEnableOpenDragGesture: false,
       appBar: !Responsive.isDesktop(context)
           ? AppBar(
               backgroundColor: BaseColors.ebonyClay,
               elevation: 0,
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {},
+              leading: IconButton(
+                icon: Image.asset(
+                  BaseImages.icMenu,
+                  width: 24,
                 ),
-              ],
+                onPressed: () {
+                  _scaffoldKey.currentState!.openDrawer();
+                },
+              ),
             )
           : null,
       body: Stack(
@@ -49,6 +54,7 @@ class HomeView extends GetView<HomeController> {
           ),
         ],
       ),
+      drawer: !Responsive.isDesktop(context) ? LeftMenu() : null,
     );
   }
 }

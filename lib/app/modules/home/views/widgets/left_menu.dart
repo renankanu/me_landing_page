@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/colors.dart';
-import '../../../../core/images.dart';
+import '../../../../core/core.dart';
 import '../../../../core/section_keys.dart';
 import '../../controllers/home_controller.dart';
 
@@ -110,7 +109,12 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        onTap();
+        if (!Responsive.isDesktop(context)) {
+          Get.back();
+        }
+      },
       child: Container(
         margin: const EdgeInsets.only(top: 24),
         height: 60,
