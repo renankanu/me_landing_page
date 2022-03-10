@@ -25,7 +25,7 @@ class LeftMenu extends StatelessWidget {
     Scrollable.ensureVisible(
       context,
       duration: const Duration(milliseconds: 1000),
-      curve: Curves.easeInOutBack,
+      curve: Curves.easeInOutExpo,
     );
   }
 
