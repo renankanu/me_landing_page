@@ -32,7 +32,7 @@ class LeftMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 683,
+      height: Responsive.isDesktop(context) ? 683 : 460,
       width: 68,
       decoration: const BoxDecoration(
         color: BaseColors.ebonyClay,
