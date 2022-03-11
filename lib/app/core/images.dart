@@ -4,9 +4,14 @@ abstract class BaseImages {
   static const String me = 'assets/images/me.png';
   static const String dots = 'assets/images/dots.png';
   static const String icHome = 'assets/icons/ic_home.png';
+  static const String icHomeSelected = 'assets/icons/ic_home_selected.png';
   static const String icSkill = 'assets/icons/ic_skill.png';
+  static const String icSkillSelected = 'assets/icons/ic_skill_selected.png';
   static const String icRepo = 'assets/icons/ic_repo.png';
+  static const String icRepoSelected = 'assets/icons/ic_repo_selected.png';
   static const String icExperience = 'assets/icons/ic_experience.png';
+  static const String icExperienceSelected =
+      'assets/icons/ic_experience_selected.png';
   static const String icReactNative = 'assets/icons/ic_react_native.png';
   static const String icJs = 'assets/icons/ic_js.png';
   static const String icTs = 'assets/icons/ic_ts.png';

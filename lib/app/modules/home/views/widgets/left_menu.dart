@@ -8,12 +8,25 @@ import '../../controllers/home_controller.dart';
 class LeftMenu extends StatelessWidget {
   LeftMenu({Key? key}) : super(key: key);
   final _controller = Get.find<HomeController>();
-  final List<String> _sectionsIcons = [
-    BaseImages.icHome,
-    BaseImages.icSkill,
-    BaseImages.icRepo,
-    BaseImages.icExperience,
+  final List<Map<String, String>> _listaTarefas = [
+    {
+      'icon': BaseImages.icHome,
+      'icon_selected': BaseImages.icHomeSelected,
+    },
+    {
+      'icon': BaseImages.icSkill,
+      'icon_selected': BaseImages.icSkillSelected,
+    },
+    {
+      'icon': BaseImages.icRepo,
+      'icon_selected': BaseImages.icRepoSelected,
+    },
+    {
+      'icon': BaseImages.icExperience,
+      'icon_selected': BaseImages.icExperienceSelected
+    },
   ];
+
   final List<GlobalKey<State<StatefulWidget>>> _sectionsNames = [
     SectionKeys.about,
     SectionKeys.skills,
@@ -70,13 +83,14 @@ class LeftMenu extends StatelessWidget {
               thickness: 1,
               height: 1,
             ),
-            ..._sectionsIcons.map(
+            ..._listaTarefas.map(
               (sectionIcon) {
-                final index = _sectionsIcons.indexOf(sectionIcon);
+                final index = _listaTarefas.indexOf(sectionIcon);
                 return Obx(
                   () => MenuButton(
                     isSelected: index == _controller.selectedIndex,
-                    assetIcon: sectionIcon,
+                    assetIcon: sectionIcon['icon']!,
+                    assetIconSelected: sectionIcon['icon_selected']!,
                     onTap: () {
                       scrollToSpecificContext(
                         _sectionsNames[index].currentContext!,
@@ -98,11 +112,13 @@ class MenuButton extends StatelessWidget {
   const MenuButton({
     Key? key,
     required this.assetIcon,
+    required this.assetIconSelected,
     required this.isSelected,
     required this.onTap,
   }) : super(key: key);
 
   final String assetIcon;
+  final String assetIconSelected;
   final bool isSelected;
   final Function() onTap;
 
@@ -131,10 +147,9 @@ class MenuButton extends StatelessWidget {
             ),
             child: Center(
               child: Image.asset(
-                assetIcon,
+                isSelected ? assetIconSelected : assetIcon,
                 height: isSelected ? 30 : 24,
                 width: isSelected ? 30 : 24,
-                color: isSelected ? Colors.white : BaseColors.ebonyClay,
               ),
             ),
           ),

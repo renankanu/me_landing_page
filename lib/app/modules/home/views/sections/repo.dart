@@ -132,7 +132,6 @@ class Repo extends StatelessWidget {
                                             Image.asset(
                                               BaseImages.icCalendar,
                                               height: 18,
-                                              color: Colors.white,
                                             ),
                                             const SizedBox(width: 8),
                                             Text(

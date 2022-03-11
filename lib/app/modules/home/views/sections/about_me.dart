@@ -57,8 +57,7 @@ class ContainerAvatar extends StatelessWidget {
               right: 0,
               child: Image.asset(
                 BaseImages.dots,
-                height: 200,
-                color: BaseColors.burntSienna,
+                height: 180,
               ),
             ),
             Positioned(
@@ -66,8 +65,7 @@ class ContainerAvatar extends StatelessWidget {
               left: 0,
               child: Image.asset(
                 BaseImages.dots,
-                height: 200,
-                color: BaseColors.burntSienna,
+                height: 180,
               ),
             ),
             Container(
