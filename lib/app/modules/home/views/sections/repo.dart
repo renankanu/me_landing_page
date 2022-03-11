@@ -62,7 +62,10 @@ class Repo extends StatelessWidget {
                         runSpacing: 10,
                         children: repositoriesPinned.map((repository) {
                           return Container(
-                            constraints: const BoxConstraints(maxWidth: 400),
+                            constraints: BoxConstraints(
+                              maxWidth:
+                                  Responsive.isDesktop(context) ? 400 : 480,
+                            ),
                             child: Card(
                               shadowColor: BaseColors.ebonyClay,
                               elevation: 5,
@@ -157,6 +160,41 @@ class Repo extends StatelessWidget {
                           );
                         }).toList(),
                       ),
+                      const SizedBox(height: 60),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'GitHub status',
+                                  style: Get.textTheme.headline5!.copyWith(),
+                                ),
+                                const SizedBox(width: 10),
+                                Image.asset(
+                                  BaseImages.icGithubStatus,
+                                  height: 20,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.network(
+                                  'https://github-readme-stats.vercel.app/api/top-langs/?username=renankanu&layout=compact&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&card_width=446',
+                                ),
+                                const SizedBox(height: 10),
+                                Image.network(
+                                  'https://github-readme-stats.vercel.app/api?username=renankanu&count_private=true&show_icons=true&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&hide_title=true&card_width=400',
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 );
