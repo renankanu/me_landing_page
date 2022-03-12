@@ -8,11 +8,9 @@ class HomeController extends GetxController {
 
   final RxList<Skill> _skills = RxList<Skill>();
   final RxInt _selectedIndex = RxInt(0);
-  final RxBool _isLoading = RxBool(false);
 
   List<Skill> get skills => _skills.toList();
   int get selectedIndex => _selectedIndex.value;
-  bool get isLoading => _isLoading.value;
 
   set selectedIndex(int value) => _selectedIndex.value = value;
 
@@ -23,12 +21,9 @@ class HomeController extends GetxController {
   }
 
   Future<void> getAllSkills() async {
-    _isLoading.toggle();
     final querySnapshot = await _firestore.collection('skill').get();
     for (final doc in querySnapshot.docs) {
       _skills.add(Skill.fromJson(doc.data()));
     }
-    await Future.delayed(const Duration(seconds: 2));
-    _isLoading.toggle();
   }
 }

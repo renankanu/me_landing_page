@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rive/rive.dart';
 
 import '../../../core/core.dart';
 import '../controllers/home_controller.dart';
@@ -16,58 +15,45 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Obx(
-      () => Visibility(
-        visible: controller.isLoading,
-        child: Center(
-          child: Container(
-            constraints: const BoxConstraints(maxHeight: 200),
-            child: const RiveAnimation.asset(
-              'assets/animations/r.riv',
+    return Scaffold(
+      key: _scaffoldKey,
+      backgroundColor: BaseColors.vistaWhite,
+      drawerEnableOpenDragGesture: false,
+      appBar: !Responsive.isDesktop(context)
+          ? AppBar(
+              backgroundColor: BaseColors.ebonyClay,
+              elevation: 0,
+              leading: IconButton(
+                icon: Image.asset(
+                  BaseImages.icMenu,
+                  width: 24,
+                ),
+                onPressed: () {
+                  _scaffoldKey.currentState!.openDrawer();
+                },
+              ),
+            )
+          : null,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: const [
+                AboutMe(),
+                Skills(),
+                Repo(),
+                Experience(),
+                Footer(),
+              ],
             ),
           ),
-        ),
-        replacement: Scaffold(
-          key: _scaffoldKey,
-          backgroundColor: BaseColors.vistaWhite,
-          drawerEnableOpenDragGesture: false,
-          appBar: !Responsive.isDesktop(context)
-              ? AppBar(
-                  backgroundColor: BaseColors.ebonyClay,
-                  elevation: 0,
-                  leading: IconButton(
-                    icon: Image.asset(
-                      BaseImages.icMenu,
-                      width: 24,
-                    ),
-                    onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
-                    },
-                  ),
-                )
-              : null,
-          body: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    AboutMe(),
-                    Skills(),
-                    Repo(),
-                    Experience(),
-                    Footer(),
-                  ],
-                ),
-              ),
-              Visibility(
-                visible: Responsive.isDesktop(context),
-                child: LeftMenu(),
-              ),
-            ],
+          Visibility(
+            visible: Responsive.isDesktop(context),
+            child: LeftMenu(),
           ),
-          drawer: !Responsive.isDesktop(context) ? LeftMenu() : null,
-        ),
+        ],
       ),
+      drawer: !Responsive.isDesktop(context) ? LeftMenu() : null,
     );
   }
 }

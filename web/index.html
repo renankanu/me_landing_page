@@ -35,6 +35,11 @@
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
+    <meta property="og:title" content="RenanKanu;">
+    <meta property="og:type" content="landing-page">
+    <meta property="article:published_time" content="${mod.createTime.toIso8601String()}" />
+    <meta property="article:modified_time" content="${mod.lastUpdate.toIso8601String()}" />
+    <meta name="keywords" content="kanu,renankanu,dart,fluter">
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -42,16 +47,30 @@
     <meta name="apple-mobile-web-app-title" content="me_landing_page" />
     <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-    <!-- Favicon -->
+    <!-- Favicon --> 
     <link rel="icon" type="image/png" href="favicon.ico" />
 
     <title>RenanKanu;</title>
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="preload" href="main.dart.js" as="script">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+    <div class="container">
+      <div class="logo">
+        <img src="./assets/assets/renankanu.svg" alt="">
+      </div>
+      <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
