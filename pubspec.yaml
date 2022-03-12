@@ -18,6 +18,8 @@ dependencies:
   hexcolor: ^2.0.6
   intl: ^0.17.0
   rive: ^0.8.1
+  url_launcher: ^6.0.20
+  visibility_detector: ^0.2.2
 
 dev_dependencies:
   build_runner: ^2.1.7

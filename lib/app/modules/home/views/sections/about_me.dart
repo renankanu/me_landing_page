@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
 import '../../../../core/section_keys.dart';
+import '../../controllers/home_controller.dart';
 import '../widgets/social_button.dart';
 
 class AboutMe extends StatelessWidget {
@@ -12,26 +15,36 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseContainer(
-      key: SectionKeys.about,
-      child: Center(
-        child: Visibility(
-          visible: !Responsive.isMobile(context),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Expanded(child: ContainerAbout()),
-              SizedBox(width: 48),
-              Expanded(child: ContainerAvatar()),
-            ],
-          ),
-          replacement: Column(
-            children: const [
-              ContainerAvatar(),
-              SizedBox(height: 48),
-              ContainerAbout(),
-            ],
+    final controller = Get.find<HomeController>();
+    return VisibilityDetector(
+      key: UniqueKey(),
+      onVisibilityChanged: (visibility) {
+        final visiblePercentage = visibility.visibleFraction * 100;
+        if (visiblePercentage >= 75) {
+          controller.selectedIndex = 0;
+        }
+      },
+      child: BaseContainer(
+        key: SectionKeys.about,
+        child: Center(
+          child: Visibility(
+            visible: !Responsive.isMobile(context),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Expanded(child: ContainerAbout()),
+                SizedBox(width: 48),
+                Expanded(child: ContainerAvatar()),
+              ],
+            ),
+            replacement: Column(
+              children: const [
+                ContainerAvatar(),
+                SizedBox(height: 48),
+                ContainerAbout(),
+              ],
+            ),
           ),
         ),
       ),
@@ -121,14 +134,20 @@ class ContainerAbout extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           Row(
-            children: const [
+            children: [
               SocialButton(
                 iconName: BaseImages.icLinkedin,
                 color: BaseColors.cornflowerBlue,
+                onPressed: () async {
+                  await launch('https://www.linkedin.com/in/renansantosbr/');
+                },
               ),
               SocialButton(
                 iconName: BaseImages.icGithub,
                 color: BaseColors.deepBlush,
+                onPressed: () async {
+                  await launch('https://github.com/renankanu');
+                },
               ),
             ],
           ),

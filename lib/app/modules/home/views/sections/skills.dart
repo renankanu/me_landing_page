@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
 import '../../../../core/section_keys.dart';
@@ -16,37 +17,46 @@ class Skills extends StatefulWidget {
 class _SkillsState extends BaseState<Skills, HomeController> {
   @override
   Widget build(BuildContext context) {
-    return BaseContainer(
-      key: SectionKeys.skills,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const BaseTitleSection(
-            title: 'Minhas Skills',
-          ),
-          const SizedBox(height: 10),
-          SelectableText(
-            'Essas são as minhas skills, que eu tenho, eu gosto de aprender e estou sempre em busca de novas habilidades.',
-            style: Get.textTheme.bodyMedium!.copyWith(),
-          ),
-          const SizedBox(height: 60),
-          Center(
-            child: Obx(
-              () => Wrap(
-                runSpacing: 40,
-                spacing: 40,
-                children: controller.skills
-                    .map(
-                      (skill) => ItemCardSkill(
-                        imageSkill: skill.icon,
-                        titleSkill: skill.name,
-                      ),
-                    )
-                    .toList(),
+    return VisibilityDetector(
+      key: UniqueKey(),
+      onVisibilityChanged: (visibility) {
+        final visiblePercentage = visibility.visibleFraction * 100;
+        if (visiblePercentage >= 75) {
+          controller.selectedIndex = 1;
+        }
+      },
+      child: BaseContainer(
+        key: SectionKeys.skills,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const BaseTitleSection(
+              title: 'Minhas Skills',
+            ),
+            const SizedBox(height: 10),
+            SelectableText(
+              'Essas são as minhas skills, que eu tenho, eu gosto de aprender e estou sempre em busca de novas habilidades.',
+              style: Get.textTheme.bodyMedium!.copyWith(),
+            ),
+            const SizedBox(height: 60),
+            Center(
+              child: Obx(
+                () => Wrap(
+                  runSpacing: 40,
+                  spacing: 40,
+                  children: controller.skills
+                      .map(
+                        (skill) => ItemCardSkill(
+                          imageSkill: skill.icon,
+                          titleSkill: skill.name,
+                        ),
+                      )
+                      .toList(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -48,18 +48,15 @@ class HomeView extends GetView<HomeController> {
               : null,
           body: Stack(
             children: [
-              SizedBox(
-                width: double.maxFinite,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: const [
-                      AboutMe(),
-                      Skills(),
-                      Repo(),
-                      Experience(),
-                      Footer(),
-                    ],
-                  ),
+              SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    AboutMe(),
+                    Skills(),
+                    Repo(),
+                    Experience(),
+                    Footer(),
+                  ],
                 ),
               ),
               Visibility(

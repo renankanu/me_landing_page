@@ -1,67 +1,79 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
 import '../../../../core/section_keys.dart';
 import '../../../../core/widgets/base_title_section.dart';
 import '../../../../data/model/item_experience_education.dart';
+import '../../controllers/home_controller.dart';
 
 class Experience extends StatelessWidget {
   const Experience({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseContainer(
-      key: SectionKeys.experience,
-      child: Column(
-        children: [
-          const BaseTitleSection(title: 'Meu Resumo'),
-          const SizedBox(height: 10),
-          SelectableText(
-            'Aqui está um resumo sobre as minhas experiências que obtive nessa jornada de desenvolvimento e também sobre o que eu aprendi durante a minha carreira profissional.',
-            style: Get.textTheme.bodyMedium!.copyWith(),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 60),
-          Visibility(
-            visible: !Responsive.isMobile(context),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: ContainerExperience(
+    final controller = Get.find<HomeController>();
+    return VisibilityDetector(
+      key: UniqueKey(),
+      onVisibilityChanged: (visibility) {
+        final visiblePercentage = visibility.visibleFraction * 100;
+        if (visiblePercentage >= 75) {
+          controller.selectedIndex = 3;
+        }
+      },
+      child: BaseContainer(
+        key: SectionKeys.experience,
+        child: Column(
+          children: [
+            const BaseTitleSection(title: 'Meu Resumo'),
+            const SizedBox(height: 10),
+            SelectableText(
+              'Aqui está um resumo sobre as minhas experiências que obtive nessa jornada de desenvolvimento e também sobre o que eu aprendi durante a minha carreira profissional.',
+              style: Get.textTheme.bodyMedium!.copyWith(),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 60),
+            Visibility(
+              visible: !Responsive.isMobile(context),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ContainerExperience(
+                      title: 'EXPERIÊNCIA DE TRABALHO',
+                      itemExperienceEducation: _generateWorkList(),
+                    ),
+                  ),
+                  Expanded(
+                    child: ContainerExperience(
+                      title: 'FORMAÇÃO E CURSOS',
+                      itemExperienceEducation: _generateEducationList(),
+                    ),
+                  ),
+                ],
+              ),
+              replacement: Column(
+                children: [
+                  ContainerExperience(
                     title: 'EXPERIÊNCIA DE TRABALHO',
                     itemExperienceEducation: _generateWorkList(),
                   ),
-                ),
-                Expanded(
-                  child: ContainerExperience(
+                  const SizedBox(height: 20),
+                  ContainerExperience(
                     title: 'FORMAÇÃO E CURSOS',
                     itemExperienceEducation: _generateEducationList(),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            replacement: Column(
-              children: [
-                ContainerExperience(
-                  title: 'EXPERIÊNCIA DE TRABALHO',
-                  itemExperienceEducation: _generateWorkList(),
-                ),
-                const SizedBox(height: 20),
-                ContainerExperience(
-                  title: 'FORMAÇÃO E CURSOS',
-                  itemExperienceEducation: _generateEducationList(),
-                ),
-              ],
+            const SizedBox(height: 40),
+            SelectableText(
+              'Nas horas vagas, eu estou estudando sobre Clean Architecture e TDD em Flutter com o objetivo de ter códigos com qualidade, boa manutenção e testáveis, Animações e UI responsivas, e também estou estudando sobre Flutter Web.',
+              style: Get.textTheme.bodyMedium!.copyWith(),
             ),
-          ),
-          const SizedBox(height: 40),
-          SelectableText(
-            'Nas horas vagas, eu estou estudando sobre Clean Architecture e TDD em Flutter com o objetivo de ter códigos com qualidade, boa manutenção e testáveis, Animações e UI responsivas, e também estou estudando sobre Flutter Web.',
-            style: Get.textTheme.bodyMedium!.copyWith(),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
