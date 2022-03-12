@@ -16,58 +16,60 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    return Visibility(
-      visible: true,
-      child: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxHeight: 200),
-          child: const RiveAnimation.asset(
-            'assets/animations/r.riv',
+    return Obx(
+      () => Visibility(
+        visible: controller.isLoading,
+        child: Center(
+          child: Container(
+            constraints: const BoxConstraints(maxHeight: 200),
+            child: const RiveAnimation.asset(
+              'assets/animations/r.riv',
+            ),
           ),
         ),
-      ),
-      replacement: Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: BaseColors.vistaWhite,
-        drawerEnableOpenDragGesture: false,
-        appBar: !Responsive.isDesktop(context)
-            ? AppBar(
-                backgroundColor: BaseColors.ebonyClay,
-                elevation: 0,
-                leading: IconButton(
-                  icon: Image.asset(
-                    BaseImages.icMenu,
-                    width: 24,
+        replacement: Scaffold(
+          key: _scaffoldKey,
+          backgroundColor: BaseColors.vistaWhite,
+          drawerEnableOpenDragGesture: false,
+          appBar: !Responsive.isDesktop(context)
+              ? AppBar(
+                  backgroundColor: BaseColors.ebonyClay,
+                  elevation: 0,
+                  leading: IconButton(
+                    icon: Image.asset(
+                      BaseImages.icMenu,
+                      width: 24,
+                    ),
+                    onPressed: () {
+                      _scaffoldKey.currentState!.openDrawer();
+                    },
                   ),
-                  onPressed: () {
-                    _scaffoldKey.currentState!.openDrawer();
-                  },
-                ),
-              )
-            : null,
-        body: Stack(
-          children: [
-            SizedBox(
-              width: double.maxFinite,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    AboutMe(),
-                    Skills(),
-                    Repo(),
-                    Experience(),
-                    Footer(),
-                  ],
+                )
+              : null,
+          body: Stack(
+            children: [
+              SizedBox(
+                width: double.maxFinite,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: const [
+                      AboutMe(),
+                      Skills(),
+                      Repo(),
+                      Experience(),
+                      Footer(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Visibility(
-              visible: Responsive.isDesktop(context),
-              child: LeftMenu(),
-            ),
-          ],
+              Visibility(
+                visible: Responsive.isDesktop(context),
+                child: LeftMenu(),
+              ),
+            ],
+          ),
+          drawer: !Responsive.isDesktop(context) ? LeftMenu() : null,
         ),
-        drawer: !Responsive.isDesktop(context) ? LeftMenu() : null,
       ),
     );
   }
