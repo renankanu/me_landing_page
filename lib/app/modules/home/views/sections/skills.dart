@@ -21,7 +21,7 @@ class _SkillsState extends BaseState<Skills, HomeController> {
       key: UniqueKey(),
       onVisibilityChanged: (visibility) {
         final visiblePercentage = visibility.visibleFraction * 100;
-        if (visiblePercentage >= 75) {
+        if (visiblePercentage >= 15) {
           controller.selectedIndex = 1;
         }
       },
