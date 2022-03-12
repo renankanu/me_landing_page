@@ -1,11 +1,11 @@
 {
-    "name": "me_landing_page",
-    "short_name": "me_landing_page",
-    "start_url": ".",
+    "name": "RenanKanu",
+    "short_name": "RenanKanu",
+    "start_url": "https://me.renankanu.com.br/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
