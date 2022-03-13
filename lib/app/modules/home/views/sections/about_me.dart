@@ -16,38 +16,42 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
-    return VisibilityDetector(
-      key: UniqueKey(),
-      onVisibilityChanged: (visibility) {
-        final visiblePercentage = visibility.visibleFraction * 100;
-        if (visiblePercentage >= 15) {
-          controller.selectedIndex = 0;
-        }
-      },
-      child: BaseContainer(
-        key: SectionKeys.about,
-        child: Center(
-          child: Visibility(
-            visible: !Responsive.isMobile(),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Expanded(child: ContainerAbout()),
-                SizedBox(width: 48),
-                Expanded(child: ContainerAvatar()),
-              ],
-            ),
-            replacement: Column(
-              children: const [
-                ContainerAvatar(),
-                SizedBox(height: 48),
-                ContainerAbout(),
-              ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return VisibilityDetector(
+          key: UniqueKey(),
+          onVisibilityChanged: (visibility) {
+            final visiblePercentage = visibility.visibleFraction * 100;
+            if (visiblePercentage >= 15) {
+              controller.selectedIndex = 0;
+            }
+          },
+          child: BaseContainer(
+            key: SectionKeys.about,
+            child: Center(
+              child: Visibility(
+                visible: !Responsive.isMobile(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Expanded(child: ContainerAbout()),
+                    SizedBox(width: 48),
+                    Expanded(child: ContainerAvatar()),
+                  ],
+                ),
+                replacement: Column(
+                  children: const [
+                    ContainerAvatar(),
+                    SizedBox(height: 48),
+                    ContainerAbout(),
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
