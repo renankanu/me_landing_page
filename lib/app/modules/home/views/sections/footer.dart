@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../../../core/animations.dart';
 import '../../../../core/core.dart';
 
 class Footer extends StatelessWidget {
@@ -8,33 +10,49 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-          color: const Color(0xfff1f1f1),
-          child: Visibility(
-            visible: Responsive.isDesktop(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Logo(),
-                Copyright(),
-                Email(),
-              ],
-            ),
-            replacement: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                Logo(),
-                Copyright(),
-                Email(),
-              ],
-            ),
-          ),
-        );
+    late AnimationController controller;
+    return VisibilityDetector(
+      key: UniqueKey(),
+      onVisibilityChanged: (VisibilityInfo visibility) {
+        final visiblePercentage = visibility.visibleFraction * 100;
+        if (visiblePercentage == 100) {
+          controller.forward();
+        }
       },
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return BaseSlideAnimation(
+            curve: Curves.linear,
+            direction: BaseSlideDirection.bottomToTop,
+            duration: const Duration(milliseconds: 200),
+            callBack: (animationController) => controller = animationController,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+              color: const Color(0xfff1f1f1),
+              child: Visibility(
+                visible: Responsive.isDesktop(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Logo(),
+                    Copyright(),
+                    Email(),
+                  ],
+                ),
+                replacement: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Logo(),
+                    Copyright(),
+                    Email(),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

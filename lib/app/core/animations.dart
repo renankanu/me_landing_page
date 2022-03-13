@@ -14,12 +14,14 @@ class BaseSlideAnimation extends StatefulWidget {
     this.direction = BaseSlideDirection.leftToRight,
     this.duration = const Duration(milliseconds: 800),
     this.curve = Curves.elasticInOut,
+    this.callBack,
   }) : super(key: key);
 
   final Widget child;
   final BaseSlideDirection? direction;
   final Duration? duration;
   final Curve curve;
+  final Function(AnimationController)? callBack;
 
   @override
   _BaseSlideAnimationState createState() => _BaseSlideAnimationState();
@@ -126,7 +128,12 @@ class _BaseSlideAnimationState extends State<BaseSlideAnimation>
       parent: _controller,
       curve: widget.curve,
     );
-    _controller.forward();
+    if (widget.callBack == null) {
+      _controller.forward();
+    } else {
+      widget.callBack!(_controller);
+    }
+
     super.initState();
   }
 
