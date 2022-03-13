@@ -27,6 +27,8 @@ abstract class BaseImages {
   static const String icMenu = 'assets/icons/ic_menu.png';
   static const String icMail = 'assets/icons/ic_mail.png';
   static const String icGithubStatus = 'assets/icons/ic_github_status.png';
+  static const String renankanu = 'assets/images/renankanu.png';
+  static const String icRK = 'assets/icons/ic_rk.png';
 }
 
 String getIconByName(String icon) => 'assets/icons/$icon.png';

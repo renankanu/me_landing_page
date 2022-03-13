@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
@@ -46,8 +45,8 @@ class LeftMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Responsive.isDesktop(context) ? 683 : 460,
       width: 68,
+      padding: const EdgeInsets.only(bottom: 40),
       decoration: const BoxDecoration(
         color: BaseColors.ebonyClay,
         borderRadius: BorderRadius.only(
@@ -58,60 +57,37 @@ class LeftMenu extends StatelessWidget {
       child: SingleChildScrollView(
         primary: false,
         child: Column(
-          children: AnimationConfiguration.toStaggeredList(
-            duration: const Duration(milliseconds: 375),
-            childAnimationBuilder: (widget) => SlideAnimation(
-              horizontalOffset: -50,
-              child: FadeInAnimation(
-                child: widget,
-              ),
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+              child: Image.asset(BaseImages.icRK),
             ),
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: SelectableText.rich(
-                  TextSpan(
-                    text: 'R',
-                    style: Get.textTheme.headline4!.copyWith(
-                      color: BaseColors.burntSienna,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: 'K;',
-                        style: Get.textTheme.headline4!.copyWith(
-                          color: BaseColors.burntSienna,
-                        ),
-                      ),
-                    ],
+            const Divider(
+              color: BaseColors.burntSienna,
+              thickness: 1,
+              height: 1,
+            ),
+            ..._listaTarefas.map(
+              (sectionIcon) {
+                final index = _listaTarefas.indexOf(sectionIcon);
+                return Obx(
+                  () => MenuButton(
+                    isSelected: index == _controller.selectedIndex,
+                    assetIcon: sectionIcon['icon']!,
+                    assetIconSelected: sectionIcon['icon_selected']!,
+                    onTap: () {
+                      scrollToSpecificContext(
+                        _sectionsNames[index].currentContext!,
+                      );
+                      _controller.selectedIndex = index;
+                    },
                   ),
-                ),
-              ),
-              const Divider(
-                color: BaseColors.burntSienna,
-                thickness: 1,
-                height: 1,
-              ),
-              ..._listaTarefas.map(
-                (sectionIcon) {
-                  final index = _listaTarefas.indexOf(sectionIcon);
-                  return Obx(
-                    () => MenuButton(
-                      isSelected: index == _controller.selectedIndex,
-                      assetIcon: sectionIcon['icon']!,
-                      assetIconSelected: sectionIcon['icon_selected']!,
-                      onTap: () {
-                        scrollToSpecificContext(
-                          _sectionsNames[index].currentContext!,
-                        );
-                        _controller.selectedIndex = index;
-                      },
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            const Text('🇺🇦', style: TextStyle(fontSize: 40)),
+          ],
         ),
       ),
     );

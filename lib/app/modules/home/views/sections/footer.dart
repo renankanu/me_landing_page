@@ -16,77 +16,82 @@ class Footer extends StatelessWidget {
         visible: Responsive.isDesktop(context),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  BaseImages.icMail,
-                  height: 20,
-                ),
-                const SizedBox(width: 10),
-                const SelectableText('renankanu@gmail.com'),
-              ],
-            ),
-            Text(
-              '© Copyright 2021 | Renan Santos de Oliveira',
-              style: Get.textTheme.headline5!.copyWith(
-                color: BaseColors.mineShaft,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  BaseImages.icMail,
-                  height: 20,
-                ),
-                const SizedBox(width: 10),
-                const SelectableText('renankanu@gmail.com'),
-              ],
-            ),
+          children: const [
+            Logo(),
+            Copyright(),
+            Email(),
           ],
         ),
         replacement: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  BaseImages.icMail,
-                  height: 20,
-                ),
-                const SizedBox(width: 10),
-                const SelectableText('renankanu@gmail.com'),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text(
-              '© Copyright 2021 | Renan Santos de Oliveira',
-              style: Get.textTheme.headline5!.copyWith(
-                color: BaseColors.mineShaft,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  BaseImages.icMail,
-                  height: 20,
-                ),
-                const SizedBox(width: 10),
-                const SelectableText('renankanu@gmail.com'),
-              ],
-            ),
+          children: const [
+            Logo(),
+            Copyright(),
+            Email(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class Email extends StatelessWidget {
+  const Email({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Image.asset(
+          BaseImages.icMail,
+          height: 20,
+        ),
+        const SizedBox(width: 10),
+        const SelectableText('renankanu@gmail.com'),
+      ],
+    );
+  }
+}
+
+class Copyright extends StatelessWidget {
+  const Copyright({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Text(
+        '© Copyright ${DateTime.now().year} | Renan Santos de Oliveira',
+        style: Get.textTheme.headline5!.copyWith(
+          color: BaseColors.mineShaft,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  const Logo({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Image.asset(
+          BaseImages.renankanu,
+          height: 20,
+        ),
+      ],
     );
   }
 }
