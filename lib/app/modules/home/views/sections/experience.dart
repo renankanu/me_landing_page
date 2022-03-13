@@ -35,7 +35,7 @@ class Experience extends StatelessWidget {
             ),
             const SizedBox(height: 60),
             Visibility(
-              visible: !Responsive.isMobile(context),
+              visible: !Responsive.isMobile(),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

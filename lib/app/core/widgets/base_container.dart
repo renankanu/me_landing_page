@@ -13,7 +13,7 @@ class BaseContainer extends StatelessWidget {
   final Color? backgroundColor;
 
   double _getHorizontalPadding(BuildContext context) {
-    if (Responsive.isDesktop(context)) {
+    if (Responsive.isDesktop()) {
       return 80;
     }
     return 24;

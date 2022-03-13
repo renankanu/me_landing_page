@@ -28,7 +28,7 @@ class AboutMe extends StatelessWidget {
         key: SectionKeys.about,
         child: Center(
           child: Visibility(
-            visible: !Responsive.isMobile(context),
+            visible: !Responsive.isMobile(),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -74,8 +74,7 @@ class Repo extends StatelessWidget {
                           children: repositoriesPinned.map((repository) {
                             return Container(
                               constraints: BoxConstraints(
-                                maxWidth:
-                                    Responsive.isDesktop(context) ? 400 : 480,
+                                maxWidth: Responsive.isDesktop() ? 400 : 480,
                               ),
                               child: Card(
                                 shadowColor: BaseColors.ebonyClay,

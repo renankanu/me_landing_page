@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
@@ -57,37 +58,47 @@ class LeftMenu extends StatelessWidget {
       child: SingleChildScrollView(
         primary: false,
         child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-              child: Image.asset(BaseImages.icRK),
+          children: AnimationConfiguration.toStaggeredList(
+            duration: const Duration(milliseconds: 600),
+            childAnimationBuilder: (widget) => SlideAnimation(
+              horizontalOffset: -50,
+              child: FadeInAnimation(
+                child: widget,
+              ),
             ),
-            const Divider(
-              color: BaseColors.burntSienna,
-              thickness: 1,
-              height: 1,
-            ),
-            ..._listaTarefas.map(
-              (sectionIcon) {
-                final index = _listaTarefas.indexOf(sectionIcon);
-                return Obx(
-                  () => MenuButton(
-                    isSelected: index == _controller.selectedIndex,
-                    assetIcon: sectionIcon['icon']!,
-                    assetIconSelected: sectionIcon['icon_selected']!,
-                    onTap: () {
-                      scrollToSpecificContext(
-                        _sectionsNames[index].currentContext!,
-                      );
-                      _controller.selectedIndex = index;
-                    },
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            const Text('🇺🇦', style: TextStyle(fontSize: 40)),
-          ],
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                child: Image.asset(BaseImages.icRK),
+              ),
+              const Divider(
+                color: BaseColors.burntSienna,
+                thickness: 1,
+                height: 1,
+              ),
+              ..._listaTarefas.map(
+                (sectionIcon) {
+                  final index = _listaTarefas.indexOf(sectionIcon);
+                  return Obx(
+                    () => MenuButton(
+                      isSelected: index == _controller.selectedIndex,
+                      assetIcon: sectionIcon['icon']!,
+                      assetIconSelected: sectionIcon['icon_selected']!,
+                      onTap: () {
+                        scrollToSpecificContext(
+                          _sectionsNames[index].currentContext!,
+                        );
+                        _controller.selectedIndex = index;
+                      },
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              const Text('🇺🇦', style: TextStyle(fontSize: 40)),
+            ],
+          ),
         ),
       ),
     );
@@ -113,7 +124,7 @@ class MenuButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         onTap();
-        if (!Responsive.isDesktop(context)) {
+        if (!Responsive.isDesktop()) {
           Get.back();
         }
       },

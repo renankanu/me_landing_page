@@ -13,7 +13,7 @@ class Footer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
       color: const Color(0xfff1f1f1),
       child: Visibility(
-        visible: Responsive.isDesktop(context),
+        visible: Responsive.isDesktop(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: const [

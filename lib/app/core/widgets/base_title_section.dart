@@ -17,15 +17,15 @@ class BaseTitleSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const DividerUITitle(),
-        SizedBox(width: Responsive.isDesktop(context) ? 40 : 20),
+        SizedBox(width: Responsive.isDesktop() ? 40 : 20),
         SelectableText(
           title,
           style: Get.textTheme.headline2!.copyWith(
             fontWeight: FontWeight.w600,
-            fontSize: Responsive.isDesktop(context) ? 38 : 24,
+            fontSize: Responsive.isDesktop() ? 38 : 24,
           ),
         ),
-        SizedBox(width: Responsive.isDesktop(context) ? 40 : 20),
+        SizedBox(width: Responsive.isDesktop() ? 40 : 20),
         const DividerUITitle(),
       ],
     );
@@ -40,7 +40,7 @@ class DividerUITitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Responsive.isDesktop(context) ? 100 : 70,
+      width: Responsive.isDesktop() ? 100 : 70,
       height: 4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
