@@ -96,7 +96,7 @@ class LeftMenu extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              const Text('🇺🇦', style: TextStyle(fontSize: 40)),
+              const Text('🇺🇦', style: TextStyle(fontSize: 30)),
             ],
           ),
         ),

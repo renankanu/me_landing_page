@@ -14,67 +14,71 @@ class Experience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<HomeController>();
-    return VisibilityDetector(
-      key: UniqueKey(),
-      onVisibilityChanged: (visibility) {
-        final visiblePercentage = visibility.visibleFraction * 100;
-        if (visiblePercentage >= 15) {
-          controller.selectedIndex = 3;
-        }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return VisibilityDetector(
+          key: UniqueKey(),
+          onVisibilityChanged: (visibility) {
+            final visiblePercentage = visibility.visibleFraction * 100;
+            if (visiblePercentage >= 15) {
+              controller.selectedIndex = 3;
+            }
+          },
+          child: BaseContainer(
+            key: SectionKeys.experience,
+            child: Column(
+              children: [
+                const BaseTitleSection(title: 'Meu Resumo'),
+                const SizedBox(height: 10),
+                SelectableText(
+                  'Aqui está um resumo sobre as minhas experiências que obtive nessa jornada de desenvolvimento e também sobre o que eu aprendi durante a minha carreira profissional.',
+                  style: Get.textTheme.bodyMedium!.copyWith(),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 60),
+                Visibility(
+                  visible: !Responsive.isMobile(),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: ContainerExperience(
+                          title: 'EXPERIÊNCIA DE TRABALHO',
+                          itemExperienceEducation: _generateWorkList(),
+                        ),
+                      ),
+                      Expanded(
+                        child: ContainerExperience(
+                          title: 'FORMAÇÃO E CURSOS',
+                          itemExperienceEducation: _generateEducationList(),
+                        ),
+                      ),
+                    ],
+                  ),
+                  replacement: Column(
+                    children: [
+                      ContainerExperience(
+                        title: 'EXPERIÊNCIA DE TRABALHO',
+                        itemExperienceEducation: _generateWorkList(),
+                      ),
+                      const SizedBox(height: 20),
+                      ContainerExperience(
+                        title: 'FORMAÇÃO E CURSOS',
+                        itemExperienceEducation: _generateEducationList(),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
+                SelectableText(
+                  'Nas horas vagas, eu estou estudando sobre Clean Architecture e TDD em Flutter com o objetivo de ter códigos com qualidade, boa manutenção e testáveis, Animações e UI responsivas, e também estou estudando sobre Flutter Web.',
+                  style: Get.textTheme.bodyMedium!.copyWith(),
+                ),
+              ],
+            ),
+          ),
+        );
       },
-      child: BaseContainer(
-        key: SectionKeys.experience,
-        child: Column(
-          children: [
-            const BaseTitleSection(title: 'Meu Resumo'),
-            const SizedBox(height: 10),
-            SelectableText(
-              'Aqui está um resumo sobre as minhas experiências que obtive nessa jornada de desenvolvimento e também sobre o que eu aprendi durante a minha carreira profissional.',
-              style: Get.textTheme.bodyMedium!.copyWith(),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 60),
-            Visibility(
-              visible: !Responsive.isMobile(),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ContainerExperience(
-                      title: 'EXPERIÊNCIA DE TRABALHO',
-                      itemExperienceEducation: _generateWorkList(),
-                    ),
-                  ),
-                  Expanded(
-                    child: ContainerExperience(
-                      title: 'FORMAÇÃO E CURSOS',
-                      itemExperienceEducation: _generateEducationList(),
-                    ),
-                  ),
-                ],
-              ),
-              replacement: Column(
-                children: [
-                  ContainerExperience(
-                    title: 'EXPERIÊNCIA DE TRABALHO',
-                    itemExperienceEducation: _generateWorkList(),
-                  ),
-                  const SizedBox(height: 20),
-                  ContainerExperience(
-                    title: 'FORMAÇÃO E CURSOS',
-                    itemExperienceEducation: _generateEducationList(),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 40),
-            SelectableText(
-              'Nas horas vagas, eu estou estudando sobre Clean Architecture e TDD em Flutter com o objetivo de ter códigos com qualidade, boa manutenção e testáveis, Animações e UI responsivas, e também estou estudando sobre Flutter Web.',
-              style: Get.textTheme.bodyMedium!.copyWith(),
-            ),
-          ],
-        ),
-      ),
     );
   }
 

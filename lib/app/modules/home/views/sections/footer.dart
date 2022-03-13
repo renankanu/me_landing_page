@@ -8,29 +8,33 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-      color: const Color(0xfff1f1f1),
-      child: Visibility(
-        visible: Responsive.isDesktop(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            Logo(),
-            Copyright(),
-            Email(),
-          ],
-        ),
-        replacement: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            Logo(),
-            Copyright(),
-            Email(),
-          ],
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+          color: const Color(0xfff1f1f1),
+          child: Visibility(
+            visible: Responsive.isDesktop(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const [
+                Logo(),
+                Copyright(),
+                Email(),
+              ],
+            ),
+            replacement: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Logo(),
+                Copyright(),
+                Email(),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
