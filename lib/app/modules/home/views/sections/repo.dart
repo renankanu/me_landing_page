@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
@@ -79,98 +80,103 @@ class Repo extends StatelessWidget {
                                     maxWidth:
                                         Responsive.isDesktop() ? 400 : 480,
                                   ),
-                                  child: Card(
-                                    shadowColor: BaseColors.ebonyClay,
-                                    elevation: 5,
-                                    color: BaseColors.trout,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 16,
-                                        horizontal: 20,
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            repository['name'].toString(),
-                                            style: Get.textTheme.bodyText1!
-                                                .copyWith(
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                          const SizedBox(height: 10),
-                                          SizedBox(
-                                            height: 40,
-                                            child: Text(
-                                              repository['description']
-                                                  .toString(),
-                                              style: Get.textTheme.bodyText2!
+                                  child: GestureDetector(
+                                    onTap: () =>
+                                        launch(repository['url'] as String),
+                                    child: Card(
+                                      shadowColor: BaseColors.ebonyClay,
+                                      elevation: 5,
+                                      color: BaseColors.trout,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 16,
+                                          horizontal: 20,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              repository['name'].toString(),
+                                              style: Get.textTheme.bodyText1!
                                                   .copyWith(
                                                 color: Colors.white,
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 18),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    width: 14,
-                                                    height: 14,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                              .all(
-                                                        Radius.circular(20),
+                                            const SizedBox(height: 10),
+                                            SizedBox(
+                                              height: 40,
+                                              child: Text(
+                                                repository['description']
+                                                    .toString(),
+                                                style: Get.textTheme.bodyText2!
+                                                    .copyWith(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 18),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Container(
+                                                      width: 14,
+                                                      height: 14,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .all(
+                                                          Radius.circular(20),
+                                                        ),
+                                                        color: HexColor(
+                                                          repository['primaryLanguage']
+                                                                  ['color']
+                                                              .toString(),
+                                                        ),
                                                       ),
-                                                      color: HexColor(
-                                                        repository['primaryLanguage']
-                                                                ['color']
+                                                    ),
+                                                    const SizedBox(width: 8),
+                                                    Text(
+                                                      repository['primaryLanguage']
+                                                              ['name']
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                        color: Colors.white
+                                                            .withOpacity(0.8),
+                                                        fontSize: 11,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Image.asset(
+                                                      BaseImages.icCalendar,
+                                                      height: 18,
+                                                    ),
+                                                    const SizedBox(width: 8),
+                                                    Text(
+                                                      DateFormateUtils
+                                                          .converterDateWithHours(
+                                                        repository['updatedAt']
                                                             .toString(),
                                                       ),
+                                                      style: TextStyle(
+                                                        color: Colors.white
+                                                            .withOpacity(0.8),
+                                                        fontSize: 11,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Text(
-                                                    repository['primaryLanguage']
-                                                            ['name']
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                      color: Colors.white
-                                                          .withOpacity(0.8),
-                                                      fontSize: 11,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Image.asset(
-                                                    BaseImages.icCalendar,
-                                                    height: 18,
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Text(
-                                                    DateFormateUtils
-                                                        .converterDateWithHours(
-                                                      repository['updatedAt']
-                                                          .toString(),
-                                                    ),
-                                                    style: TextStyle(
-                                                      color: Colors.white
-                                                          .withOpacity(0.8),
-                                                      fontSize: 11,
-                                                    ),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          )
-                                        ],
+                                                  ],
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
