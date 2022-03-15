@@ -207,8 +207,8 @@ class ItemXpEducation extends StatelessWidget {
             height: 14,
             width: 14,
             margin: const EdgeInsets.only(top: 10),
-            decoration: const BoxDecoration(
-              color: BaseColors.ebonyClay,
+            decoration: BoxDecoration(
+              color: BaseColors.burntSienna.withOpacity(0.5),
               shape: BoxShape.circle,
             ),
             child: Center(

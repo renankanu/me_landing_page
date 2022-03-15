@@ -163,10 +163,10 @@ class ContainerAbout extends StatelessWidget {
             margin: const EdgeInsets.only(top: 32),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: BaseColors.atomicTangerine,
+              color: BaseColors.cornflowerBlue2,
             ),
             child: SelectableText(
-              'Mobile Developer',
+              'Flutter Mobile Developer',
               style: Get.textTheme.button!.copyWith(
                 color: Colors.white,
               ),

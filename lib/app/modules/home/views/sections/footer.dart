@@ -87,13 +87,25 @@ class Copyright extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Text(
-        '© Copyright ${DateTime.now().year} | Renan Santos de Oliveira',
-        style: Get.textTheme.headline5!.copyWith(
-          color: BaseColors.mineShaft,
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-        ),
+      child: Column(
+        children: [
+          Text(
+            '© Copyright ${DateTime.now().year} | Renan Santos de Oliveira',
+            style: Get.textTheme.headline5!.copyWith(
+              color: BaseColors.mineShaft,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Text(
+            'Feito com Flutter 💙',
+            style: Get.textTheme.headline5!.copyWith(
+              color: BaseColors.mineShaft,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
       ),
     );
   }
