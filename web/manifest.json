@@ -1,7 +1,7 @@
 {
     "name": "RenanKanu",
     "short_name": "RenanKanu",
-    "start_url": "https://me.renankanu.com.br/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
