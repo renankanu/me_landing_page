@@ -119,13 +119,16 @@ class ContainerAbout extends StatelessWidget {
         children: [
           SelectableText(
             'Olá!',
-            style: Get.textTheme.headline5,
+            style: Get.textTheme.headline5!.copyWith(
+              color: BaseColors.mineShaft,
+            ),
           ),
           const SizedBox(height: 16),
           SelectableText(
             'Eu sou Renan Santos. Desenvolvedor Flutter.',
             style: Get.textTheme.headline3!.copyWith(
               fontWeight: FontWeight.w600,
+              color: BaseColors.mineShaft,
               fontSize: 40,
             ),
           ),
@@ -134,6 +137,7 @@ class ContainerAbout extends StatelessWidget {
             'Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.',
             style: Get.textTheme.bodyText2!.copyWith(
               fontSize: 18,
+              color: BaseColors.mineShaft,
             ),
           ),
           const SizedBox(height: 32),

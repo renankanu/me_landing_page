@@ -36,7 +36,9 @@ class _SkillsState extends BaseState<Skills, HomeController> {
             const SizedBox(height: 10),
             SelectableText(
               'Essas são as minhas skills, que eu tenho, eu gosto de aprender e estou sempre em busca de novas habilidades.',
-              style: Get.textTheme.bodyMedium!.copyWith(),
+              style: Get.textTheme.bodyMedium!.copyWith(
+                color: BaseColors.mineShaft,
+              ),
             ),
             const SizedBox(height: 60),
             Center(

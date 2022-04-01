@@ -32,7 +32,9 @@ class Experience extends StatelessWidget {
                 const SizedBox(height: 10),
                 SelectableText(
                   'Aqui está um resumo sobre as minhas experiências que obtive nessa jornada de desenvolvimento e também sobre o que eu aprendi durante a minha carreira profissional.',
-                  style: Get.textTheme.bodyMedium!.copyWith(),
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: BaseColors.mineShaft,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 60),
@@ -72,7 +74,9 @@ class Experience extends StatelessWidget {
                 const SizedBox(height: 40),
                 SelectableText(
                   'Nas horas vagas, eu estou estudando sobre Clean Architecture e TDD em Flutter com o objetivo de ter códigos com qualidade, boa manutenção e testáveis, Animações e UI responsivas, e também estou estudando sobre Flutter Web.',
-                  style: Get.textTheme.bodyMedium!.copyWith(),
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: BaseColors.mineShaft,
+                  ),
                 ),
               ],
             ),
@@ -143,6 +147,7 @@ class ContainerExperience extends StatelessWidget {
           title,
           style: Get.textTheme.headline6!.copyWith(
             fontWeight: FontWeight.w700,
+            color: BaseColors.mineShaft,
           ),
         ),
         Container(
@@ -256,6 +261,7 @@ class ItemXpEducation extends StatelessWidget {
                   style: Get.textTheme.bodyText2!.copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 20,
+                    color: BaseColors.mineShaft,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -263,6 +269,7 @@ class ItemXpEducation extends StatelessWidget {
                   xps,
                   style: Get.textTheme.bodyText2!.copyWith(
                     fontWeight: FontWeight.w500,
+                    color: BaseColors.mineShaft,
                   ),
                 ),
               ],

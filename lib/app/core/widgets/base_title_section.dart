@@ -24,6 +24,7 @@ class BaseTitleSection extends StatelessWidget {
               title,
               style: Get.textTheme.headline2!.copyWith(
                 fontWeight: FontWeight.w600,
+                color: BaseColors.mineShaft,
                 fontSize: Responsive.isDesktop() ? 38 : 24,
               ),
             ),

@@ -35,7 +35,9 @@ class Repo extends StatelessWidget {
                 const SizedBox(height: 10),
                 SelectableText(
                   'Esses são alguns dos meus repositórios do GitHub',
-                  style: Get.textTheme.bodyMedium!.copyWith(),
+                  style: Get.textTheme.bodyMedium!.copyWith(
+                    color: BaseColors.mineShaft,
+                  ),
                 ),
                 const SizedBox(height: 60),
                 Query(
@@ -48,7 +50,9 @@ class Repo extends StatelessWidget {
                     if (result.hasException) {
                       return Text(
                         'Opps! Algo deu errado!',
-                        style: Get.textTheme.headline2,
+                        style: Get.textTheme.headline2!.copyWith(
+                          color: BaseColors.mineShaft,
+                        ),
                       );
                     }
                     if (result.isLoading) {
@@ -194,7 +198,9 @@ class Repo extends StatelessWidget {
                                       Text(
                                         'GitHub status',
                                         style:
-                                            Get.textTheme.headline5!.copyWith(),
+                                            Get.textTheme.headline5!.copyWith(
+                                          color: BaseColors.mineShaft,
+                                        ),
                                       ),
                                       const SizedBox(width: 10),
                                       Image.asset(
