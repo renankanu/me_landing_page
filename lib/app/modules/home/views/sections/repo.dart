@@ -210,19 +210,19 @@ class Repo extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: 20),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.network(
-                                        'https://github-readme-stats.vercel.app/api/top-langs/?username=renankanu&layout=compact&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&card_width=446',
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Image.network(
-                                        'https://github-readme-stats.vercel.app/api?username=renankanu&count_private=true&show_icons=true&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&hide_title=true&card_width=400',
-                                      ),
-                                    ],
-                                  ),
+                                  // Column(
+                                  //   crossAxisAlignment:
+                                  //       CrossAxisAlignment.start,
+                                  //   children: [
+                                  //     Image.network(
+                                  //       'https://github-readme-stats.vercel.app/api/top-langs/?username=renankanu&layout=compact&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&card_width=446',
+                                  //     ),
+                                  //     const SizedBox(height: 10),
+                                  //     Image.network(
+                                  //       'https://github-readme-stats.vercel.app/api?username=renankanu&count_private=true&show_icons=true&theme=dracula&bg_color=4D4E5D&locale=pt-BR&title_color=ED595D&hide_title=true&card_width=400',
+                                  //     ),
+                                  //   ],
+                                  // ),
                                 ],
                               ),
                             )

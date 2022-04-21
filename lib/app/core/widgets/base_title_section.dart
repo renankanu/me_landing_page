@@ -20,7 +20,7 @@ class BaseTitleSection extends StatelessWidget {
           children: [
             const DividerUITitle(),
             SizedBox(width: Responsive.isDesktop() ? 40 : 20),
-            SelectableText(
+            Text(
               title,
               style: Get.textTheme.headline2!.copyWith(
                 fontWeight: FontWeight.w600,
