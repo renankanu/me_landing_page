@@ -31,7 +31,7 @@ class BaseContainer extends StatelessWidget {
           ),
           color: backgroundColor ?? Colors.transparent,
           constraints: BoxConstraints(
-            minHeight: Get.height * 0.9,
+            minHeight: Get.height,
             maxWidth: 1440,
             minWidth: 1440,
           ),
