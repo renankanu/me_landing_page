@@ -31,6 +31,13 @@ class AboutMe extends StatelessWidget {
             child: Center(
               child: Visibility(
                 visible: !Responsive.isMobile(),
+                replacement: Column(
+                  children: const [
+                    ContainerAvatar(),
+                    SizedBox(height: 48),
+                    ContainerAbout(),
+                  ],
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,13 +45,6 @@ class AboutMe extends StatelessWidget {
                     Expanded(child: ContainerAbout()),
                     SizedBox(width: 48),
                     Expanded(child: ContainerAvatar()),
-                  ],
-                ),
-                replacement: Column(
-                  children: const [
-                    ContainerAvatar(),
-                    SizedBox(height: 48),
-                    ContainerAbout(),
                   ],
                 ),
               ),

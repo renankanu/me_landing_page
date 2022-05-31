@@ -24,7 +24,7 @@ class BaseSlideAnimation extends StatefulWidget {
   final Function(AnimationController)? callBack;
 
   @override
-  _BaseSlideAnimationState createState() => _BaseSlideAnimationState();
+  State<BaseSlideAnimation> createState() => _BaseSlideAnimationState();
 }
 
 SlideTransition _createSlideAnimation(

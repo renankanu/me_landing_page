@@ -32,16 +32,16 @@ class Footer extends StatelessWidget {
               color: const Color(0xfff1f1f1),
               child: Visibility(
                 visible: Responsive.isDesktop(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                replacement: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: const [
                     Logo(),
                     Copyright(),
                     Email(),
                   ],
                 ),
-                replacement: Column(
-                  mainAxisSize: MainAxisSize.min,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
                     Logo(),
                     Copyright(),

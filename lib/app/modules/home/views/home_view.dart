@@ -17,11 +17,11 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          key: _scaffoldKey,
+          key: scaffoldKey,
           backgroundColor: BaseColors.vistaWhite,
           drawerEnableOpenDragGesture: false,
           appBar: !Responsive.isDesktop()
@@ -34,7 +34,7 @@ class HomeView extends GetView<HomeController> {
                       width: 24,
                     ),
                     onPressed: () {
-                      _scaffoldKey.currentState!.openDrawer();
+                      scaffoldKey.currentState!.openDrawer();
                     },
                   ),
                 )

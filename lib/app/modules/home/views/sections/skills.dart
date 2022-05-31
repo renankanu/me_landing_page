@@ -137,11 +137,11 @@ class _ItemCardSkillState extends State<ItemCardSkill>
             children: [
               Visibility(
                 visible: widget.titleSkill == 'Flutter',
-                child: const FlutterLogo(size: 80),
                 replacement: Image.asset(
                   getIconByName(widget.imageSkill),
                   height: 80,
                 ),
+                child: const FlutterLogo(size: 80),
               ),
               SelectableText(
                 widget.titleSkill,

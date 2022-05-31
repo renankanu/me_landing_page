@@ -40,6 +40,19 @@ class Experience extends StatelessWidget {
                 const SizedBox(height: 60),
                 Visibility(
                   visible: !Responsive.isMobile(),
+                  replacement: Column(
+                    children: [
+                      ContainerExperience(
+                        title: 'EXPERIÊNCIA DE TRABALHO',
+                        itemExperienceEducation: _generateWorkList(),
+                      ),
+                      const SizedBox(height: 20),
+                      ContainerExperience(
+                        title: 'FORMAÇÃO E CURSOS',
+                        itemExperienceEducation: _generateEducationList(),
+                      ),
+                    ],
+                  ),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -54,19 +67,6 @@ class Experience extends StatelessWidget {
                           title: 'FORMAÇÃO E CURSOS',
                           itemExperienceEducation: _generateEducationList(),
                         ),
-                      ),
-                    ],
-                  ),
-                  replacement: Column(
-                    children: [
-                      ContainerExperience(
-                        title: 'EXPERIÊNCIA DE TRABALHO',
-                        itemExperienceEducation: _generateWorkList(),
-                      ),
-                      const SizedBox(height: 20),
-                      ContainerExperience(
-                        title: 'FORMAÇÃO E CURSOS',
-                        itemExperienceEducation: _generateEducationList(),
                       ),
                     ],
                   ),
