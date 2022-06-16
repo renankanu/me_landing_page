@@ -25,51 +25,29 @@ class AboutMe extends StatelessWidget {
             if (visiblePercentage >= 15) {
               controller.selectedIndex = 0;
             }
-            if (visiblePercentage < 99) {
-              controller.isShowArrow = false;
-            } else {
-              controller.isShowArrow = true;
-            }
           },
           child: BaseContainer(
             key: SectionKeys.about,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Center(
-                  child: Visibility(
-                    visible: !Responsive.isMobile(),
-                    replacement: Column(
-                      children: const [
-                        ContainerAvatar(),
-                        SizedBox(height: 48),
-                        ContainerAbout(),
-                      ],
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Expanded(child: ContainerAbout()),
-                        SizedBox(width: 48),
-                        Expanded(child: ContainerAvatar()),
-                      ],
-                    ),
-                  ),
+            child: Center(
+              child: Visibility(
+                visible: !Responsive.isMobile(),
+                replacement: Column(
+                  children: const [
+                    ContainerAvatar(),
+                    SizedBox(height: 48),
+                    ContainerAbout(),
+                  ],
                 ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  child: Obx(
-                    () => Visibility(
-                      visible: controller.isShowArrow,
-                      child: const Icon(
-                        Icons.arrow_downward_rounded,
-                      ),
-                    ),
-                  ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Expanded(child: ContainerAbout()),
+                    SizedBox(width: 48),
+                    Expanded(child: ContainerAvatar()),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         );
