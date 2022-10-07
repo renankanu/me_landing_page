@@ -66,13 +66,14 @@ class Email extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
           BaseImages.icMail,
           height: 20,
         ),
         const SizedBox(width: 10),
-        const SelectableText('renankanu@gmail.com'),
+        const Text('renankanu@gmail.com'),
       ],
     );
   }
