@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
-import '../../../../core/section_keys.dart';
 import '../../controllers/home_controller.dart';
 import '../widgets/social_button.dart';
 
@@ -27,7 +26,6 @@ class AboutMe extends StatelessWidget {
             }
           },
           child: BaseContainer(
-            key: SectionKeys.about,
             child: Center(
               child: Visibility(
                 visible: !Responsive.isMobile(),

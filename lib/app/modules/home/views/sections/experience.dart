@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
-import '../../../../core/section_keys.dart';
 import '../../../../core/widgets/base_title_section.dart';
 import '../../../../data/model/item_experience_education.dart';
 import '../../controllers/home_controller.dart';
@@ -25,7 +24,6 @@ class Experience extends StatelessWidget {
             }
           },
           child: BaseContainer(
-            key: SectionKeys.experience,
             child: Column(
               children: [
                 const BaseTitleSection(title: 'Meu Resumo'),
