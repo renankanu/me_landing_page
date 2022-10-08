@@ -18,7 +18,6 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    await initMixpanel();
     await getAllSkills();
     super.onInit();
   }
@@ -28,13 +27,5 @@ class HomeController extends GetxController {
     for (final doc in querySnapshot.docs) {
       _skills.add(Skill.fromJson(doc.data()));
     }
-  }
-
-  Future<void> initMixpanel() async {
-    mixpanel = await Mixpanel.init(
-      '01e581dd7095e6b787b078e47fe5d333',
-      optOutTrackingDefault: false,
-      trackAutomaticEvents: true,
-    );
   }
 }
