@@ -17,9 +17,9 @@ class HomeController extends GetxController {
   set selectedIndex(int value) => _selectedIndex.value = value;
 
   @override
-  void onInit() {
-    initMixpanel();
-    getAllSkills();
+  Future<void> onInit() async {
+    await initMixpanel();
+    await getAllSkills();
     super.onInit();
   }
 
