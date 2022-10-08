@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:mixpanel_flutter/mixpanel_flutter.dart';
 
 import '../../../data/model/skill.dart';
 
 class HomeController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  late Mixpanel mixpanel;
 
   final RxList<Skill> _skills = RxList<Skill>();
   final RxInt _selectedIndex = RxInt(0);
