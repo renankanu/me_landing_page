@@ -1,12 +1,11 @@
+import 'package:amplitude_flutter/amplitude.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:mixpanel_flutter/mixpanel_flutter.dart';
 
 import '../../../data/model/skill.dart';
 
 class HomeController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  late Mixpanel mixpanel;
 
   final RxList<Skill> _skills = RxList<Skill>();
   final RxInt _selectedIndex = RxInt(0);
@@ -18,8 +17,8 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    await initMixpanel();
     await getAllSkills();
+    await initAmplitude();
     super.onInit();
   }
 
@@ -30,11 +29,16 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<void> initMixpanel() async {
-    mixpanel = await Mixpanel.init(
-      '01e581dd7095e6b787b078e47fe5d333',
-      optOutTrackingDefault: false,
-      trackAutomaticEvents: true,
+  Future<void> initAmplitude() async {
+    final Amplitude analytics = Amplitude.getInstance(instanceName: 'project');
+
+    analytics.init('b2aa03906e56cf33c6668d7d4208f6d6');
+    analytics.setUserId('test_user');
+    analytics.trackingSessionEvents(true);
+
+    analytics.logEvent(
+      'RenanKanu;',
+      eventProperties: {'friend_num': 10, 'is_heavy_user': true},
     );
   }
 }

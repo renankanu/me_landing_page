@@ -22,7 +22,7 @@ dependencies:
   visibility_detector: ^0.3.3
   flutter_staggered_animations: ^1.0.0
   google_fonts: ^3.0.1
-  mixpanel_flutter: ^2.0.0
+  amplitude_flutter: ^3.10.0
 
 dev_dependencies:
   build_runner: ^2.1.7
