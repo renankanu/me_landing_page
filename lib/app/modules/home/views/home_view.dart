@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../core/animations.dart';
 import '../../../core/colors.dart';
@@ -14,7 +15,14 @@ import 'sections/skills.dart';
 import 'widgets/left_menu.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
+  final _myListSection = [
+    const AboutMe(),
+    const Skills(),
+    const Repo(),
+    const Experience(),
+    const Footer(),
+  ];
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -41,16 +49,13 @@ class HomeView extends GetView<HomeController> {
               : null,
           body: Stack(
             children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: const [
-                    AboutMe(),
-                    Skills(),
-                    Repo(),
-                    Experience(),
-                    Footer(),
-                  ],
-                ),
+              ScrollablePositionedList.builder(
+                itemScrollController: controller.scrollController,
+                itemCount: _myListSection.length,
+                minCacheExtent: 10,
+                itemBuilder: (context, index) {
+                  return _myListSection[index];
+                },
               ),
               Visibility(
                 visible: Responsive.isDesktop(),

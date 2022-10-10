@@ -6,7 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../../core/core.dart';
-import '../../../../core/section_keys.dart';
 import '../../../../core/utils/date_format_util.dart';
 import '../../../../core/widgets/base_title_section.dart';
 import '../../controllers/home_controller.dart';
@@ -28,7 +27,6 @@ class Repo extends StatelessWidget {
             }
           },
           child: BaseContainer(
-            key: SectionKeys.repositories,
             child: Column(
               children: [
                 const BaseTitleSection(title: 'Repositórios'),

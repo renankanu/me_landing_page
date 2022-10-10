@@ -3,13 +3,12 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/core.dart';
-import '../../../../core/section_keys.dart';
 import '../../controllers/home_controller.dart';
 
 class LeftMenu extends StatelessWidget {
   LeftMenu({Key? key}) : super(key: key);
   final _controller = Get.find<HomeController>();
-  final List<Map<String, String>> _listaTarefas = [
+  final List<Map<String, String>> _taskList = [
     {
       'icon': BaseImages.icHome,
       'icon_selected': BaseImages.icHomeSelected,
@@ -26,13 +25,6 @@ class LeftMenu extends StatelessWidget {
       'icon': BaseImages.icExperience,
       'icon_selected': BaseImages.icExperienceSelected
     },
-  ];
-
-  final List<GlobalKey<State<StatefulWidget>>> _sectionsNames = [
-    SectionKeys.about,
-    SectionKeys.skills,
-    SectionKeys.repositories,
-    SectionKeys.experience,
   ];
 
   void scrollToSpecificContext(BuildContext context) {
@@ -77,19 +69,16 @@ class LeftMenu extends StatelessWidget {
                 thickness: 1,
                 height: 1,
               ),
-              ..._listaTarefas.map(
+              ..._taskList.map(
                 (sectionIcon) {
-                  final index = _listaTarefas.indexOf(sectionIcon);
+                  final index = _taskList.indexOf(sectionIcon);
                   return Obx(
                     () => MenuButton(
                       isSelected: index == _controller.selectedIndex,
                       assetIcon: sectionIcon['icon']!,
                       assetIconSelected: sectionIcon['icon_selected']!,
                       onTap: () {
-                        scrollToSpecificContext(
-                          _sectionsNames[index].currentContext!,
-                        );
-                        _controller.selectedIndex = index;
+                        _controller.scrollToIndex(index);
                       },
                     ),
                   );
