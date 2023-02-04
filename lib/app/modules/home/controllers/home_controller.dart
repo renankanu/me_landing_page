@@ -1,3 +1,4 @@
+import 'package:amplitude_flutter/amplitude.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class HomeController extends GetxController {
   @override
   Future<void> onInit() async {
     await getAllSkills();
+    await initAmplitude();
     super.onInit();
   }
 
@@ -35,6 +37,19 @@ class HomeController extends GetxController {
       index: index,
       duration: const Duration(seconds: 1),
       curve: Curves.fastOutSlowIn,
+    );
+  }
+
+  Future<void> initAmplitude() async {
+    final Amplitude analytics = Amplitude.getInstance(instanceName: 'project');
+
+    analytics.init('b2aa03906e56cf33c6668d7d4208f6d6');
+    analytics.setUserId('test_user');
+    analytics.trackingSessionEvents(true);
+
+    analytics.logEvent(
+      'RenanKanu;',
+      eventProperties: {'friend_num': 10, 'is_heavy_user': true},
     );
   }
 }
