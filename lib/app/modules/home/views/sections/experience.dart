@@ -143,7 +143,7 @@ class ContainerExperience extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Get.textTheme.headline6!.copyWith(
+          style: Get.textTheme.titleLarge!.copyWith(
             fontWeight: FontWeight.w700,
             color: BaseColors.mineShaft,
           ),
@@ -247,7 +247,7 @@ class ItemXpEducation extends StatelessWidget {
                   ),
                   child: Text(
                     period,
-                    style: Get.textTheme.bodyText2!.copyWith(
+                    style: Get.textTheme.bodyMedium!.copyWith(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
@@ -256,7 +256,7 @@ class ItemXpEducation extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   titleItem,
-                  style: Get.textTheme.bodyText2!.copyWith(
+                  style: Get.textTheme.bodyMedium!.copyWith(
                     fontWeight: FontWeight.w700,
                     fontSize: 20,
                     color: BaseColors.mineShaft,
@@ -265,7 +265,7 @@ class ItemXpEducation extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   xps,
-                  style: Get.textTheme.bodyText2!.copyWith(
+                  style: Get.textTheme.bodyMedium!.copyWith(
                     fontWeight: FontWeight.w500,
                     color: BaseColors.mineShaft,
                   ),

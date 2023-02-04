@@ -143,7 +143,7 @@ class _ItemCardSkillState extends State<ItemCardSkill>
               ),
               SelectableText(
                 widget.titleSkill,
-                style: Get.textTheme.headline6!.copyWith(
+                style: Get.textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.w500,
                   color: BaseColors.trout,
                 ),

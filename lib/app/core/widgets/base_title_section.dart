@@ -22,7 +22,7 @@ class BaseTitleSection extends StatelessWidget {
             SizedBox(width: Responsive.isDesktop() ? 40 : 20),
             Text(
               title,
-              style: Get.textTheme.headline2!.copyWith(
+              style: Get.textTheme.displayMedium!.copyWith(
                 fontWeight: FontWeight.w600,
                 color: BaseColors.mineShaft,
                 fontSize: Responsive.isDesktop() ? 38 : 24,

@@ -92,7 +92,7 @@ class Copyright extends StatelessWidget {
         children: [
           Text(
             '© Copyright ${DateTime.now().year} | Renan Santos de Oliveira',
-            style: Get.textTheme.headline5!.copyWith(
+            style: Get.textTheme.headlineSmall!.copyWith(
               color: BaseColors.mineShaft,
               fontSize: 12,
               fontWeight: FontWeight.w500,
@@ -100,7 +100,7 @@ class Copyright extends StatelessWidget {
           ),
           Text(
             'Feito com Flutter 💙',
-            style: Get.textTheme.headline5!.copyWith(
+            style: Get.textTheme.headlineSmall!.copyWith(
               color: BaseColors.mineShaft,
               fontSize: 12,
               fontWeight: FontWeight.w500,

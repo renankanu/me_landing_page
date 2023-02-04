@@ -117,14 +117,14 @@ class ContainerAbout extends StatelessWidget {
         children: [
           SelectableText(
             'Olá!',
-            style: Get.textTheme.headline5!.copyWith(
+            style: Get.textTheme.headlineSmall!.copyWith(
               color: BaseColors.mineShaft,
             ),
           ),
           const SizedBox(height: 16),
           SelectableText(
             'Eu sou Renan Santos. Desenvolvedor Flutter.',
-            style: Get.textTheme.headline3!.copyWith(
+            style: Get.textTheme.displaySmall!.copyWith(
               fontWeight: FontWeight.w600,
               color: BaseColors.mineShaft,
               fontSize: 40,
@@ -133,7 +133,7 @@ class ContainerAbout extends StatelessWidget {
           const SizedBox(height: 48),
           SelectableText(
             'Sou desenvolvedor na Megaleios, sou de Cianorte-PR. Trabalho com desenvolvimento desde 2016, conheço algumas tecnologias mas hoje estou focado em Flutter.',
-            style: Get.textTheme.bodyText2!.copyWith(
+            style: Get.textTheme.bodyMedium!.copyWith(
               fontSize: 18,
               color: BaseColors.mineShaft,
             ),
@@ -145,14 +145,16 @@ class ContainerAbout extends StatelessWidget {
                 iconName: BaseImages.icLinkedin,
                 color: BaseColors.cornflowerBlue,
                 onPressed: () async {
-                  await launch('https://www.linkedin.com/in/renansantosbr/');
+                  await launchUrl(
+                    Uri.parse('https://www.linkedin.com/in/renansantosbr/'),
+                  );
                 },
               ),
               SocialButton(
                 iconName: BaseImages.icGithub,
                 color: BaseColors.deepBlush,
                 onPressed: () async {
-                  await launch('https://github.com/renankanu');
+                  await launchUrl(Uri.parse('https://github.com/renankanu'));
                 },
               ),
             ],
@@ -169,7 +171,7 @@ class ContainerAbout extends StatelessWidget {
             ),
             child: SelectableText(
               'Flutter Mobile Developer',
-              style: Get.textTheme.button!.copyWith(
+              style: Get.textTheme.labelLarge!.copyWith(
                 color: Colors.white,
               ),
             ),

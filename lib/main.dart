@@ -1,4 +1,3 @@
-import 'package:amplitude_flutter/amplitude.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -31,7 +30,6 @@ class App extends StatelessWidget {
     final AuthLink authLink = AuthLink(getToken: () async => 'Bearer $token');
 
     final Link link = authLink.concat(httpLink);
-    Amplitude.getInstance().init('b2aa03906e56cf33c6668d7d4208f6d6');
     final client = ValueNotifier(
       GraphQLClient(
         cache: GraphQLCache(store: InMemoryStore()),

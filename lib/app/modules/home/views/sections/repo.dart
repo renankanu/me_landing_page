@@ -48,7 +48,7 @@ class Repo extends StatelessWidget {
                     if (result.hasException) {
                       return Text(
                         'Opps! Algo deu errado!',
-                        style: Get.textTheme.headline2!.copyWith(
+                        style: Get.textTheme.displayMedium!.copyWith(
                           color: BaseColors.mineShaft,
                         ),
                       );
@@ -83,8 +83,9 @@ class Repo extends StatelessWidget {
                                         Responsive.isDesktop() ? 400 : 480,
                                   ),
                                   child: GestureDetector(
-                                    onTap: () =>
-                                        launch(repository['url'] as String),
+                                    onTap: () => launchUrl(
+                                      Uri.parse(repository['url'] as String),
+                                    ),
                                     child: Card(
                                       shadowColor: BaseColors.ebonyClay,
                                       elevation: 5,
@@ -100,7 +101,7 @@ class Repo extends StatelessWidget {
                                           children: [
                                             Text(
                                               repository['name'].toString(),
-                                              style: Get.textTheme.bodyText1!
+                                              style: Get.textTheme.bodyLarge!
                                                   .copyWith(
                                                 color: Colors.white,
                                               ),
@@ -111,7 +112,7 @@ class Repo extends StatelessWidget {
                                               child: Text(
                                                 repository['description']
                                                     .toString(),
-                                                style: Get.textTheme.bodyText2!
+                                                style: Get.textTheme.bodyMedium!
                                                     .copyWith(
                                                   color: Colors.white,
                                                 ),
@@ -195,8 +196,8 @@ class Repo extends StatelessWidget {
                                     children: [
                                       Text(
                                         'GitHub status',
-                                        style:
-                                            Get.textTheme.headline5!.copyWith(
+                                        style: Get.textTheme.headlineSmall!
+                                            .copyWith(
                                           color: BaseColors.mineShaft,
                                         ),
                                       ),
