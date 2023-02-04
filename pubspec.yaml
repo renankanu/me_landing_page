@@ -13,7 +13,7 @@ dependencies:
   url_strategy: ^0.2.0
   cloud_firestore: ^4.3.1
   firebase_core: ^2.4.1
-  graphql_flutter: ^5.0.1
+  graphql_flutter: ^5.1.2
   flutter_dotenv: ^5.0.2
   hexcolor: ^3.0.1
   intl: ^0.18.0
