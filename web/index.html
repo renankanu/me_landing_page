@@ -1,149 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <base href="$FLUTTER_BASE_HREF" />
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação"
-    />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta
-      property="og:description"
-      content="Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação"
-    />
-    <meta property="og:site_name" content="RenanKanu;" />
-    <meta
-      property="og:image"
-      content="https://user-images.githubusercontent.com/7094345/128904233-167de18c-8281-4efa-b0bd-c4c719ef0260.png"
-    />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="400" />
-    <meta property="og:title" content="RenanKanu;">
-    <meta property="og:type" content="landing-page">
-    <meta property="article:published_time" content="${mod.createTime.toIso8601String()}" />
-    <meta property="article:modified_time" content="${mod.lastUpdate.toIso8601String()}" />
-    <meta name="keywords" content="kanu,renankanu,dart,fluter">
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
 
-    <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="me_landing_page" />
-    <meta name="theme-color" content="#FFFFFF" />
-    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
 
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
-    <title>RenanKanu;</title>
-    <link rel="manifest" href="manifest.json" as="json" />
-    <link rel="preload" href="main.dart.js" as="script">
-    <link rel="stylesheet preload prefetch" type="text/css" media="screen" href="style.css" as="style"/>
-    
-  </head>
-  <body>
-    <div class="container">
-      <div class="logo">
-        <img src="./assets/assets/renankanu.svg" alt="">
-      </div>
-      <div class="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <script type="text/javascript" defer>
-        (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-         ;r.type="text/javascript"
-         ;r.integrity="sha384-UcvEbHmT0LE2ZB30Y3FmY3Nfw6puAKXz/LpCFuoywywYikMOr/519Uu1yNq2nL9w"
-         ;r.crossOrigin="anonymous";r.async=true
-         ;r.src="https://cdn.amplitude.com/libs/amplitude-8.12.0-min.gz.js"
-         ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
-         console.log("[Amplitude] Error: could not load SDK")}}
-         ;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(r,s)
-         ;function i(e,t){e.prototype[t]=function(){
-         this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-         var o=function(){this._q=[];return this}
-         ;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
-         ;for(var c=0;c<a.length;c++){i(o,a[c])}n.Identify=o;var u=function(){this._q=[]
-         ;return this}
-         ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-         ;for(var p=0;p<l.length;p++){i(u,l[p])}n.Revenue=u
-         ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId","getDeviceId","getUserId","setMinTimeBetweenSessionsMillis","setEventUploadThreshold","setUseDynamicConfig","setServerZone","setServerUrl","sendEvents","setLibrary","setTransport"]
-         ;function v(e){function t(t){e[t]=function(){
-         e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-         for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
-         e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-         ;if(!Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])
-         }return n._iq[e]};e.amplitude=n})(window,document);
-    </script>     
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyAHX5RE0ihVqQJM_h6rYmdasFdopwi6xYY",
-        authDomain: "me-landing-page-renankanu.firebaseapp.com",
-        projectId: "me-landing-page-renankanu",
-        storageBucket: "me-landing-page-renankanu.appspot.com",
-        messagingSenderId: "812718951261",
-        appId: "1:812718951261:web:e01caf5a8ab4847a3b36b4",
-        measurementId: "G-5MQQGBYRH5",
-      };
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
 
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
-    <script>
-      var serviceWorkerVersion = null;
-      var scriptLoaded = false;
-      function loadMainDartJs() {
-        if (scriptLoaded) {
-          return;
-        }
-        scriptLoaded = true;
-        var scriptTag = document.createElement("script");
-        scriptTag.src = "main.dart.js";
-        scriptTag.type = "application/javascript";
-        document.body.append(scriptTag);
-      }
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
 
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          var serviceWorkerUrl =
-            "flutter_service_worker.js?v=" + serviceWorkerVersion;
-          navigator.serviceWorker.register(serviceWorkerUrl).then((reg) => {
-            function waitForActivation(serviceWorker) {
-              serviceWorker.addEventListener("statechange", () => {
-                if (serviceWorker.state == "activated") {
-                  console.log("Installed new service worker.");
-                  loadMainDartJs();
-                }
-              });
-            }
-            if (!reg.active && (reg.installing || reg.waiting)) {
-              waitForActivation(reg.installing || reg.waiting);
-            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-              console.log("New service worker available.");
-              reg.update();
-              waitForActivation(reg.installing);
-            } else {
-              console.log("Loading app from service worker.");
-              loadMainDartJs();
-            }
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="me_landing_page">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>me_landing_page</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+</head>
+<body>
+  <script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
           });
-          setTimeout(() => {
-            if (!scriptLoaded) {
-              console.warn(
-                "Failed to load app from service worker. Falling back to plain <script> tag."
-              );
-              loadMainDartJs();
-            }
-          }, 4000);
-        });
-      } else {
-        loadMainDartJs();
-      }
-    </script>
-  </body>
+        }
+      });
+    });
+  </script>
+</body>
 </html>
