@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/pages/home/widgets/menu.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -6,7 +7,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: ListView(
+        children: const [
+          Menu(),
+        ],
+      ),
     );
   }
 }
