@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -5,24 +7,41 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 100),
-      color: Colors.black,
-      child: Row(
-        children: [
-          TextButton(
-            onPressed: () {},
-            child: const Text('Home'),
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 10.0,
+          sigmaY: 10.0,
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.grey.withAlpha(20),
+                Colors.grey.withAlpha(20),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('About'),
+          padding: const EdgeInsets.all(24),
+          child: Row(
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: const Text('Home'),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('About'),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Contact'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Contact'),
-          ),
-        ],
+        ),
       ),
     );
   }
