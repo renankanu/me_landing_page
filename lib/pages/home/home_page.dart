@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/pages/home/widgets/about_me.dart';
 import 'package:me_landing_page/pages/home/widgets/menu.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: const [
           Menu(),
+          AboutMe(),
         ],
       ),
     );

@@ -6,6 +6,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: const BoxConstraints(maxWidth: 100),
       color: Colors.black,
       child: Row(
         children: [
