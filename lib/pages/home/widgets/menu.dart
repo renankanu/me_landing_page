@@ -9,10 +9,7 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRect(
       child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 10.0,
-          sigmaY: 10.0,
-        ),
+        filter: ImageFilter.blur(sigmaX: 8, sigmaY: 16),
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

@@ -16,8 +16,6 @@ class _HomePageState extends State<HomePage> {
   final _scrollListener = ItemPositionsListener.create();
   final _listSections = [
     const AboutMe(),
-    const AboutMe(),
-    const AboutMe(),
   ];
 
   @override
