@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SocialButton extends StatefulWidget {
@@ -7,11 +8,13 @@ class SocialButton extends StatefulWidget {
     required this.buttonColor,
     required this.shadowColor,
     required this.name,
+    required this.icon,
   }) : super(key: key);
 
   final Color buttonColor;
   final Color shadowColor;
   final String name;
+  final String icon;
 
   @override
   State<SocialButton> createState() => _SocialButtonState();
@@ -60,7 +63,6 @@ class _SocialButtonState extends State<SocialButton> {
             ],
             color: _hoverColor,
           ),
-          padding: const EdgeInsets.all(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -70,25 +72,15 @@ class _SocialButtonState extends State<SocialButton> {
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   )),
-              const SizedBox(width: 6),
-              SizedBox(
-                width: 22,
-                height: 22,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 22,
-                      height: 22,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const FlutterLogo(size: 22),
-                    ),
-                  ],
+              const SizedBox(width: 20),
+              SvgPicture.asset(
+                widget.icon,
+                colorFilter: const ColorFilter.mode(
+                  Colors.white,
+                  BlendMode.srcIn,
                 ),
+                height: 32,
+                width: 32,
               ),
             ],
           ),

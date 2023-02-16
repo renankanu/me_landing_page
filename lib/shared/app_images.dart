@@ -6,4 +6,8 @@ abstract class AppImages {
   static const String one = 'assets/images/one.png';
   static const String two = 'assets/images/two.png';
   static const String three = 'assets/images/three.png';
+
+  //icons
+  static const String github = 'assets/icons/github.svg';
+  static const String linkedin = 'assets/icons/linkedin.svg';
 }

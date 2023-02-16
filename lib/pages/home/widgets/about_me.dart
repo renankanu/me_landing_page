@@ -69,17 +69,20 @@ Eu sou apaixonado por tecnologia e adoro aprender coisas novas.''',
                             name: 'GitHub',
                             buttonColor: AppColors.riverBed,
                             shadowColor: Color(0x19000000),
+                            icon: AppImages.github,
                           ),
                           SizedBox(width: 20),
                           SocialButton(
                             name: 'LinkedIn',
                             buttonColor: AppColors.blueChill,
                             shadowColor: Color(0x3314b8a6),
+                            icon: AppImages.linkedin,
                           ),
                         ],
                       ),
                     ],
                   ),
+                  const SizedBox(width: 100),
                   Stack(
                     children: [
                       Padding(
@@ -87,13 +90,13 @@ Eu sou apaixonado por tecnologia e adoro aprender coisas novas.''',
                         child: Image.asset(
                           AppImages.one,
                           fit: BoxFit.contain,
-                          height: 306,
-                          width: 306,
+                          height: 406,
+                          width: 406,
                         ),
                       ),
                       Container(
-                        height: 308,
-                        width: 308,
+                        height: 408,
+                        width: 408,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(300),
                           border: Border.all(
