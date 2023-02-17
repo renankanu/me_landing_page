@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:me_landing_page/shared/utils/app_responsive.dart';
+import 'package:me_landing_page/shared/widgets/avatar_animation.dart';
 
 import '../../../shared/widgets/social_button.dart';
 
@@ -35,7 +36,7 @@ class AboutMe extends StatelessWidget {
             child: Image.asset(
               AppImages.bg,
               fit: BoxFit.none,
-              height: 600,
+              height: 460,
               width: constraints.maxWidth,
               color: Colors.grey[700]!.withOpacity(0.2),
             ),
@@ -44,7 +45,7 @@ class AboutMe extends StatelessWidget {
             child: Container(
               constraints: const BoxConstraints(maxWidth: 1200),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(padding, 160, padding, 0),
+                padding: EdgeInsets.fromLTRB(padding, 160, 8, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -72,9 +73,7 @@ class AboutMe extends StatelessWidget {
                           SelectableText(
                             '''Sou desenvolvedor na Megaleios, sou de Cianorte-PR.
 Trabalho com desenvolvimento desde 2016,
-conheço algumas tecnologias mas hoje estou focado em Flutter.
-                                
-Eu sou apaixonado por tecnologia e adoro aprender coisas novas.''',
+conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: 18,
@@ -101,30 +100,34 @@ Eu sou apaixonado por tecnologia e adoro aprender coisas novas.''',
                         ],
                       ),
                     ),
-                    const SizedBox(width: 100),
-                    Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(1),
-                          child: Image.asset(
-                            AppImages.one,
-                            fit: BoxFit.contain,
-                            height: 406,
-                            width: 406,
-                          ),
-                        ),
-                        Container(
-                          height: 408,
-                          width: 408,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(300),
-                            border: Border.all(
-                              color: AppColors.ebonyClay,
-                              width: 6,
+                    Padding(
+                      padding: EdgeInsets.only(left: padding),
+                      child: AvatarAnimation(
+                        child: Stack(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(1),
+                              child: Image.asset(
+                                AppImages.three,
+                                fit: BoxFit.contain,
+                                height: 406,
+                                width: 406,
+                              ),
                             ),
-                          ),
+                            Container(
+                              height: 408,
+                              width: 408,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(300),
+                                border: Border.all(
+                                  color: AppColors.blueChill,
+                                  width: 6,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
