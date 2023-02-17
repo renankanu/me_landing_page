@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 
+import 'flutter_path.dart';
+
 class AvatarAnimation extends StatefulWidget {
   const AvatarAnimation({
     Key? key,
@@ -10,7 +12,7 @@ class AvatarAnimation extends StatefulWidget {
     this.outerIconsSize = 3,
     this.innerIconsSize = 3,
     this.innerColor = AppColors.blueChill,
-    this.outerColor = AppColors.blueChill,
+    this.outerColor = AppColors.burntSienna,
     this.reverse = true,
     this.size = 488,
     this.innerAnimationSeconds = 30,
@@ -182,35 +184,16 @@ class Arc2Painter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     final Rect rect = Rect.fromLTWH(0.0, 0.0, size.width, size.height);
-
-    // draw the three arcs
     canvas.drawArc(rect, 0.0, 0.67 * pi, false, p);
-    canvas.drawArc(rect, 0.74 * pi, 0.65 * pi, false, p);
-    canvas.drawArc(rect, 1.46 * pi, 0.47 * pi, false, p);
+    canvas.drawArc(rect, 0.74 * pi, 0.56 * pi, false, p);
+    canvas.drawArc(rect, 1.40 * pi, 0.54 * pi, false, p);
 
-    //first shape
-    canvas.drawRect(
-        Rect.fromLTWH(size.width * 0.2 - iconsSize,
-            size.width * 0.9 - iconsSize, iconsSize * 2, iconsSize * 2),
-        p);
-
-    //second shape
-    //draw the inner cross
-    final centerX = size.width * 0.385;
-    final centerY = size.width * 0.015;
-    final lineLength = iconsSize / 2;
-    canvas.drawLine(Offset(centerX - lineLength, centerY + lineLength),
-        Offset(centerX + lineLength, centerY - lineLength), p);
-    canvas.drawLine(Offset(centerX + lineLength, centerY + lineLength),
-        Offset(centerX - lineLength, centerY - lineLength), p);
-    // the circle
-    canvas.drawCircle(Offset(centerX, centerY), iconsSize + 1, p);
-
-    // third shape
-    canvas.drawOval(
-        Rect.fromLTWH(size.width - iconsSize * 1.5,
-            size.width * 0.445 - iconsSize, iconsSize * 3, iconsSize * 2),
-        p);
+    p.style = PaintingStyle.fill;
+    canvas.drawPath(pathGit.shift(const Offset(100, 0)), p);
+    canvas.rotate(pi / 2);
+    canvas.drawPath(pathFlutter.shift(const Offset(176, -470)), p);
+    canvas.rotate(pi / 4);
+    canvas.drawPath(pathDart.shift(const Offset(208, -360)), p);
   }
 
   @override
