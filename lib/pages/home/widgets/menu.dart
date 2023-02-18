@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:me_landing_page/shared/app_images.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
@@ -24,12 +25,18 @@ class Menu extends StatelessWidget {
               end: Alignment.bottomRight,
             ),
           ),
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(12),
           child: Center(
             child: Container(
               constraints: const BoxConstraints(maxWidth: 1200),
               child: Row(
                 children: [
+                  Image.asset(
+                    AppImages.logo,
+                    width: 50,
+                    height: 50,
+                  ),
+                  const SizedBox(width: 20),
                   ItemMenu(
                     label: 'Home',
                     onPressed: () {},
@@ -65,14 +72,21 @@ class ItemMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      child: Text(label,
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
-          )),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Text(label,
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                ),
+              )),
+        ),
+      ),
     );
   }
 }

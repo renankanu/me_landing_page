@@ -6,4 +6,5 @@ abstract class AppImages {
   //icons
   static const String github = 'assets/icons/github.svg';
   static const String linkedin = 'assets/icons/linkedin.svg';
+  static const String logo = 'assets/icons/icon.png';
 }
