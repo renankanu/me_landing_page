@@ -105,11 +105,10 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                       child: AvatarAnimation(
                         child: Stack(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.all(1),
+                            ClipOval(
                               child: Image.asset(
-                                AppImages.three,
-                                fit: BoxFit.contain,
+                                AppImages.renanFour,
+                                fit: BoxFit.fill,
                                 height: 406,
                                 width: 406,
                               ),
