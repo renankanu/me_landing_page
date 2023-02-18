@@ -12,7 +12,7 @@ class AvatarAnimation extends StatefulWidget {
     this.outerIconsSize = 3,
     this.innerIconsSize = 3,
     this.innerColor = AppColors.blueChill,
-    this.outerColor = AppColors.burntSienna,
+    this.outerColor = AppColors.boulder,
     this.reverse = true,
     this.size = 488,
     this.innerAnimationSeconds = 30,
@@ -189,9 +189,9 @@ class Arc2Painter extends CustomPainter {
     canvas.drawArc(rect, 1.40 * pi, 0.54 * pi, false, p);
 
     p.style = PaintingStyle.fill;
-    canvas.drawPath(pathGit.shift(const Offset(100, 0)), p);
+    canvas.drawPath(pathGit.shift(const Offset(108, 10)), p);
     canvas.rotate(pi / 2);
-    canvas.drawPath(pathFlutter.shift(const Offset(176, -470)), p);
+    canvas.drawPath(pathFlutter.shift(const Offset(184, -460)), p);
     canvas.rotate(pi / 4);
     canvas.drawPath(pathDart.shift(const Offset(208, -360)), p);
   }

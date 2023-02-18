@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Path get pathGit {
-  const size = 36;
+  const size = 24;
   Path path = Path();
   path.moveTo(size * 0.1083333, size * 0.4412500);
   path.lineTo(size * 0.3491667, size * 0.2000000);
@@ -85,7 +85,7 @@ Path get pathGit {
 }
 
 Path get pathFlutter {
-  const size = 36;
+  const size = 24;
   Path path_0 = Path();
   path_0.moveTo(size * 0.5909062, size * 0.4637500);
   path_0.lineTo(size * 0.3382187, size * 0.7159375);
@@ -105,7 +105,7 @@ Path get pathFlutter {
 }
 
 Path get pathDart {
-  const size = 36;
+  const size = 24;
   Path path = Path();
   path.moveTo(size * 0.6887188, size * 0.1921563);
   path.cubicTo(size * 0.6536563, size * 0.1572187, size * 0.6181563,
