@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
 class Menu extends StatelessWidget {
@@ -11,15 +12,15 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRect(
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 8, sigmaY: 16),
+        filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
         child: Container(
           width: double.infinity,
           height: 80,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Colors.grey.withAlpha(20),
-                Colors.grey.withAlpha(20),
+                AppColors.ebonyClay.withOpacity(0.6),
+                AppColors.ebonyClay.withOpacity(0.6),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

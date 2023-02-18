@@ -63,10 +63,13 @@ class Skills extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: IconButton(
                         onPressed: () {
+                          if (scrollController.offset == 0) {
+                            return;
+                          }
                           scrollController.animateTo(
                             scrollController.offset - 700,
                             duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
+                            curve: Curves.bounceInOut,
                           );
                         },
                         icon: const Icon(
