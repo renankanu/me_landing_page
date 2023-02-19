@@ -90,35 +90,9 @@ class Skills extends StatelessWidget {
                         itemCount: _mySkills.length,
                         itemBuilder: (context, index) {
                           final skill = _mySkills[index];
-                          return Container(
-                            height: 240,
-                            width: 240,
-                            padding: const EdgeInsets.all(10),
-                            margin: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: AppColors.boulder.withOpacity(0.3),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  skill.name,
-                                  style: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w700,
-                                    letterSpacing: 3,
-                                  ),
-                                ),
-                                SvgPicture.asset(
-                                  skill.image,
-                                  width: 100,
-                                  height: 100,
-                                ),
-                              ],
-                            ),
+                          return ItemSkill(
+                            skill: skill,
+                            isEven: index % 2 == 0,
                           );
                         },
                       ),
@@ -166,5 +140,95 @@ class Skills extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class ItemSkill extends StatefulWidget {
+  const ItemSkill({
+    super.key,
+    required this.skill,
+    this.isEven = false,
+  });
+
+  final Skill skill;
+  final bool isEven;
+
+  @override
+  State<ItemSkill> createState() => _ItemSkillState();
+}
+
+class _ItemSkillState extends State<ItemSkill> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 100),
+      vsync: this,
+    );
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOutBack,
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) {
+        _controller.forward();
+      },
+      onExit: (_) {
+        _controller.reverse();
+      },
+      child: ScaleTransition(
+        scale: Tween(begin: 1.0, end: 1.1).animate(_animation),
+        child: RotationTransition(
+          // turns: Tween(begin: 0.0, end: 0.01).animate(_animation),
+          turns: Tween(begin: 0.0, end: widget.isEven ? 0.01 : -0.01)
+              .animate(_animation),
+          child: Container(
+            height: 240,
+            width: 240,
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColors.boulder.withOpacity(0.3),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  widget.skill.name,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 3,
+                  ),
+                ),
+                SvgPicture.asset(
+                  widget.skill.image,
+                  width: 100,
+                  height: 100,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
