@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:me_landing_page/model/skill.dart';
+import 'package:me_landing_page/shared/app_images.dart';
 
 import '../../../shared/utils/app_responsive.dart';
 
 class Skills extends StatelessWidget {
   const Skills({Key? key}) : super(key: key);
+
+  List<Skill> get _mySkills => [
+        Skill(name: 'Flutter', image: AppImages.flutter),
+        Skill(name: 'Dart', image: AppImages.dart),
+        Skill(name: 'Firebase', image: AppImages.firebase),
+        Skill(name: 'Kotlin', image: AppImages.kotlin),
+        Skill(name: 'React Native', image: AppImages.rn),
+        Skill(name: 'Google Play', image: AppImages.googlePlay),
+        Skill(name: 'App Store', image: AppImages.appStore),
+        Skill(name: 'AWS', image: AppImages.aws),
+        Skill(name: 'Docker', image: AppImages.docker),
+        Skill(name: 'Git', image: AppImages.git),
+        Skill(name: 'JavaScript', image: AppImages.js),
+        Skill(name: 'TypeScript', image: AppImages.ts),
+        Skill(name: 'PHP', image: AppImages.php),
+        Skill(name: 'Linux', image: AppImages.linux),
+        Skill(name: 'Postman', image: AppImages.postman),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,20 +63,46 @@ class Skills extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 200,
                 child: Stack(
                   children: [
                     ListView.builder(
                       scrollDirection: Axis.horizontal,
                       controller: scrollController,
-                      itemCount: 17,
+                      itemCount: _mySkills.length,
                       itemBuilder: (context, index) {
-                        final color = Colors.primaries[index];
-                        return Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 20),
-                          height: 100,
-                          width: 100,
-                          color: color,
+                        final skill = _mySkills[index];
+                        return Center(
+                          child: Container(
+                            height: 200,
+                            width: 200,
+                            padding: const EdgeInsets.all(10),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.black.withOpacity(0.5),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  skill.name,
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 3,
+                                  ),
+                                ),
+                                SvgPicture.asset(
+                                  skill.image,
+                                  width: 80,
+                                  height: 80,
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),
@@ -97,28 +144,6 @@ class Skills extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  Text(
-                    'Flutter',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                  Text(
-                    'Flutter',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 3,
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ),
