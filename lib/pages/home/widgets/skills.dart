@@ -33,7 +33,7 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
-    ScrollController scrollController = ScrollController();
+    // ScrollController scrollController = ScrollController();
 
     return LayoutBuilder(builder: (_, constraints) {
       if (Responsive.isMobile(context)) {
@@ -79,63 +79,73 @@ class Skills extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 40),
-              SizedBox(
-                height: 280,
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        controller: scrollController,
-                        itemCount: _mySkills.length,
-                        itemBuilder: (context, index) {
-                          final skill = _mySkills[index];
-                          return Item(
-                            skill: skill,
-                            isEven: index % 2 == 0,
-                          );
-                        },
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: () {
-                          if (scrollController.offset == 0) {
-                            return;
-                          }
-                          scrollController.animateTo(
-                            scrollController.offset - 480,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.fastOutSlowIn,
-                          );
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {
-                          scrollController.animateTo(
-                            scrollController.offset + 480,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.fastOutSlowIn,
-                          );
-                        },
-                        icon: const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              Wrap(
+                  children: _mySkills.map(
+                (skill) {
+                  final isEven = _mySkills.indexOf(skill) % 2 == 0;
+                  return ItemSkill(
+                    skill: skill,
+                    isEven: isEven,
+                  );
+                },
+              ).toList()),
+              // SizedBox(
+              //   height: 280,
+              //   child: Stack(
+              //     children: [
+              //       Padding(
+              //         padding: const EdgeInsets.symmetric(horizontal: 12),
+              //         child: ListView.builder(
+              //           scrollDirection: Axis.horizontal,
+              //           controller: scrollController,
+              //           itemCount: _mySkills.length,
+              //           itemBuilder: (context, index) {
+              //             final skill = _mySkills[index];
+              //             return Item(
+              //               skill: skill,
+              //               isEven: index % 2 == 0,
+              //             );
+              //           },
+              //         ),
+              //       ),
+              //       Align(
+              //         alignment: Alignment.centerLeft,
+              //         child: IconButton(
+              //           onPressed: () {
+              //             if (scrollController.offset == 0) {
+              //               return;
+              //             }
+              //             scrollController.animateTo(
+              //               scrollController.offset - 480,
+              //               duration: const Duration(milliseconds: 500),
+              //               curve: Curves.fastOutSlowIn,
+              //             );
+              //           },
+              //           icon: const Icon(
+              //             Icons.arrow_back_ios,
+              //             color: Colors.white,
+              //           ),
+              //         ),
+              //       ),
+              //       Align(
+              //         alignment: Alignment.centerRight,
+              //         child: IconButton(
+              //           onPressed: () {
+              //             scrollController.animateTo(
+              //               scrollController.offset + 480,
+              //               duration: const Duration(milliseconds: 500),
+              //               curve: Curves.fastOutSlowIn,
+              //             );
+              //           },
+              //           icon: const Icon(
+              //             Icons.arrow_forward_ios,
+              //             color: Colors.white,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -166,9 +176,9 @@ class Item extends StatelessWidget {
           onEnter: (_) => start.value = true,
           onExit: (_) => start.value = false,
           child: Container(
-            height: 210,
-            width: 210,
-            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: 240,
+            width: 240,
+            margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               color: AppColors.boulder.withOpacity(0.3),
               borderRadius: BorderRadius.circular(20),
@@ -212,7 +222,7 @@ class Item extends StatelessWidget {
               )
               .rotate(
                 begin: 0.0,
-                end: isEven ? 0.02 : -0.02,
+                end: isEven ? 0.03 : -0.03,
                 duration: 300.ms,
                 curve: Curves.easeInOutBack,
               )
