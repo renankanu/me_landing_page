@@ -7,6 +7,7 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
 import '../../../shared/utils/app_responsive.dart';
+import '../../../shared/widgets/app_title_section.dart';
 
 class Skills extends StatelessWidget {
   const Skills({Key? key}) : super(key: key);
@@ -52,20 +53,16 @@ class Skills extends StatelessWidget {
       }
       return Center(
         child: Container(
+          constraints: const BoxConstraints(minWidth: 1800),
           padding: EdgeInsets.fromLTRB(padding, 80, padding, 80),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Text(
-                  'Minhas Skills',
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 60,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 3,
-                  ),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 40),
+                child: AppTitleSection(
+                  title: 'Minhas Skills',
                 ),
               ),
               Padding(

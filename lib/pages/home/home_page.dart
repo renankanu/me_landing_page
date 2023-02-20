@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/home/widgets/about_me.dart';
 import 'package:me_landing_page/pages/home/widgets/menu.dart';
+import 'package:me_landing_page/pages/home/widgets/setup_config.dart';
 import 'package:me_landing_page/pages/home/widgets/skills.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   final _listSections = [
     const AboutMe(),
     const Skills(),
+    const SetupConfig(),
   ];
 
   @override
