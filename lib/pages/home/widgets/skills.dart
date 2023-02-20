@@ -83,7 +83,7 @@ class Skills extends StatelessWidget {
                   children: _mySkills.map(
                 (skill) {
                   final isEven = _mySkills.indexOf(skill) % 2 == 0;
-                  return ItemSkill(
+                  return Item(
                     skill: skill,
                     isEven: isEven,
                   );
@@ -168,70 +168,80 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: start,
-      builder: (context, started, _) => Center(
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          onEnter: (_) => start.value = true,
-          onExit: (_) => start.value = false,
-          child: Container(
-            height: 240,
-            width: 240,
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: BoxDecoration(
-              color: AppColors.boulder.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 10,
-                  offset: const Offset(0, 5),
-                ),
-              ],
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  skill.name,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 3,
+    return SizedBox(
+      height: 300,
+      width: 240,
+      child: ValueListenableBuilder(
+        valueListenable: start,
+        builder: (context, started, _) => Center(
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onEnter: (_) => start.value = true,
+            onExit: (_) => start.value = false,
+            child: Container(
+              height: 300,
+              width: 240,
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.boulder.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(20),
+                border: started
+                    ? Border.all(
+                        color: Colors.white.withOpacity(0.2),
+                        width: 2,
+                      )
+                    : null,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
                   ),
-                ),
-                SvgPicture.asset(
-                  skill.image,
-                  width: 100,
-                  height: 100,
-                ),
-              ],
-            ),
-          )
-              .animate(
-                onPlay: (controller) {
-                  if (started) {
-                    controller.forward();
-                  } else {
-                    controller.reverse();
-                  }
-                },
-              )
-              .rotate(
-                begin: 0.0,
-                end: isEven ? 0.03 : -0.03,
-                duration: 300.ms,
-                curve: Curves.easeInOutBack,
-              )
-              .scale(
-                begin: const Offset(0.9, 0.9),
-                end: const Offset(1.0, 1.0),
-                duration: 300.ms,
-                curve: Curves.easeInOutBack,
+                ],
               ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    skill.name,
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 3,
+                    ),
+                  ),
+                  SvgPicture.asset(
+                    skill.image,
+                    width: 100,
+                    height: 100,
+                  ),
+                ],
+              ),
+            )
+                .animate(
+                  onPlay: (controller) {
+                    if (started) {
+                      controller.forward();
+                    } else {
+                      controller.reverse();
+                    }
+                  },
+                )
+                .rotate(
+                  begin: 0.0,
+                  end: isEven ? 0.03 : -0.03,
+                  duration: 300.ms,
+                  curve: Curves.easeInOutBack,
+                )
+                .scale(
+                  begin: const Offset(1, 1),
+                  end: const Offset(1.1, 1.1),
+                  duration: 300.ms,
+                  curve: Curves.easeInOutBack,
+                ),
+          ),
         ),
       ),
     );
