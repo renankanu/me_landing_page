@@ -94,6 +94,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_animate:
+    dependency: "direct main"
+    description:
+      name: flutter_animate
+      sha256: "660b7f53311078ad5cec7868caf065cac6d1e786be832f7a1085b9dd90cec058"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   flutter_lints:
     dependency: "direct dev"
     description:

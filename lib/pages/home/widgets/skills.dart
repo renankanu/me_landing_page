@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/model/skill.dart';
@@ -90,7 +91,7 @@ class Skills extends StatelessWidget {
                         itemCount: _mySkills.length,
                         itemBuilder: (context, index) {
                           final skill = _mySkills[index];
-                          return ItemSkill(
+                          return Item(
                             skill: skill,
                             isEven: index % 2 == 0,
                           );
@@ -140,6 +141,90 @@ class Skills extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class Item extends StatelessWidget {
+  Item({
+    super.key,
+    required this.skill,
+    required this.isEven,
+  });
+
+  final Skill skill;
+  final bool isEven;
+
+  final start = ValueNotifier(false);
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: start,
+      builder: (context, started, _) => Center(
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          onEnter: (_) => start.value = true,
+          onExit: (_) => start.value = false,
+          child: Container(
+            height: 210,
+            width: 210,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              color: AppColors.boulder.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  blurRadius: 10,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  skill.name,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 3,
+                  ),
+                ),
+                SvgPicture.asset(
+                  skill.image,
+                  width: 100,
+                  height: 100,
+                ),
+              ],
+            ),
+          )
+              .animate(
+                onPlay: (controller) {
+                  if (started) {
+                    controller.forward();
+                  } else {
+                    controller.reverse();
+                  }
+                },
+              )
+              .rotate(
+                begin: 0.0,
+                end: isEven ? 0.02 : -0.02,
+                duration: 300.ms,
+                curve: Curves.easeInOutBack,
+              )
+              .scale(
+                begin: const Offset(0.9, 0.9),
+                end: const Offset(1.0, 1.0),
+                duration: 300.ms,
+                curve: Curves.easeInOutBack,
+              ),
+        ),
+      ),
+    );
   }
 }
 
