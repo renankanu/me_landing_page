@@ -81,18 +81,16 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                           ),
                           const SizedBox(height: 40),
                           Row(
-                            children: const [
+                            children: [
                               SocialButton(
                                 name: 'GitHub',
                                 buttonColor: AppColors.riverBed,
-                                shadowColor: Color(0x19000000),
                                 icon: AppImages.github,
                               ),
-                              SizedBox(width: 20),
+                              const SizedBox(width: 20),
                               SocialButton(
                                 name: 'LinkedIn',
                                 buttonColor: AppColors.blueChill,
-                                shadowColor: Color(0x3314b8a6),
                                 icon: AppImages.linkedin,
                               ),
                             ],
