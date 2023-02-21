@@ -16,15 +16,15 @@ class AppTitleSection extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 80,
-          height: 80,
+          width: 60,
+          height: 60,
           decoration: BoxDecoration(
             color: AppColors.blueChill.withOpacity(0.4),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(10),
           ),
         )
             .animate()
-            .shake(curve: Curves.easeInOut, hz: 0.5, duration: 2000.ms)
+            .shake(curve: Curves.easeInOut, hz: 0.7, duration: 2000.ms)
             .slideX(curve: Curves.easeOut, begin: -0.6, end: 0.0)
             .slideY(curve: Curves.bounceOut, begin: -0.6, end: 0.0)
             .rotate(curve: Curves.easeInOut, begin: 0.0, end: 0.15),
@@ -32,7 +32,7 @@ class AppTitleSection extends StatelessWidget {
           title,
           style: GoogleFonts.poppins(
             color: Colors.white,
-            fontSize: 60,
+            fontSize: 40,
             fontWeight: FontWeight.w700,
             letterSpacing: 3,
           ),

@@ -15,6 +15,7 @@ class ConfigContainer extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
+        color: AppColors.woodsmoke,
         border: Border.all(
           color: AppColors.boulder,
         ),

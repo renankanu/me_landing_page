@@ -55,95 +55,93 @@ class Skills extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(minWidth: 1800),
           padding: EdgeInsets.fromLTRB(padding, 80, padding, 80),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              const Padding(
-                padding: EdgeInsets.only(left: 40),
-                child: AppTitleSection(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 40),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                const AppTitleSection(
                   title: 'Minhas Skills',
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Text(
+                const SizedBox(height: 20),
+                Text(
                   'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
                   style: GoogleFonts.poppins(
                     color: Colors.white.withOpacity(0.7),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-              ),
-              const SizedBox(height: 40),
-              Wrap(
-                  children: _mySkills.map(
-                (skill) {
-                  final isEven = _mySkills.indexOf(skill) % 2 == 0;
-                  return Item(
-                    skill: skill,
-                    isEven: isEven,
-                  );
-                },
-              ).toList()),
-              // SizedBox(
-              //   height: 280,
-              //   child: Stack(
-              //     children: [
-              //       Padding(
-              //         padding: const EdgeInsets.symmetric(horizontal: 12),
-              //         child: ListView.builder(
-              //           scrollDirection: Axis.horizontal,
-              //           controller: scrollController,
-              //           itemCount: _mySkills.length,
-              //           itemBuilder: (context, index) {
-              //             final skill = _mySkills[index];
-              //             return Item(
-              //               skill: skill,
-              //               isEven: index % 2 == 0,
-              //             );
-              //           },
-              //         ),
-              //       ),
-              //       Align(
-              //         alignment: Alignment.centerLeft,
-              //         child: IconButton(
-              //           onPressed: () {
-              //             if (scrollController.offset == 0) {
-              //               return;
-              //             }
-              //             scrollController.animateTo(
-              //               scrollController.offset - 480,
-              //               duration: const Duration(milliseconds: 500),
-              //               curve: Curves.fastOutSlowIn,
-              //             );
-              //           },
-              //           icon: const Icon(
-              //             Icons.arrow_back_ios,
-              //             color: Colors.white,
-              //           ),
-              //         ),
-              //       ),
-              //       Align(
-              //         alignment: Alignment.centerRight,
-              //         child: IconButton(
-              //           onPressed: () {
-              //             scrollController.animateTo(
-              //               scrollController.offset + 480,
-              //               duration: const Duration(milliseconds: 500),
-              //               curve: Curves.fastOutSlowIn,
-              //             );
-              //           },
-              //           icon: const Icon(
-              //             Icons.arrow_forward_ios,
-              //             color: Colors.white,
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-            ],
+                const SizedBox(height: 40),
+                Wrap(
+                    children: _mySkills.map(
+                  (skill) {
+                    final isEven = _mySkills.indexOf(skill) % 2 == 0;
+                    return Item(
+                      skill: skill,
+                      isEven: isEven,
+                    );
+                  },
+                ).toList()),
+                // SizedBox(
+                //   height: 280,
+                //   child: Stack(
+                //     children: [
+                //       Padding(
+                //         padding: const EdgeInsets.symmetric(horizontal: 12),
+                //         child: ListView.builder(
+                //           scrollDirection: Axis.horizontal,
+                //           controller: scrollController,
+                //           itemCount: _mySkills.length,
+                //           itemBuilder: (context, index) {
+                //             final skill = _mySkills[index];
+                //             return Item(
+                //               skill: skill,
+                //               isEven: index % 2 == 0,
+                //             );
+                //           },
+                //         ),
+                //       ),
+                //       Align(
+                //         alignment: Alignment.centerLeft,
+                //         child: IconButton(
+                //           onPressed: () {
+                //             if (scrollController.offset == 0) {
+                //               return;
+                //             }
+                //             scrollController.animateTo(
+                //               scrollController.offset - 480,
+                //               duration: const Duration(milliseconds: 500),
+                //               curve: Curves.fastOutSlowIn,
+                //             );
+                //           },
+                //           icon: const Icon(
+                //             Icons.arrow_back_ios,
+                //             color: Colors.white,
+                //           ),
+                //         ),
+                //       ),
+                //       Align(
+                //         alignment: Alignment.centerRight,
+                //         child: IconButton(
+                //           onPressed: () {
+                //             scrollController.animateTo(
+                //               scrollController.offset + 480,
+                //               duration: const Duration(milliseconds: 500),
+                //               curve: Curves.fastOutSlowIn,
+                //             );
+                //           },
+                //           icon: const Icon(
+                //             Icons.arrow_forward_ios,
+                //             color: Colors.white,
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+              ],
+            ),
           ),
         ),
       );
@@ -229,14 +227,14 @@ class Item extends StatelessWidget {
                 )
                 .rotate(
                   begin: 0.0,
-                  end: isEven ? 0.03 : -0.03,
-                  duration: 300.ms,
+                  end: isEven ? 0.01 : -0.01,
+                  duration: 400.ms,
                   curve: Curves.easeInOutBack,
                 )
                 .scale(
                   begin: const Offset(1, 1),
                   end: const Offset(1.1, 1.1),
-                  duration: 300.ms,
+                  duration: 400.ms,
                   curve: Curves.easeInOutBack,
                 ),
           ),

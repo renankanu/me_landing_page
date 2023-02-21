@@ -12,8 +12,8 @@ import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
 import '../../../shared/widgets/expanded_widget.dart';
 
-class SetupConfig extends StatelessWidget {
-  SetupConfig({Key? key}) : super(key: key);
+class Config extends StatelessWidget {
+  Config({Key? key}) : super(key: key);
   final isExpandedVsCode = ValueNotifier(false);
   final isExpandedMakefile = ValueNotifier(false);
   final isExpandedVsCodeExt = ValueNotifier(false);
@@ -52,6 +52,7 @@ class SetupConfig extends StatelessWidget {
                   const AppTitleSection(
                     title: 'Configurações de Desenvolvimento',
                   ),
+                  const SizedBox(height: 20),
                   Text(
                     'Aqui está algumas configurações que eu uso para desenvolver',
                     style: GoogleFonts.poppins(

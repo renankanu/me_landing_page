@@ -7,4 +7,5 @@ abstract class AppColors {
   static const boulder = Color(0xFF757575);
   static const burntSienna = Color(0xFFED595D);
   static const cornflowerBlue = Color(0xFF668AFF);
+  static const woodsmoke = Color(0xFF16161D);
 }
