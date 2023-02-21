@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_highlight/themes/dracula.dart';
 import 'package:flutter_svg/svg.dart';
 // import 'package:flutter_highlight/themes/dracula.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
+import 'package:me_landing_page/shared/widgets/container_config.dart';
 
 import '../../../shared/app_images.dart';
 import '../../../shared/utils/app_responsive.dart';
@@ -57,148 +59,205 @@ class SetupConfig extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  Row(
-                    children: [
-                      Text(
-                        'Makefile',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      SvgPicture.asset(
-                        AppImages.makefile,
-                        width: 30,
-                        height: 30,
-                        colorFilter: const ColorFilter.mode(
-                          Colors.white,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      TextButton(
-                        onPressed: () {
-                          isExpandedMakefile.value = !isExpandedMakefile.value;
-                        },
-                        child: Text(
-                          isExpandedMakefile.value ? 'Ocultar' : 'Mostrar',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.blueChill,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  ValueListenableBuilder(
-                      valueListenable: isExpandedMakefile,
-                      builder: (_, expanded, __) {
-                        return ExpandedWidget(
-                          expand: expanded,
-                          child: FutureBuilder<String>(
-                            future: DefaultAssetBundle.of(context)
-                                .loadString('assets/markdown/makefile.md'),
-                            builder: (context, snapshot) {
-                              if (!snapshot.hasData) {
-                                return const Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                              return MarkdownWidget(
-                                shrinkWrap: true,
-                                data: snapshot.data!,
-                                config: MarkdownConfig(
-                                  configs: [
-                                    PreConfig(
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF282a36),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      language: 'makefile',
-                                      theme: draculaTheme,
-                                      textStyle: GoogleFonts.firaCode(
-                                        fontWeight: FontWeight.w500,
-                                        letterSpacing: 1,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      }),
-                  Row(
-                    children: [
-                      Text(
-                        'VSCode Settings',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      SvgPicture.asset(
-                        AppImages.vscode,
-                        width: 30,
-                        height: 30,
-                      ),
-                      const SizedBox(width: 20),
-                      TextButton(
-                        onPressed: () {
-                          isExpandedVsCode.value = !isExpandedVsCode.value;
-                        },
-                        child: Text(
-                          isExpandedVsCode.value ? 'Ocultar' : 'Mostrar',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.blueChill,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  ValueListenableBuilder(
-                    valueListenable: isExpandedVsCode,
+                  ConfigContainer(
+                      child: ValueListenableBuilder(
+                    valueListenable: isExpandedMakefile,
                     builder: (_, expanded, __) {
-                      return ExpandedWidget(
-                        expand: expanded,
-                        child: FutureBuilder<String>(
-                          future: DefaultAssetBundle.of(context)
-                              .loadString('assets/markdown/settings.md'),
-                          builder: (context, snapshot) {
-                            if (!snapshot.hasData) {
-                              return const Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
-                            return MarkdownWidget(
-                              shrinkWrap: true,
-                              data: snapshot.data!,
-                              config: MarkdownConfig(
-                                configs: [
-                                  PreConfig(
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF282a36),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    language: 'json',
-                                    theme: draculaTheme,
-                                    textStyle: GoogleFonts.firaCode(
-                                      fontWeight: FontWeight.w500,
-                                      letterSpacing: 1,
-                                    ),
-                                  )
-                                ],
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Makefile',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            );
-                          },
-                        ),
+                              const SizedBox(width: 10),
+                              SvgPicture.asset(
+                                AppImages.makefile,
+                                width: 30,
+                                height: 30,
+                                colorFilter: const ColorFilter.mode(
+                                  Colors.white,
+                                  BlendMode.srcIn,
+                                ),
+                              ),
+                              const SizedBox(width: 20),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {
+                                  isExpandedMakefile.value =
+                                      !isExpandedMakefile.value;
+                                },
+                                icon: AnimatedRotation(
+                                  duration: const Duration(milliseconds: 300),
+                                  turns: isExpandedMakefile.value ? 0 : 0.5,
+                                  child: const Icon(
+                                    Icons.expand_more,
+                                    size: 30,
+                                    color: AppColors.boulder,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Text(
+                                  'Makefile config, que é um arquivo de configuração para automatizar tarefas no desenvolvimento com Flutter.')
+                              .animate(
+                                target: expanded ? 1 : 0,
+                                onPlay: (controller) {
+                                  if (expanded) {
+                                    controller.forward();
+                                  } else {
+                                    controller.reverse();
+                                  }
+                                },
+                              )
+                              .slideX(
+                                begin: 0,
+                                end: -1.13,
+                                duration: 300.ms,
+                              ),
+                          ExpandedWidget(
+                            expand: expanded,
+                            child: FutureBuilder<String>(
+                              future: DefaultAssetBundle.of(context)
+                                  .loadString('assets/markdown/makefile.md'),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                                return MarkdownWidget(
+                                  shrinkWrap: true,
+                                  data: snapshot.data!,
+                                  config: MarkdownConfig(
+                                    configs: [
+                                      PreConfig(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF282a36),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        language: 'makefile',
+                                        theme: draculaTheme,
+                                        textStyle: GoogleFonts.firaCode(
+                                          fontWeight: FontWeight.w500,
+                                          letterSpacing: 1,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       );
                     },
-                  ),
+                  )),
+                  ConfigContainer(
+                    child: ValueListenableBuilder(
+                      valueListenable: isExpandedVsCode,
+                      builder: (_, expanded, __) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'VSCode Settings',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                SvgPicture.asset(
+                                  AppImages.vscode,
+                                  width: 30,
+                                  height: 30,
+                                ),
+                                const Spacer(),
+                                IconButton(
+                                  onPressed: () {
+                                    isExpandedVsCode.value =
+                                        !isExpandedVsCode.value;
+                                  },
+                                  icon: AnimatedRotation(
+                                    duration: const Duration(milliseconds: 300),
+                                    turns: isExpandedVsCode.value ? 0 : 0.5,
+                                    child: const Icon(
+                                      Icons.expand_more,
+                                      size: 30,
+                                      color: AppColors.boulder,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Text(
+                                    'Configurações do VSCode que uso no dia a dia')
+                                .animate(
+                                  target: expanded ? 1 : 0,
+                                  onPlay: (controller) {
+                                    if (expanded) {
+                                      controller.forward();
+                                    } else {
+                                      controller.reverse();
+                                    }
+                                  },
+                                )
+                                .slideX(
+                                  begin: 0,
+                                  end: -1.4,
+                                  duration: 300.ms,
+                                ),
+                            ExpandedWidget(
+                              expand: expanded,
+                              child: FutureBuilder<String>(
+                                future: DefaultAssetBundle.of(context)
+                                    .loadString('assets/markdown/settings.md'),
+                                builder: (context, snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                  return MarkdownWidget(
+                                    shrinkWrap: true,
+                                    data: snapshot.data!,
+                                    config: MarkdownConfig(
+                                      configs: [
+                                        PreConfig(
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF282a36),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          language: 'json',
+                                          theme: draculaTheme,
+                                          textStyle: GoogleFonts.firaCode(
+                                            fontWeight: FontWeight.w500,
+                                            letterSpacing: 1,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
