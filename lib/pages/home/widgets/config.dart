@@ -50,14 +50,15 @@ class Config extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   const AppTitleSection(
-                    title: 'Configurações de Desenvolvimento',
+                    title: 'Config de Dev.',
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Aqui está algumas configurações que eu uso para desenvolver',
+                    'Aqui está algumas configurações que eu uso para desenvolver, makefile para automatizar algumas tarefas, settings do vscode para deixar o ambiente mais agradável, extensões que uso no vscode e configurações do git.',
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
                       fontWeight: FontWeight.w500,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: 40),
@@ -100,7 +101,7 @@ class Config extends StatelessWidget {
                                   child: const Icon(
                                     Icons.expand_more,
                                     size: 30,
-                                    color: AppColors.boulder,
+                                    color: AppColors.cornflowerBlue,
                                   ),
                                 ),
                               ),
@@ -120,8 +121,8 @@ class Config extends StatelessWidget {
                               )
                               .slideX(
                                 begin: 0,
-                                end: -1.13,
-                                duration: 300.ms,
+                                end: -1.14,
+                                duration: 400.ms,
                               ),
                           ExpandedWidget(
                             expand: expanded,
@@ -197,7 +198,7 @@ class Config extends StatelessWidget {
                                     child: const Icon(
                                       Icons.expand_more,
                                       size: 30,
-                                      color: AppColors.boulder,
+                                      color: AppColors.cornflowerBlue,
                                     ),
                                   ),
                                 ),
@@ -218,7 +219,7 @@ class Config extends StatelessWidget {
                                 .slideX(
                                   begin: 0,
                                   end: -1.4,
-                                  duration: 300.ms,
+                                  duration: 400.ms,
                                 ),
                             ExpandedWidget(
                               expand: expanded,
@@ -295,7 +296,7 @@ class Config extends StatelessWidget {
                                     child: const Icon(
                                       Icons.expand_more,
                                       size: 30,
-                                      color: AppColors.boulder,
+                                      color: AppColors.cornflowerBlue,
                                     ),
                                   ),
                                 ),
@@ -316,7 +317,7 @@ class Config extends StatelessWidget {
                                 .slideX(
                                   begin: 0,
                                   end: -1.4,
-                                  duration: 300.ms,
+                                  duration: 400.ms,
                                 ),
                             ExpandedWidget(
                               expand: expanded,
@@ -401,7 +402,7 @@ class Config extends StatelessWidget {
                                   child: const Icon(
                                     Icons.expand_more,
                                     size: 30,
-                                    color: AppColors.boulder,
+                                    color: AppColors.cornflowerBlue,
                                   ),
                                 ),
                               ),
@@ -422,7 +423,7 @@ class Config extends StatelessWidget {
                               .slideX(
                                 begin: 0,
                                 end: -1.4,
-                                duration: 300.ms,
+                                duration: 400.ms,
                               ),
                           ExpandedWidget(
                             expand: expanded,

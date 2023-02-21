@@ -17,7 +17,7 @@ class ConfigContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: AppColors.woodsmoke,
         border: Border.all(
-          color: AppColors.boulder,
+          color: AppColors.cornflowerBlue,
         ),
       ),
       padding: const EdgeInsets.all(20),

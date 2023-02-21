@@ -102,9 +102,23 @@ class ItemMenu extends StatelessWidget {
                       }
                     },
                   )
-                  .scaleXY(end: 1, curve: Curves.easeOutBack)
+                  .scaleXY(
+                    end: 1,
+                    curve: Curves.easeOutBack,
+                    duration: 200.ms,
+                  )
                   .moveY(end: -2)
-                  .elevation(end: 8),
+                  .elevation(end: 8)
+                  .boxShadow(
+                    begin: const BoxShadow(
+                      color: Colors.transparent,
+                    ),
+                    end: BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: const Offset(0, 1),
+                    ),
+                  ),
             ),
           ),
         );

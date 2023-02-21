@@ -70,6 +70,7 @@ class Skills extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     color: Colors.white.withOpacity(0.7),
                     fontWeight: FontWeight.w500,
+                    fontSize: 16,
                   ),
                 ),
                 const SizedBox(height: 40),
