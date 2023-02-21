@@ -17,6 +17,8 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_svg: ^2.0.1
   flutter_animate: ^4.0.0
+  markdown_widget: ^2.0.0+1
+  flutter_highlight: ^0.7.0
 
 dev_dependencies:
   flutter_test:

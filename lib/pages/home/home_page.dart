@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   final _listSections = [
     const AboutMe(),
     const Skills(),
-    const SetupConfig(),
+    SetupConfig(),
   ];
 
   @override
