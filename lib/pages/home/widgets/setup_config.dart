@@ -17,6 +17,7 @@ class SetupConfig extends StatelessWidget {
   final isExpandedVsCode = ValueNotifier(false);
   final isExpandedMakefile = ValueNotifier(false);
   final isExpandedVsCodeExt = ValueNotifier(false);
+  final isExpandedGit = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class SetupConfig extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   const AppTitleSection(
-                    title: 'Setup e Configurações',
+                    title: 'Configurações de Desenvolvimento',
                   ),
                   Text(
                     'Aqui está algumas configurações que eu uso para desenvolver',
@@ -259,8 +260,115 @@ class SetupConfig extends StatelessWidget {
                     ),
                   ),
                   ConfigContainer(
+                    child: ValueListenableBuilder(
+                      valueListenable: isExpandedVsCodeExt,
+                      builder: (_, expanded, __) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Extensões VSCode',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                SvgPicture.asset(
+                                  AppImages.vscode,
+                                  width: 30,
+                                  height: 30,
+                                ),
+                                const Spacer(),
+                                IconButton(
+                                  onPressed: () {
+                                    isExpandedVsCodeExt.value =
+                                        !isExpandedVsCodeExt.value;
+                                  },
+                                  icon: AnimatedRotation(
+                                    duration: const Duration(milliseconds: 300),
+                                    turns: isExpandedVsCodeExt.value ? 0 : 0.5,
+                                    child: const Icon(
+                                      Icons.expand_more,
+                                      size: 30,
+                                      color: AppColors.boulder,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Text(
+                                    'Extensões do VSCode que eu mais uso no dia a dia.')
+                                .animate(
+                                  target: expanded ? 1 : 0,
+                                  onPlay: (controller) {
+                                    if (expanded) {
+                                      controller.forward();
+                                    } else {
+                                      controller.reverse();
+                                    }
+                                  },
+                                )
+                                .slideX(
+                                  begin: 0,
+                                  end: -1.4,
+                                  duration: 300.ms,
+                                ),
+                            ExpandedWidget(
+                              expand: expanded,
+                              child: FutureBuilder<String>(
+                                future: DefaultAssetBundle.of(context)
+                                    .loadString(
+                                        'assets/markdown/extensions.md'),
+                                builder: (context, snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                  return Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF282a36),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    padding: const EdgeInsets.all(20),
+                                    child: MarkdownWidget(
+                                      shrinkWrap: true,
+                                      data: snapshot.data!,
+                                      config: MarkdownConfig(
+                                        configs: [
+                                          LinkConfig(
+                                            style: GoogleFonts.firaCode(
+                                              color: AppColors.blueChill,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          PreConfig(
+                                            theme: draculaTheme,
+                                            textStyle: GoogleFonts.firaCode(
+                                              fontWeight: FontWeight.w500,
+                                              letterSpacing: 1,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
+                  ConfigContainer(
                       child: ValueListenableBuilder(
-                    valueListenable: isExpandedVsCodeExt,
+                    valueListenable: isExpandedGit,
                     builder: (_, expanded, __) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,7 +376,7 @@ class SetupConfig extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                'Git',
+                                'Configurações Git',
                                 style: GoogleFonts.poppins(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -284,12 +392,11 @@ class SetupConfig extends StatelessWidget {
                               const Spacer(),
                               IconButton(
                                 onPressed: () {
-                                  isExpandedVsCodeExt.value =
-                                      !isExpandedVsCodeExt.value;
+                                  isExpandedGit.value = !isExpandedGit.value;
                                 },
                                 icon: AnimatedRotation(
                                   duration: const Duration(milliseconds: 300),
-                                  turns: isExpandedVsCodeExt.value ? 0 : 0.5,
+                                  turns: isExpandedGit.value ? 0 : 0.5,
                                   child: const Icon(
                                     Icons.expand_more,
                                     size: 30,
@@ -300,7 +407,7 @@ class SetupConfig extends StatelessWidget {
                             ],
                           ),
                           const Text(
-                                  'Configurações do Git que uso no dia a dia')
+                                  'Aqui é minha configuração do git que uso e recomendo.')
                               .animate(
                                 target: expanded ? 1 : 0,
                                 onPlay: (controller) {
@@ -320,7 +427,7 @@ class SetupConfig extends StatelessWidget {
                             expand: expanded,
                             child: FutureBuilder<String>(
                               future: DefaultAssetBundle.of(context)
-                                  .loadString('assets/markdown/extensions.md'),
+                                  .loadString('assets/markdown/git.md'),
                               builder: (context, snapshot) {
                                 if (!snapshot.hasData) {
                                   return const Center(
@@ -330,6 +437,23 @@ class SetupConfig extends StatelessWidget {
                                 return MarkdownWidget(
                                   shrinkWrap: true,
                                   data: snapshot.data!,
+                                  config: MarkdownConfig(
+                                    configs: [
+                                      PreConfig(
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF282a36),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        language: 'bash',
+                                        theme: draculaTheme,
+                                        textStyle: GoogleFonts.firaCode(
+                                          fontWeight: FontWeight.w500,
+                                          letterSpacing: 1,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 );
                               },
                             ),

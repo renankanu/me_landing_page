@@ -4,6 +4,7 @@
         "deintegrate",
         "gerencie",
         "LTWH",
-        "podfile"
+        "podfile",
+        "SAVEPOINT"
     ]
 }
