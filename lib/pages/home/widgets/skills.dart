@@ -218,6 +218,7 @@ class Item extends StatelessWidget {
               ),
             )
                 .animate(
+                  target: started ? 1 : 0,
                   onPlay: (controller) {
                     if (started) {
                       controller.forward();

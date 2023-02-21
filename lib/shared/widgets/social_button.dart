@@ -68,20 +68,23 @@ class SocialButton extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ).animate(
-                    onPlay: (controller) {
-                      if (started) {
-                        controller.forward();
-                      } else {
-                        controller.reverse();
-                      }
-                    },
-                  ).move(
-                    duration: 200.ms,
-                    curve: Curves.elasticInOut,
-                    begin: const Offset(-2, -2),
-                    end: const Offset(1, 1),
-                  ),
+                  )
+                      .animate(
+                        target: started ? 1.0 : 0.0,
+                        onPlay: (controller) {
+                          if (started) {
+                            controller.forward();
+                          } else {
+                            controller.reverse();
+                          }
+                        },
+                      )
+                      .move(
+                        duration: 300.ms,
+                        curve: Curves.elasticInOut,
+                        begin: const Offset(-3, -3),
+                        end: const Offset(1, 1),
+                      ),
                 ],
               ),
             ),
