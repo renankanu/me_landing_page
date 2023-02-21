@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_highlight/themes/dracula.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:flutter_highlight/themes/dracula.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -17,6 +16,7 @@ class SetupConfig extends StatelessWidget {
   SetupConfig({Key? key}) : super(key: key);
   final isExpandedVsCode = ValueNotifier(false);
   final isExpandedMakefile = ValueNotifier(false);
+  final isExpandedVsCodeExt = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +257,87 @@ class SetupConfig extends StatelessWidget {
                         );
                       },
                     ),
-                  )
+                  ),
+                  ConfigContainer(
+                      child: ValueListenableBuilder(
+                    valueListenable: isExpandedVsCodeExt,
+                    builder: (_, expanded, __) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                'Git',
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              SvgPicture.asset(
+                                AppImages.git,
+                                width: 30,
+                                height: 30,
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {
+                                  isExpandedVsCodeExt.value =
+                                      !isExpandedVsCodeExt.value;
+                                },
+                                icon: AnimatedRotation(
+                                  duration: const Duration(milliseconds: 300),
+                                  turns: isExpandedVsCodeExt.value ? 0 : 0.5,
+                                  child: const Icon(
+                                    Icons.expand_more,
+                                    size: 30,
+                                    color: AppColors.boulder,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Text(
+                                  'Configurações do Git que uso no dia a dia')
+                              .animate(
+                                target: expanded ? 1 : 0,
+                                onPlay: (controller) {
+                                  if (expanded) {
+                                    controller.forward();
+                                  } else {
+                                    controller.reverse();
+                                  }
+                                },
+                              )
+                              .slideX(
+                                begin: 0,
+                                end: -1.4,
+                                duration: 300.ms,
+                              ),
+                          ExpandedWidget(
+                            expand: expanded,
+                            child: FutureBuilder<String>(
+                              future: DefaultAssetBundle.of(context)
+                                  .loadString('assets/markdown/extensions.md'),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                                return MarkdownWidget(
+                                  shrinkWrap: true,
+                                  data: snapshot.data!,
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  )),
                 ],
               ),
             ),
