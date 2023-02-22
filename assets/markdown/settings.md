@@ -22,7 +22,7 @@
     "search.exclude" : {
       "**\/.fvm" : true
     },
-    "sync.gist" : "6f4d36803e16a1b49cf317965f0fc931",
+    "sync.gist" : "6f4d06803e16a1b49cf317965f0fc900",
     "editor.accessibilitySupport" : "off",
     "editor.fontLigatures" : true,
     "debug.openDebug" : "openOnDebugBreak",
@@ -63,12 +63,6 @@
     "workbench.startupEditor": "none",
     "[jsonc]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "github.copilot.enable": {
-      "*": true,
-      "yaml": true,
-      "plaintext": true,
-      "markdown": true
     },
     "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode",

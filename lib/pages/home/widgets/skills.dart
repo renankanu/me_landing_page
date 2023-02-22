@@ -74,16 +74,19 @@ class Skills extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                Wrap(
-                    children: _mySkills.map(
-                  (skill) {
-                    final isEven = _mySkills.indexOf(skill) % 2 == 0;
-                    return Item(
-                      skill: skill,
-                      isEven: isEven,
-                    );
-                  },
-                ).toList()),
+                Align(
+                  alignment: Alignment.center,
+                  child: Wrap(
+                      children: _mySkills.map(
+                    (skill) {
+                      final isEven = _mySkills.indexOf(skill) % 2 == 0;
+                      return Item(
+                        skill: skill,
+                        isEven: isEven,
+                      );
+                    },
+                  ).toList()),
+                ),
                 // SizedBox(
                 //   height: 280,
                 //   child: Stack(
@@ -191,7 +194,7 @@ class Item extends StatelessWidget {
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
                     blurRadius: 10,
-                    offset: const Offset(0, 5),
+                    offset: const Offset(4.0, 4.0),
                   ),
                 ],
               ),

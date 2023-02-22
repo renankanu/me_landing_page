@@ -48,68 +48,38 @@ class Jobs extends StatelessWidget {
               const SizedBox(height: 40),
               Stack(
                 children: [
-                  Container(
-                    width: 2,
-                    height: 400,
-                    margin: const EdgeInsets.only(left: 60),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.white,
-                          blurRadius: 4,
-                          spreadRadius: 2,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    child: ClipRect(
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                        child: Container(
-                          padding: const EdgeInsets.all(20),
-                          width: double.infinity,
-                          height: 300,
-                          decoration: BoxDecoration(
-                            color: AppColors.ebony.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: AppColors.ebony,
-                            ),
+                  Positioned(
+                    top: 0,
+                    bottom: 0,
+                    child: Container(
+                      width: 2,
+                      margin: const EdgeInsets.only(left: 60),
+                      decoration: const BoxDecoration(
+                        color: AppColors.blueChill,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.blueChill,
+                            blurRadius: 4,
+                            spreadRadius: 2,
                           ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 20,
-                                width: 20,
-                                margin: const EdgeInsets.only(left: 30),
-                                decoration: BoxDecoration(
-                                  color: AppColors.blueChill,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Sisterra',
-                                    style: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
+                        ],
                       ),
                     ),
                   ),
+                  Column(
+                    children: const [
+                      ItemJobDesc(
+                        title: 'Megaleios - 2019 até o momento',
+                        description:
+                            '- Desenvolvimento com Flutter; \n- Modular(gerência de dependências, rotas); \n- Bloc, RxDart, GetX; \n- Integração com Firebase; \n- Integração com OneSignal; \n- Publicar App nas lojas(Apple e GooglePlay); \n- CD com Bitrise; \n- Integração com APIs REST; \n- Visionamento de código com git; \n- Desenvolvimento com React Native;',
+                      ),
+                      ItemJobDesc(
+                        title: 'Sisterra - 2015 até 2019',
+                        description:
+                            '- Desenvolvimento de aplicativos para Android nativo (Java e Kotlin); \n- Desenvolvimento de aplicações em PHP utilizando DDD para back-end; \n- APIs REST; \n- CQRS pattern; \n- Conhecimento em Docker; \n- Publicar App nas lojas(Apple e GooglePlay); \n- Conhecimento em AWS (Lambda, SNS, SQS, SES, EC2, RDS, S3); \n- Integração com APIs REST; \n- Usuário Linux (GNU / Linux Ubuntu);',
+                      ),
+                    ],
+                  )
                 ],
               ),
             ],
@@ -117,5 +87,78 @@ class Jobs extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class ItemJobDesc extends StatelessWidget {
+  const ItemJobDesc({
+    super.key,
+    required this.title,
+    required this.description,
+  });
+
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppColors.ebony.withOpacity(0.4),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: AppColors.ebony,
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 16,
+                  width: 16,
+                  margin: const EdgeInsets.only(left: 52, top: 7),
+                  decoration: BoxDecoration(
+                    color: AppColors.blueChill,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      description,
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1,
+                        height: 2,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
