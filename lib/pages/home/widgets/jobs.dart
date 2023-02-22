@@ -184,7 +184,6 @@ class ItemJobDesc extends StatelessWidget {
                       description,
                       style: GoogleFonts.poppins(
                         color: Colors.white,
-                        fontWeight: FontWeight.w500,
                         letterSpacing: 1,
                         height: 2,
                       ),

@@ -18,18 +18,35 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Esse é meu portfólio, aqui mostro um pouco de mim e o que faço no mundo da programação.">
+  <meta
+  property="og:description"
+  content="Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação"
+  />
+  <meta property="og:site_name" content="RenanKanu;" />
+  <meta
+    property="og:image"
+    content="https://user-images.githubusercontent.com/7094345/128904233-167de18c-8281-4efa-b0bd-c4c719ef0260.png"
+  />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+  <meta property="og:title" content="RenanKanu;">
+  <meta property="og:type" content="landing-page">
+  <meta property="article:published_time" content="${mod.createTime.toIso8601String()}" />
+  <meta property="article:modified_time" content="${mod.lastUpdate.toIso8601String()}" />
+  <meta name="keywords" content="kanu,renankanu,dart,fluter">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="me_landing_page">
+  <meta name="apple-mobile-web-app-title" content="RenanKanu;">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>me_landing_page</title>
+  <title>RenanKanu;</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -38,6 +55,7 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <link rel="stylesheet preload prefetch" type="text/css" media="screen" href="style.css" as="style"/>
 </head>
 <body>
   <script>
@@ -55,5 +73,10 @@
       });
     });
   </script>
+  <img src="web/renankanu.png" alt="RenanKanu;" />
+  <div id="loader">
+    <div id="shadow"></div>
+    <div id="box"></div>
+  </div>
 </body>
 </html>

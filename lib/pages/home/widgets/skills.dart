@@ -168,7 +168,7 @@ class Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 240,
       width: 240,
       child: ValueListenableBuilder(
         valueListenable: start,
