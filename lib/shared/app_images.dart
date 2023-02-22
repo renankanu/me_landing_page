@@ -25,4 +25,5 @@ abstract class AppImages {
   static const postman = 'assets/icons/postman.svg';
   static const makefile = 'assets/icons/makefile.svg';
   static const vscode = 'assets/icons/vscode.svg';
+  static const renankanu = 'assets/icons/renankanu.png';
 }

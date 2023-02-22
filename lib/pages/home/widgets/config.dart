@@ -64,7 +64,7 @@ class Config extends StatelessWidget {
                     children: [
                       const SizedBox(height: 20),
                       const AppTitleSection(
-                        title: 'Config de Dev.',
+                        title: 'Minha Config de Dev.',
                       ),
                       const SizedBox(height: 20),
                       Text(
