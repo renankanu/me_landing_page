@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/home/widgets/about_me.dart';
 import 'package:me_landing_page/pages/home/widgets/config.dart';
+import 'package:me_landing_page/pages/home/widgets/jobs.dart';
 import 'package:me_landing_page/pages/home/widgets/menu.dart';
 import 'package:me_landing_page/pages/home/widgets/skills.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
     const AboutMe(),
     const Skills(),
     Config(),
+    const Jobs(),
   ];
 
   @override

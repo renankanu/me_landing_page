@@ -8,4 +8,5 @@ abstract class AppColors {
   static const burntSienna = Color(0xFFED595D);
   static const cornflowerBlue = Color(0xFF6366F1);
   static const woodsmoke = Color(0xFF16161D);
+  static const ebony = Color(0xFF111827);
 }

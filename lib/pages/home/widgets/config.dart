@@ -24,7 +24,7 @@ class Config extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
     return LayoutBuilder(
-      builder: (_, constraints) {
+      builder: (_, __) {
         if (Responsive.isMobile(context)) {
           return Container(
             height: 100,

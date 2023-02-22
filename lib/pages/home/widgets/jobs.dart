@@ -1,0 +1,121 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:me_landing_page/shared/app_colors.dart';
+import 'package:me_landing_page/shared/utils/app_responsive.dart';
+import 'package:me_landing_page/shared/widgets/app_title_section.dart';
+
+class Jobs extends StatelessWidget {
+  const Jobs({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final padding = width * 0.03;
+    return LayoutBuilder(builder: (_, __) {
+      if (Responsive.isMobile(context)) {
+        return Container(
+          height: 100,
+          width: 100,
+          color: Colors.green,
+        );
+      }
+      if (Responsive.isTablet(context)) {
+        return Container(
+          height: 100,
+          width: 100,
+          color: Colors.red,
+        );
+      }
+      return Center(
+        child: Container(
+          constraints: const BoxConstraints(minWidth: 1800),
+          padding: EdgeInsets.fromLTRB(padding + 40, 0, padding + 40, 80),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const AppTitleSection(title: 'Experiência Profissional'),
+              const SizedBox(height: 20),
+              Text(
+                'Aqui está o resumo de minha experiência profissional.',
+                style: GoogleFonts.poppins(
+                  color: Colors.white.withOpacity(0.7),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 40),
+              Stack(
+                children: [
+                  Container(
+                    width: 2,
+                    height: 400,
+                    margin: const EdgeInsets.only(left: 60),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          blurRadius: 4,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: ClipRect(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        child: Container(
+                          padding: const EdgeInsets.all(20),
+                          width: double.infinity,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            color: AppColors.ebony.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: AppColors.ebony,
+                            ),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 20,
+                                margin: const EdgeInsets.only(left: 30),
+                                decoration: BoxDecoration(
+                                  color: AppColors.blueChill,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Sisterra',
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+}
