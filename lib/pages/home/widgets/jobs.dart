@@ -20,7 +20,7 @@ class Jobs extends StatelessWidget {
       key: const Key('jobs'),
       onVisibilityChanged: (visibilityInfo) {
         final visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 30) {
+        if (visiblePercentage > 10) {
           start.value = true;
         }
       },

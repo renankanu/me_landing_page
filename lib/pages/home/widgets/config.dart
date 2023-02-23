@@ -10,7 +10,6 @@ import 'package:me_landing_page/shared/widgets/container_config.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../shared/app_images.dart';
-import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
 import '../../../shared/widgets/expanded_widget.dart';
 
@@ -54,20 +53,6 @@ class Config extends StatelessWidget {
                 ),
                 LayoutBuilder(
                   builder: (_, __) {
-                    if (Responsive.isMobile(context)) {
-                      return Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.green,
-                      );
-                    }
-                    if (Responsive.isTablet(context)) {
-                      return Container(
-                        height: 100,
-                        width: 100,
-                        color: Colors.red,
-                      );
-                    }
                     return Center(
                       child: Container(
                         constraints: const BoxConstraints(minWidth: 1800),

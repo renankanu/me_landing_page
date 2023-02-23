@@ -7,7 +7,6 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
 
 class Skills extends StatelessWidget {
@@ -50,20 +49,6 @@ class Skills extends StatelessWidget {
         builder: (_, started, __) {
           return LayoutBuilder(
             builder: (_, constraints) {
-              if (Responsive.isMobile(context)) {
-                return Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.green,
-                );
-              }
-              if (Responsive.isTablet(context)) {
-                return Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                );
-              }
               return Center(
                 child: Container(
                   constraints: const BoxConstraints(minWidth: 1800),
