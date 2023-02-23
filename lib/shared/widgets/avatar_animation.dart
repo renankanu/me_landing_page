@@ -71,6 +71,13 @@ class _AvatarAnimationState extends State<AvatarAnimation>
     super.initState();
   }
 
+  @override
+  void dispose() {
+    controller1.dispose();
+    controller2.dispose();
+    super.dispose();
+  }
+
   Center _firstArc() {
     return Center(
       child: RotationTransition(

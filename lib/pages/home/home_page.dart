@@ -26,6 +26,15 @@ class _HomePageState extends State<HomePage> {
     const Footer(),
   ];
 
+  void scrollToIndex(int index) {
+    _scrollController.scrollTo(
+      index: index,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
+      alignment: 0.15,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +49,11 @@ class _HomePageState extends State<HomePage> {
               return _listSections[index];
             },
           ),
-          const Menu(),
+          Menu(
+            onSelected: (index) {
+              scrollToIndex(index);
+            },
+          ),
         ],
       ),
     );

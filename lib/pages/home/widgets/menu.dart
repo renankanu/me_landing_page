@@ -7,7 +7,12 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
 class Menu extends StatelessWidget {
-  const Menu({Key? key}) : super(key: key);
+  const Menu({
+    Key? key,
+    required this.onSelected,
+  }) : super(key: key);
+
+  final Function(int) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +44,27 @@ class Menu extends StatelessWidget {
               const SizedBox(width: 20),
               ItemMenu(
                 label: 'Home',
-                onPressed: () {},
+                onPressed: () {
+                  onSelected(0);
+                },
               ),
               ItemMenu(
                 label: 'Skills',
-                onPressed: () {},
+                onPressed: () {
+                  onSelected(1);
+                },
               ),
               ItemMenu(
                 label: 'Repositórios',
-                onPressed: () {},
+                onPressed: () {
+                  onSelected(2);
+                },
               ),
               ItemMenu(
                 label: 'Jobs',
-                onPressed: () {},
+                onPressed: () {
+                  onSelected(3);
+                },
               ),
             ],
           ),
