@@ -49,16 +49,16 @@ class AboutMe extends StatelessWidget {
                 child: Visibility(
                   visible: Responsive.isDesktop(context),
                   replacement: Column(
-                    children: [
-                      MyAvatar(padding: padding),
-                      const MyDescription(),
+                    children: const [
+                      MyAvatar(),
+                      MyDescription(),
                     ],
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const MyDescription(),
-                      MyAvatar(padding: padding),
+                    children: const [
+                      MyDescription(),
+                      MyAvatar(),
                     ],
                   ),
                 ),
@@ -144,49 +144,47 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
 class MyAvatar extends StatelessWidget {
   const MyAvatar({
     super.key,
-    required this.padding,
+    this.size = 408,
   });
 
-  final double padding;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: padding),
-      child: AvatarAnimation(
-        child: Stack(
-          children: [
-            ClipOval(
-              child: Image(
-                image: const AssetImage(
-                  AppImages.renanFour,
-                ),
-                excludeFromSemantics: true,
-                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-                  if (wasSynchronouslyLoaded) {
-                    return child;
-                  } else {
-                    return AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: frame != null ? child : const SizedBox.shrink(),
-                    );
-                  }
-                },
+    return AvatarAnimation(
+      size: size,
+      child: Stack(
+        children: [
+          ClipOval(
+            child: Image(
+              image: const AssetImage(
+                AppImages.renanFour,
+              ),
+              excludeFromSemantics: true,
+              frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                if (wasSynchronouslyLoaded) {
+                  return child;
+                } else {
+                  return AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    child: frame != null ? child : const SizedBox.shrink(),
+                  );
+                }
+              },
+            ),
+          ),
+          Container(
+            height: size,
+            width: size,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(300),
+              border: Border.all(
+                color: AppColors.blueChill,
+                width: 6,
               ),
             ),
-            Container(
-              height: 408,
-              width: 408,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(300),
-                border: Border.all(
-                  color: AppColors.blueChill,
-                  width: 6,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
