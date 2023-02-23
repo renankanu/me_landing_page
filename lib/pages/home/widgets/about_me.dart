@@ -52,7 +52,9 @@ class AboutMe extends StatelessWidget {
                       MyAvatar(
                         size: 306,
                       ),
-                      MyDesc(),
+                      MyDesc(
+                        isMobile: true,
+                      ),
                     ],
                   ),
                   child: Row(
@@ -126,12 +128,15 @@ class MyAvatar extends StatelessWidget {
 class MyDesc extends StatelessWidget {
   const MyDesc({
     super.key,
+    this.isMobile = false,
   });
+  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         SelectableText(
           'Renan Santos',
@@ -161,6 +166,8 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
         ),
         const SizedBox(height: 40),
         Row(
+          mainAxisAlignment:
+              isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,
           children: [
             SocialButton(
               name: 'GitHub',
