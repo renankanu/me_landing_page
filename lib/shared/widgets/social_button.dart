@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:me_landing_page/shared/utils/app_responsive.dart';
 
 class SocialButton extends StatelessWidget {
   SocialButton({
@@ -24,6 +25,7 @@ class SocialButton extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: start,
         builder: (_, started, __) {
+          final isMobile = Responsive.isMobile(context);
           return MouseRegion(
             cursor: SystemMouseCursors.click,
             onHover: (_) => start.value = true,
@@ -33,7 +35,7 @@ class SocialButton extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    width: 212,
+                    width: isMobile ? 180 : 212,
                     height: 54,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
@@ -44,7 +46,7 @@ class SocialButton extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 206,
+                    width: isMobile ? 186 : 206,
                     height: 48,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),

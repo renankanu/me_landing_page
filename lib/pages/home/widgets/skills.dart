@@ -56,7 +56,9 @@ class Skills extends StatelessWidget {
                   constraints: const BoxConstraints(minWidth: 1800),
                   padding: globalPadding(context, padding),
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 40),
+                    padding: EdgeInsets.only(
+                      left: Responsive.isMobile(context) ? 0 : 40,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -117,9 +119,10 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
     return SizedBox(
-      height: 240,
-      width: 240,
+      height: isMobile ? 180 : 240,
+      width: isMobile ? 180 : 240,
       child: ValueListenableBuilder(
         valueListenable: start,
         builder: (context, started, _) => Center(
@@ -128,8 +131,8 @@ class Item extends StatelessWidget {
             onEnter: (_) => start.value = true,
             onExit: (_) => start.value = false,
             child: Container(
-              height: 300,
-              width: 240,
+              height: isMobile ? 240 : 300,
+              width: isMobile ? 240 : 300,
               margin: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
@@ -156,15 +159,15 @@ class Item extends StatelessWidget {
                     skill.name,
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                      fontSize: isMobile ? 14 : 20,
+                      fontWeight: isMobile ? FontWeight.w400 : FontWeight.w700,
                       letterSpacing: 3,
                     ),
                   ),
                   SvgPicture.asset(
                     skill.image,
-                    width: 100,
-                    height: 100,
+                    width: isMobile ? 80 : 100,
+                    height: isMobile ? 80 : 100,
                   ),
                 ],
               ),

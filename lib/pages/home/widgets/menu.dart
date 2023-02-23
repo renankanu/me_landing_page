@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
+import '../../../shared/utils/app_responsive.dart';
+
 class Menu extends StatelessWidget {
   const Menu({
     Key? key,
@@ -36,12 +38,17 @@ class Menu extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
-              const SizedBox(width: 20),
-              SvgPicture.asset(
-                AppImages.logo,
-                width: 40,
-                height: 40,
-              ),
+              if (!Responsive.isMobile(context))
+                Column(
+                  children: [
+                    const SizedBox(width: 20),
+                    SvgPicture.asset(
+                      AppImages.logo,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ],
+                ),
               const SizedBox(width: 20),
               ItemMenu(
                 label: 'Home',
@@ -56,7 +63,7 @@ class Menu extends StatelessWidget {
                 },
               ),
               ItemMenu(
-                label: 'Repositórios',
+                label: 'Config',
                 onPressed: () {
                   onSelected(2);
                 },

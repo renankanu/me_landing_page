@@ -142,7 +142,7 @@ class MyDesc extends StatelessWidget {
           'Renan Santos',
           style: GoogleFonts.poppins(
             color: Colors.white,
-            fontSize: 80,
+            fontSize: isMobile ? 40 : 80,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -150,7 +150,7 @@ class MyDesc extends StatelessWidget {
           'Flutter Developer',
           style: GoogleFonts.poppins(
             color: Colors.white,
-            fontSize: 50,
+            fontSize: isMobile ? 25 : 50,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -161,7 +161,7 @@ Trabalho com desenvolvimento desde 2016,
 conheço algumas tecnologias mas hoje estou focado em Flutter.''',
           style: GoogleFonts.poppins(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: isMobile ? 14 : 18,
           ),
         ),
         const SizedBox(height: 40),
