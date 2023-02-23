@@ -64,7 +64,7 @@ class Config extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 20),
-                      AppTitleSection(
+                      const AppTitleSection(
                         title: 'Minha Config de Dev.',
                       ),
                       const SizedBox(height: 20),

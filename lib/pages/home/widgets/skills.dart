@@ -61,7 +61,7 @@ class Skills extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 20),
-                AppTitleSection(
+                const AppTitleSection(
                   title: 'Minhas Skills',
                 ),
                 const SizedBox(height: 20),
@@ -87,63 +87,6 @@ class Skills extends StatelessWidget {
                     },
                   ).toList()),
                 ),
-                // SizedBox(
-                //   height: 280,
-                //   child: Stack(
-                //     children: [
-                //       Padding(
-                //         padding: const EdgeInsets.symmetric(horizontal: 12),
-                //         child: ListView.builder(
-                //           scrollDirection: Axis.horizontal,
-                //           controller: scrollController,
-                //           itemCount: _mySkills.length,
-                //           itemBuilder: (context, index) {
-                //             final skill = _mySkills[index];
-                //             return Item(
-                //               skill: skill,
-                //               isEven: index % 2 == 0,
-                //             );
-                //           },
-                //         ),
-                //       ),
-                //       Align(
-                //         alignment: Alignment.centerLeft,
-                //         child: IconButton(
-                //           onPressed: () {
-                //             if (scrollController.offset == 0) {
-                //               return;
-                //             }
-                //             scrollController.animateTo(
-                //               scrollController.offset - 480,
-                //               duration: const Duration(milliseconds: 500),
-                //               curve: Curves.fastOutSlowIn,
-                //             );
-                //           },
-                //           icon: const Icon(
-                //             Icons.arrow_back_ios,
-                //             color: Colors.white,
-                //           ),
-                //         ),
-                //       ),
-                //       Align(
-                //         alignment: Alignment.centerRight,
-                //         child: IconButton(
-                //           onPressed: () {
-                //             scrollController.animateTo(
-                //               scrollController.offset + 480,
-                //               duration: const Duration(milliseconds: 500),
-                //               curve: Curves.fastOutSlowIn,
-                //             );
-                //           },
-                //           icon: const Icon(
-                //             Icons.arrow_forward_ios,
-                //             color: Colors.white,
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ),
