@@ -77,108 +77,98 @@ class Config extends StatelessWidget {
                       ),
                       const SizedBox(height: 40),
                       ConfigContainer(
-                          child: ValueListenableBuilder(
-                        valueListenable: isExpandedMakefile,
-                        builder: (_, expanded, __) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'Makefile',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  SvgPicture.asset(
-                                    AppImages.makefile,
-                                    width: 30,
-                                    height: 30,
-                                    colorFilter: const ColorFilter.mode(
-                                      Colors.white,
-                                      BlendMode.srcIn,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 20),
-                                  const Spacer(),
-                                  IconButton(
-                                    onPressed: () {
-                                      isExpandedMakefile.value =
-                                          !isExpandedMakefile.value;
-                                    },
-                                    icon: AnimatedRotation(
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      turns: isExpandedMakefile.value ? 0 : 0.5,
-                                      child: const Icon(
-                                        Icons.expand_more,
-                                        size: 30,
-                                        color: AppColors.cornflowerBlue,
+                        child: ValueListenableBuilder(
+                          valueListenable: isExpandedMakefile,
+                          builder: (_, expanded, __) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Makefile',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const Text(
-                                      'Makefile config, que é um arquivo de configuração para automatizar tarefas no desenvolvimento com Flutter.')
-                                  .animate(
-                                    target: expanded ? 1 : 0,
-                                    onPlay: (controller) {
-                                      if (expanded) {
-                                        controller.forward();
-                                      } else {
-                                        controller.reverse();
-                                      }
-                                    },
-                                  )
-                                  .slideX(
-                                    begin: 0,
-                                    end: -1.14,
-                                    duration: 400.ms,
-                                  ),
-                              ExpandedWidget(
-                                expand: expanded,
-                                child: FutureBuilder<String>(
-                                  future: DefaultAssetBundle.of(context)
-                                      .loadString(
-                                          'assets/markdown/makefile.md'),
-                                  builder: (context, snapshot) {
-                                    if (!snapshot.hasData) {
-                                      return const Center(
-                                        child: CircularProgressIndicator(),
-                                      );
-                                    }
-                                    return MarkdownWidget(
-                                      shrinkWrap: true,
-                                      data: snapshot.data!,
-                                      config: MarkdownConfig(
-                                        configs: [
-                                          PreConfig(
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFF282a36),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                            language: 'makefile',
-                                            theme: draculaTheme,
-                                            textStyle: GoogleFonts.firaCode(
-                                              fontWeight: FontWeight.w500,
-                                              letterSpacing: 1,
-                                            ),
-                                          )
-                                        ],
+                                    const SizedBox(width: 10),
+                                    SvgPicture.asset(
+                                      AppImages.makefile,
+                                      width: 30,
+                                      height: 30,
+                                      colorFilter: const ColorFilter.mode(
+                                        Colors.white,
+                                        BlendMode.srcIn,
                                       ),
-                                    );
-                                  },
+                                    ),
+                                    const SizedBox(width: 20),
+                                    const Spacer(),
+                                    IconButton(
+                                      onPressed: () {
+                                        isExpandedMakefile.value =
+                                            !isExpandedMakefile.value;
+                                      },
+                                      icon: AnimatedRotation(
+                                        duration:
+                                            const Duration(milliseconds: 300),
+                                        turns:
+                                            isExpandedMakefile.value ? 0 : 0.5,
+                                        child: const Icon(
+                                          Icons.expand_more,
+                                          size: 30,
+                                          color: AppColors.cornflowerBlue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          );
-                        },
-                      )),
+                                const Text(
+                                        'Makefile config, que é um arquivo de configuração para automatizar tarefas no desenvolvimento com Flutter.')
+                                    .animate(
+                                      target: expanded ? 1 : 0,
+                                      onPlay: (controller) {
+                                        if (expanded) {
+                                          controller.forward();
+                                        } else {
+                                          controller.reverse();
+                                        }
+                                      },
+                                    )
+                                    .slideX(
+                                      begin: 0,
+                                      end: -1.14,
+                                      duration: 400.ms,
+                                    ),
+                                ExpandedWidget(
+                                  expand: expanded,
+                                  child: MarkdownWidget(
+                                    shrinkWrap: true,
+                                    data: '',
+                                    config: MarkdownConfig(
+                                      configs: [
+                                        PreConfig(
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF282a36),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          language: 'makefile',
+                                          theme: draculaTheme,
+                                          textStyle: GoogleFonts.firaCode(
+                                            fontWeight: FontWeight.w500,
+                                            letterSpacing: 1,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
                       ConfigContainer(
                         child: ValueListenableBuilder(
                           valueListenable: isExpandedVsCode,
@@ -240,38 +230,26 @@ class Config extends StatelessWidget {
                                     ),
                                 ExpandedWidget(
                                   expand: expanded,
-                                  child: FutureBuilder<String>(
-                                    future: DefaultAssetBundle.of(context)
-                                        .loadString(
-                                            'assets/markdown/settings.md'),
-                                    builder: (context, snapshot) {
-                                      if (!snapshot.hasData) {
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      }
-                                      return MarkdownWidget(
-                                        shrinkWrap: true,
-                                        data: snapshot.data!,
-                                        config: MarkdownConfig(
-                                          configs: [
-                                            PreConfig(
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFF282a36),
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              language: 'json',
-                                              theme: draculaTheme,
-                                              textStyle: GoogleFonts.firaCode(
-                                                fontWeight: FontWeight.w500,
-                                                letterSpacing: 1,
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      );
-                                    },
+                                  child: MarkdownWidget(
+                                    shrinkWrap: true,
+                                    data: '',
+                                    config: MarkdownConfig(
+                                      configs: [
+                                        PreConfig(
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF282a36),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          language: 'json',
+                                          theme: draculaTheme,
+                                          textStyle: GoogleFonts.firaCode(
+                                            fontWeight: FontWeight.w500,
+                                            letterSpacing: 1,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
@@ -341,136 +319,25 @@ class Config extends StatelessWidget {
                                     ),
                                 ExpandedWidget(
                                   expand: expanded,
-                                  child: FutureBuilder<String>(
-                                    future: DefaultAssetBundle.of(context)
-                                        .loadString(
-                                            'assets/markdown/extensions.md'),
-                                    builder: (context, snapshot) {
-                                      if (!snapshot.hasData) {
-                                        return const Center(
-                                          child: CircularProgressIndicator(),
-                                        );
-                                      }
-                                      return Container(
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF282a36),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        padding: const EdgeInsets.all(20),
-                                        child: MarkdownWidget(
-                                          shrinkWrap: true,
-                                          data: snapshot.data!,
-                                          config: MarkdownConfig(
-                                            configs: [
-                                              LinkConfig(
-                                                style: GoogleFonts.firaCode(
-                                                  color: AppColors.blueChill,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              PreConfig(
-                                                theme: draculaTheme,
-                                                textStyle: GoogleFonts.firaCode(
-                                                  fontWeight: FontWeight.w500,
-                                                  letterSpacing: 1,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ),
-                      ConfigContainer(
-                          child: ValueListenableBuilder(
-                        valueListenable: isExpandedGit,
-                        builder: (_, expanded, __) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'Configurações Git',
-                                    style: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF282a36),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  SvgPicture.asset(
-                                    AppImages.git,
-                                    width: 30,
-                                    height: 30,
-                                  ),
-                                  const Spacer(),
-                                  IconButton(
-                                    onPressed: () {
-                                      isExpandedGit.value =
-                                          !isExpandedGit.value;
-                                    },
-                                    icon: AnimatedRotation(
-                                      duration:
-                                          const Duration(milliseconds: 300),
-                                      turns: isExpandedGit.value ? 0 : 0.5,
-                                      child: const Icon(
-                                        Icons.expand_more,
-                                        size: 30,
-                                        color: AppColors.cornflowerBlue,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Text(
-                                      'Aqui é minha configuração do git que uso e recomendo.')
-                                  .animate(
-                                    target: expanded ? 1 : 0,
-                                    onPlay: (controller) {
-                                      if (expanded) {
-                                        controller.forward();
-                                      } else {
-                                        controller.reverse();
-                                      }
-                                    },
-                                  )
-                                  .slideX(
-                                    begin: 0,
-                                    end: -1.4,
-                                    duration: 400.ms,
-                                  ),
-                              ExpandedWidget(
-                                expand: expanded,
-                                child: FutureBuilder<String>(
-                                  future: DefaultAssetBundle.of(context)
-                                      .loadString('assets/markdown/git.md'),
-                                  builder: (context, snapshot) {
-                                    if (!snapshot.hasData) {
-                                      return const Center(
-                                        child: CircularProgressIndicator(),
-                                      );
-                                    }
-                                    return MarkdownWidget(
+                                    padding: const EdgeInsets.all(20),
+                                    child: MarkdownWidget(
                                       shrinkWrap: true,
-                                      data: snapshot.data!,
+                                      data: '',
                                       config: MarkdownConfig(
                                         configs: [
-                                          PreConfig(
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFF282a36),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
+                                          LinkConfig(
+                                            style: GoogleFonts.firaCode(
+                                              color: AppColors.blueChill,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500,
                                             ),
-                                            language: 'bash',
+                                          ),
+                                          PreConfig(
                                             theme: draculaTheme,
                                             textStyle: GoogleFonts.firaCode(
                                               fontWeight: FontWeight.w500,
@@ -479,14 +346,102 @@ class Config extends StatelessWidget {
                                           )
                                         ],
                                       ),
-                                    );
-                                  },
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ],
-                          );
-                        },
-                      )),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                      ConfigContainer(
+                        child: ValueListenableBuilder(
+                          valueListenable: isExpandedGit,
+                          builder: (_, expanded, __) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Configurações Git',
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    SvgPicture.asset(
+                                      AppImages.git,
+                                      width: 30,
+                                      height: 30,
+                                    ),
+                                    const Spacer(),
+                                    IconButton(
+                                      onPressed: () {
+                                        isExpandedGit.value =
+                                            !isExpandedGit.value;
+                                      },
+                                      icon: AnimatedRotation(
+                                        duration:
+                                            const Duration(milliseconds: 300),
+                                        turns: isExpandedGit.value ? 0 : 0.5,
+                                        child: const Icon(
+                                          Icons.expand_more,
+                                          size: 30,
+                                          color: AppColors.cornflowerBlue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Text(
+                                        'Aqui é minha configuração do git que uso e recomendo.')
+                                    .animate(
+                                      target: expanded ? 1 : 0,
+                                      onPlay: (controller) {
+                                        if (expanded) {
+                                          controller.forward();
+                                        } else {
+                                          controller.reverse();
+                                        }
+                                      },
+                                    )
+                                    .slideX(
+                                      begin: 0,
+                                      end: -1.4,
+                                      duration: 400.ms,
+                                    ),
+                                ExpandedWidget(
+                                  expand: expanded,
+                                  child: MarkdownWidget(
+                                    shrinkWrap: true,
+                                    data: '',
+                                    config: MarkdownConfig(
+                                      configs: [
+                                        PreConfig(
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF282a36),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          language: 'bash',
+                                          theme: draculaTheme,
+                                          textStyle: GoogleFonts.firaCode(
+                                            fontWeight: FontWeight.w500,
+                                            letterSpacing: 1,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
