@@ -196,11 +196,13 @@ class Arc2Painter extends CustomPainter {
     canvas.drawArc(rect, 1.40 * pi, 0.54 * pi, false, p);
 
     p.style = PaintingStyle.fill;
-    canvas.drawPath(pathGit.shift(const Offset(108, 10)), p);
+    final width = size.width;
+    canvas.drawPath(pathGit.shift(Offset(width * 0.22, width * 0.023)), p);
     canvas.rotate(pi / 2);
-    canvas.drawPath(pathFlutter.shift(const Offset(184, -460)), p);
+    canvas.drawPath(
+        pathFlutter.shift(Offset(width * 0.42, -(width * 1.05))), p);
     canvas.rotate(pi / 4);
-    canvas.drawPath(pathDart.shift(const Offset(208, -360)), p);
+    canvas.drawPath(pathDart.shift(Offset(width * 0.47, -(width * 0.82))), p);
   }
 
   @override
