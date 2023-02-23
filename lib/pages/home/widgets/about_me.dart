@@ -4,6 +4,7 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:me_landing_page/shared/utils/app_responsive.dart';
 import 'package:me_landing_page/shared/widgets/avatar_animation.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../shared/widgets/social_button.dart';
 
@@ -98,12 +99,26 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                                 name: 'GitHub',
                                 buttonColor: AppColors.riverBed,
                                 icon: AppImages.github,
+                                onTap: () async {
+                                  final url =
+                                      Uri.parse('https://github.com/renankanu');
+                                  if (!await launchUrl(url)) {
+                                    throw Exception('Could not launch $url');
+                                  }
+                                },
                               ),
                               const SizedBox(width: 20),
                               SocialButton(
                                 name: 'LinkedIn',
                                 buttonColor: AppColors.blueChill,
                                 icon: AppImages.linkedin,
+                                onTap: () async {
+                                  final url = Uri.parse(
+                                      'https://www.linkedin.com/in/renansantosbr/');
+                                  if (!await launchUrl(url)) {
+                                    throw Exception('Could not launch $url');
+                                  }
+                                },
                               ),
                             ],
                           ),

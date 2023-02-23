@@ -9,11 +9,13 @@ class SocialButton extends StatelessWidget {
     required this.buttonColor,
     required this.name,
     required this.icon,
+    this.onTap,
   }) : super(key: key);
 
   final Color buttonColor;
   final String name;
   final String icon;
+  final VoidCallback? onTap;
 
   final start = ValueNotifier(false);
 
@@ -27,6 +29,7 @@ class SocialButton extends StatelessWidget {
             onHover: (_) => start.value = true,
             onExit: (_) => start.value = false,
             child: GestureDetector(
+              onTap: onTap,
               child: Stack(
                 children: [
                   Container(
