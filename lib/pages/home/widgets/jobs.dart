@@ -21,102 +21,120 @@ class Jobs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppTitleSection(title: 'Experiência Profissional'),
-              const SizedBox(height: 20),
-              Text(
-                'Aqui está o resumo de minha experiência profissional.',
-                style: GoogleFonts.poppins(
-                  color: Colors.white.withOpacity(0.7),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
-              ),
               const SizedBox(height: 40),
-              Stack(
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Positioned(
-                    top: 0,
-                    bottom: 0,
-                    child: Container(
-                      width: 2,
-                      margin: const EdgeInsets.only(left: 60),
-                      decoration: const BoxDecoration(
-                        color: AppColors.blueChill,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.blueChill,
-                            blurRadius: 4,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                  Expanded(
                     child: Column(
-                      children: const [
-                        ItemJobDesc(
-                          title: 'Megaleios - 2019 até o momento',
-                          description:
-                              '- Desenvolvimento com Flutter; \n- Modular(gerência de dependências, rotas); \n- Bloc, RxDart, GetX; \n- Integração com Firebase; \n- Integração com OneSignal; \n- Figma; \n- Publicar App nas lojas(Apple e GooglePlay); \n- CD com Bitrise; \n- Integração com APIs REST; \n-Clean Architecture; \n-TDD; \n- Visionamento de código com git; \n- Desenvolvimento com React Native;',
+                      children: [
+                        Text(
+                          'Aqui está o resumo de minha experiência profissional.',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white.withOpacity(0.7),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
                         ),
-                        ItemJobDesc(
-                          title: 'Sisterra - 2015 até 2019',
-                          description:
-                              '- Desenvolvimento de aplicativos para Android nativo (Java e Kotlin); \n- Desenvolvimento de aplicações em PHP utilizando DDD para back-end; \n- APIs REST; \n- CQRS pattern; \n- Conhecimento em Docker; \n- Publicar App nas lojas(Apple e GooglePlay); \n- Conhecimento em AWS (Lambda, SNS, SQS, SES, EC2, RDS, S3); \n- Integração com APIs REST; \n- Usuário Linux (GNU / Linux Ubuntu);',
+                        const SizedBox(height: 40),
+                        Stack(
+                          children: [
+                            Positioned(
+                              top: 0,
+                              left: 4,
+                              bottom: 0,
+                              child: Container(
+                                width: 2,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.blueChill,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.blueChill,
+                                      blurRadius: 4,
+                                      spreadRadius: 2,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                children: const [
+                                  ItemWorkKnowledge(
+                                    title: 'Megaleios - 2019 até o momento',
+                                    description:
+                                        '- Desenvolvimento com Flutter; \n- Modular(gerência de dependências, rotas); \n- Bloc, RxDart, GetX; \n- Integração com Firebase; \n- Integração com OneSignal; \n- Figma; \n- Publicar App nas lojas(Apple e GooglePlay); \n- CD com Bitrise; \n- Integração com APIs REST; \n-Clean Architecture; \n-TDD; \n- Visionamento de código com git; \n- Desenvolvimento com React Native;',
+                                  ),
+                                  ItemWorkKnowledge(
+                                    title: 'Sisterra - 2015 até 2019',
+                                    description:
+                                        '- Desenvolvimento de aplicativos para Android nativo (Java e Kotlin); \n- Desenvolvimento de aplicações em PHP utilizando DDD para back-end; \n- APIs REST; \n- CQRS pattern; \n- Conhecimento em Docker; \n- Publicar App nas lojas(Apple e GooglePlay); \n- Conhecimento em AWS (Lambda, SNS, SQS, SES, EC2, RDS, S3); \n- Integração com APIs REST; \n- Usuário Linux (GNU / Linux Ubuntu);',
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(height: 60),
-              Text(
-                'Aqui está sobre minha formação acadêmica e cursos que fiz.',
-                style: GoogleFonts.poppins(
-                  color: Colors.white.withOpacity(0.7),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 20),
-              Stack(
-                children: [
-                  Positioned(
-                    top: 0,
-                    bottom: 0,
-                    child: Container(
-                      width: 2,
-                      margin: const EdgeInsets.only(left: 60),
-                      decoration: const BoxDecoration(
-                        color: AppColors.blueChill,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.blueChill,
-                            blurRadius: 4,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                  const SizedBox(width: 40),
+                  Expanded(
                     child: Column(
-                      children: const [
-                        ItemJobDesc(
-                          title: 'Universidade Paranaense(UNIPAR) - 2015',
-                          description:
-                              '- Análise e Desenvolvimento de Sistemas',
+                      children: [
+                        Text(
+                          'Aqui está o resumo de minha formação acadêmica e cursos.',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white.withOpacity(0.7),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
                         ),
-                        ItemJobDesc(
-                          title: 'Udemy - 2021',
-                          description:
-                              '- Flutter utilizando TDD; \n- Clean Architecture; \n- Design Patterns; \n- SOLID;',
+                        const SizedBox(height: 40),
+                        Stack(
+                          children: [
+                            Positioned(
+                              top: 0,
+                              left: 4,
+                              bottom: 0,
+                              child: Container(
+                                width: 2,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.blueChill,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.blueChill,
+                                      blurRadius: 4,
+                                      spreadRadius: 2,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Column(
+                                children: const [
+                                  ItemWorkKnowledge(
+                                    title:
+                                        'Universidade Paranaense(UNIPAR) - 2015',
+                                    description:
+                                        '- Análise e Desenvolvimento de Sistemas',
+                                  ),
+                                  ItemWorkKnowledge(
+                                    title: 'Udemy - 2021',
+                                    description:
+                                        '- Flutter utilizando TDD; \n- Clean Architecture; \n- Design Patterns; \n- SOLID;',
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ],
@@ -124,6 +142,103 @@ class Jobs extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class ItemWorkKnowledge extends StatelessWidget {
+  const ItemWorkKnowledge({
+    super.key,
+    required this.title,
+    required this.description,
+  });
+
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Row(
+              children: [
+                Container(
+                  width: 10,
+                  height: 10,
+                  decoration: const BoxDecoration(
+                    color: AppColors.blueChill,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.blueChill,
+                        blurRadius: 4,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 20,
+                  height: 2,
+                  decoration: const BoxDecoration(
+                    color: AppColors.blueChill,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.blueChill,
+                        blurRadius: 4,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 40,
+              ),
+              margin: const EdgeInsets.only(bottom: 40),
+              decoration: BoxDecoration(
+                color: AppColors.woodsmoke.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: AppColors.woodsmoke,
+                  width: 1,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    description,
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      letterSpacing: 1,
+                      height: 2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
