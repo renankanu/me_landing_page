@@ -20,3 +20,12 @@ class Responsive {
   static double getWidth(double percent, BuildContext context) =>
       MediaQuery.of(context).size.width * percent;
 }
+
+EdgeInsets globalPadding(BuildContext context, double padding) {
+  return EdgeInsets.fromLTRB(
+    Responsive.isMobile(context) ? 20 : padding + 40,
+    20,
+    Responsive.isMobile(context) ? 20 : padding + 40,
+    80,
+  );
+}

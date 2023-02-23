@@ -7,6 +7,7 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
 
 class Skills extends StatelessWidget {
@@ -40,7 +41,7 @@ class Skills extends StatelessWidget {
       key: const Key('skills'),
       onVisibilityChanged: (visibilityInfo) {
         final visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 20) {
+        if (visiblePercentage > 15) {
           start.value = true;
         }
       },
@@ -51,8 +52,9 @@ class Skills extends StatelessWidget {
             builder: (_, constraints) {
               return Center(
                 child: Container(
+                  margin: const EdgeInsets.only(top: 80),
                   constraints: const BoxConstraints(minWidth: 1800),
-                  padding: EdgeInsets.fromLTRB(padding, 80, padding, 80),
+                  padding: globalPadding(context, padding),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 40),
                     child: Column(

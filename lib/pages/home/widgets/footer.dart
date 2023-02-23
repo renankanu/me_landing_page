@@ -14,7 +14,19 @@ class Footer extends StatelessWidget {
       color: AppColors.woodsmoke.withOpacity(0.2),
       child: LayoutBuilder(
         builder: (_, __) {
-          if (Responsive.isMobile(context)) {}
+          if (Responsive.isMobile(context)) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Logo(),
+                  Copyright(),
+                  Email(),
+                ],
+              ),
+            );
+          }
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const [

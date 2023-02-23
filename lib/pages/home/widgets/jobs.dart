@@ -14,7 +14,7 @@ class Jobs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final padding = width * 0.03;
+    double padding = width * 0.03;
     final start = ValueNotifier(false);
 
     return VisibilityDetector(
@@ -33,8 +33,7 @@ class Jobs extends StatelessWidget {
               return Center(
                 child: Container(
                   constraints: const BoxConstraints(minWidth: 1800),
-                  padding:
-                      EdgeInsets.fromLTRB(padding + 40, 20, padding + 40, 80),
+                  padding: globalPadding(context, padding),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
