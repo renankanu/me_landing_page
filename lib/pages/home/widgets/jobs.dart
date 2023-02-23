@@ -154,43 +154,63 @@ class ItemJobDesc extends StatelessWidget {
                 color: AppColors.ebony,
               ),
             ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: 12,
-                  width: 12,
-                  margin: const EdgeInsets.only(left: 54, top: 7),
-                  decoration: BoxDecoration(
-                    color: AppColors.blueChill,
-                    borderRadius: BorderRadius.circular(10),
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Flexible(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 12,
+                          width: 12,
+                          margin: const EdgeInsets.only(left: 54, top: 7),
+                          decoration: BoxDecoration(
+                            color: AppColors.blueChill,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        Container(
+                          height: 12,
+                          width: 12,
+                          margin: const EdgeInsets.only(left: 54, top: 7),
+                          decoration: BoxDecoration(
+                            color: AppColors.blueChill,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          description,
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            letterSpacing: 1,
+                            height: 2,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      description,
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        letterSpacing: 1,
-                        height: 2,
-                      ),
-                    ),
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
