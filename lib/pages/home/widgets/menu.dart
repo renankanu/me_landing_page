@@ -33,8 +33,8 @@ class Menu extends StatelessWidget {
               const SizedBox(width: 20),
               Image.asset(
                 AppImages.logo,
-                width: 50,
-                height: 50,
+                width: 36,
+                height: 36,
               ),
               const SizedBox(width: 20),
               ItemMenu(

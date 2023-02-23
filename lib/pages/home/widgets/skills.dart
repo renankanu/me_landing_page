@@ -61,7 +61,7 @@ class Skills extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 20),
-                const AppTitleSection(
+                AppTitleSection(
                   title: 'Minhas Skills',
                 ),
                 const SizedBox(height: 20),

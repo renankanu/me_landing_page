@@ -20,7 +20,7 @@ class Jobs extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const AppTitleSection(title: 'Experiência Profissional'),
+              AppTitleSection(title: 'Experiência Profissional'),
               const SizedBox(height: 20),
               Text(
                 'Aqui está o resumo de minha experiência profissional.',

@@ -19,6 +19,7 @@ dependencies:
   flutter_animate: ^4.0.0
   markdown_widget: ^2.0.0+1
   flutter_highlight: ^0.7.0
+  visibility_detector: ^0.3.3
 
 dev_dependencies:
   flutter_test:
