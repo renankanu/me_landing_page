@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
+import 'package:me_landing_page/shared/string_config.dart';
 import 'package:me_landing_page/shared/widgets/container_config.dart';
 
 import '../../../shared/app_images.dart';
@@ -137,14 +138,14 @@ class Config extends StatelessWidget {
                                     )
                                     .slideX(
                                       begin: 0,
-                                      end: -1.14,
+                                      end: -1.16,
                                       duration: 400.ms,
                                     ),
                                 ExpandedWidget(
                                   expand: expanded,
                                   child: MarkdownWidget(
                                     shrinkWrap: true,
-                                    data: '',
+                                    data: makeFileConf,
                                     config: MarkdownConfig(
                                       configs: [
                                         PreConfig(
@@ -232,7 +233,7 @@ class Config extends StatelessWidget {
                                   expand: expanded,
                                   child: MarkdownWidget(
                                     shrinkWrap: true,
-                                    data: '',
+                                    data: vsCodeConf,
                                     config: MarkdownConfig(
                                       configs: [
                                         PreConfig(
@@ -327,7 +328,7 @@ class Config extends StatelessWidget {
                                     padding: const EdgeInsets.all(20),
                                     child: MarkdownWidget(
                                       shrinkWrap: true,
-                                      data: '',
+                                      data: extensionVsCode,
                                       config: MarkdownConfig(
                                         configs: [
                                           LinkConfig(
@@ -417,7 +418,7 @@ class Config extends StatelessWidget {
                                   expand: expanded,
                                   child: MarkdownWidget(
                                     shrinkWrap: true,
-                                    data: '',
+                                    data: gitConfig,
                                     config: MarkdownConfig(
                                       configs: [
                                         PreConfig(

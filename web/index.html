@@ -1,82 +1,310 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+<html lang="pt-BR">
+  <head>
+    <base href="$FLUTTER_BASE_HREF" />
+    <meta charset="UTF-8" />
+    <title>RenanKanu;</title>
+    <meta
+      name="description"
+      content="Esse é meu portfólio, aqui mostro um pouco de mim e o que faço no mundo da programação."
+    />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta
+      property="og:description"
+      content="Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação"
+    />
+    <meta property="og:site_name" content="RenanKanu;" />
+    <meta
+      property="og:image"
+      content="https://user-images.githubusercontent.com/7094345/128904233-167de18c-8281-4efa-b0bd-c4c719ef0260.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:title" content="RenanKanu;" />
+    <meta property="og:type" content="landing-page" />
+    <meta
+      property="article:published_time"
+      content="${mod.createTime.toIso8601String()}"
+    />
+    <meta
+      property="article:modified_time"
+      content="${mod.lastUpdate.toIso8601String()}"
+    />
+    <meta name="keywords" content="kanu,renankanu,dart,fluter" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="RenanKanu;" />
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <script>
+      var serviceWorkerVersion = null;
+    </script>
+    <script src="flutter.js" defer></script>
+    <link
+      rel="stylesheet preload prefetch"
+      type="text/css"
+      media="screen"
+      href="style.css"
+      as="style"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: #030303;
+      }
+    </style>
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
+    <!-- Cookie notice -->
+    <div>
+      <style>
+        #cookie-notice {
+          background-color: #fff;
+          bottom: 0;
+          box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+          -webkit-box-direction: normal;
+          -webkit-font-smoothing: antialiased;
+          display: none;
+          left: 0;
+          opacity: 0;
+          padding: 40px 0;
+          position: fixed;
+          width: 100%;
+          z-index: 11;
+        }
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Esse é meu portfólio, aqui mostro um pouco de mim e o que faço no mundo da programação.">
-  <meta
-  property="og:description"
-  content="Esse é meu portfólio, mostro aqui um pouco de mim e o que eu faço no mundo da programação"
-  />
-  <meta property="og:site_name" content="RenanKanu;" />
-  <meta
-    property="og:image"
-    content="https://user-images.githubusercontent.com/7094345/128904233-167de18c-8281-4efa-b0bd-c4c719ef0260.png"
-  />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="400" />
-  <meta property="og:image:height" content="400" />
-  <meta property="og:title" content="RenanKanu;">
-  <meta property="og:type" content="landing-page">
-  <meta property="article:published_time" content="${mod.createTime.toIso8601String()}" />
-  <meta property="article:modified_time" content="${mod.lastUpdate.toIso8601String()}" />
-  <meta name="keywords" content="kanu,renankanu,dart,fluter">
+        #cookie-notice.show {
+          animation-delay: 0.2s;
+          animation-duration: 0.5s;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+          animation-name: fadein;
+          animation-timing-function: cubic-bezier(0.27, 0.89, 0.39, 0.95);
+          display: block;
+        }
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="RenanKanu;">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+        @keyframes fadein {
+          0% {
+            opacity: 0;
+          }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+          to {
+            opacity: 1;
+          }
+        }
 
-  <title>RenanKanu;</title>
-  <link rel="manifest" href="manifest.json">
+        .container {
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+          top: 1px;
+          margin: 0 auto;
+          max-width: calc(1280px - 100px);
+          width: calc(100% - 24px * 2);
+        }
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-  <link rel="stylesheet preload prefetch" type="text/css" media="screen" href="style.css" as="style"/>
-</head>
-<body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
+        .container p {
+          max-width: 1200px;
+          margin: 0;
+          margin-right: 50px;
+          color: #4a4a4a;
+          font-size: 16px;
+          font-family: "Roboto", sans-serif;
+          line-height: 1.5;
+        }
+
+        p a {
+          color: #0468d7;
+          text-decoration: none;
+        }
+
+        button {
+          background-color: #0468d7;
+          color: #fff;
+          align-items: center;
+          justify-content: center;
+          border: 0 solid;
+          border-radius: 24px;
+          cursor: pointer;
+          display: inline-flex;
+          font-family: "Google Sans", sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          height: 40px;
+          padding: 0 32px;
+          text-align: center;
+          line-height: 1.15;
+        }
+      </style>
+      <section id="cookie-notice">
+        <div class="container">
+          <p>
+            O Google usa cookies para fornecer seus serviços, para personalizar anúncios e
+            para analisar o tráfego.Você pode ajustar seus controles de privacidade a qualquer momento em
+            seu
+            <a
+              href="https://myaccount.google.com/data-and-personalization"
+              target="_blank"
+              rel="noopener"
+              >Configurações do Google</a
+            >.
+            <a
+              href="https://policies.google.com/technologies/cookies"
+              target="_blank"
+              rel="noopener"
+              >Saber mais</a
+            >.
+          </p>
+          <button id="cookie-consent">Okay</button>
+        </div>
+      </section>
+    </div>
+    <script>
+      function _setCookie(name, value) {
+        const expires = "; expires=2147483647"; // ~2038 i.e. until user clears cookies
+        document.cookie =
+          name + "=" + (value || "") + expires + "; SameSite=Strict";
+      }
+
+      function _getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      function initCookieNotice() {
+        const notice = document.getElementById("cookie-notice");
+        const consentBtn = document.getElementById("cookie-consent");
+        const cookieKey = "cookie-consent";
+        const cookieConsentValue = "true";
+        const activeClass = "show";
+        if (_getCookie(cookieKey) === cookieConsentValue) {
+          return;
+        }
+        notice.classList.add(activeClass);
+        consentBtn.classList.add(activeClass);
+        consentBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          _setCookie(cookieKey, cookieConsentValue);
+          notice.classList.remove(activeClass);
+          consentBtn.classList.add(activeClass);
+        });
+      }
+
+      initCookieNotice();
+    </script>
+
+    <style>
+      #loader {
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+      }
+      @keyframes loader {
+        0% {
+          left: -100px;
+        }
+        100% {
+          left: 110%;
+        }
+      }
+      #box {
+        width: 54px;
+        height: 54px;
+        background: #fff;
+        animation: animate 0.5s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 3px;
+        opacity: 0.5;
+      }
+      @keyframes animate {
+        17% {
+          border-bottom-right-radius: 3px;
+        }
+        25% {
+          transform: translateY(9px) rotate(22.5deg);
+        }
+        50% {
+          transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+          border-bottom-right-radius: 40px;
+        }
+        75% {
+          transform: translateY(9px) rotate(67.5deg);
+        }
+        100% {
+          transform: translateY(0) rotate(90deg);
+        }
+      }
+      #shadow {
+        width: 50px;
+        height: 5px;
+        background: #000;
+        opacity: 0.1;
+        position: absolute;
+        top: 59px;
+        left: 0;
+        border-radius: 50%;
+        animation: shadow 0.5s linear infinite;
+      }
+      @keyframes shadow {
+        50% {
+          transform: scale(1.2, 1);
+        }
+      }
+
+      body {
+        background: #1f2331;
+        overflow: hidden;
+      }
+      img {
+        position: absolute;
+        top: calc(50% - 80px);
+        left: calc(50% - 150px);
+        margin: 0;
+        width: 300px;
+        opacity: 0.5;
+        color: #fff;
+      }
+    </style>
+    <div id="loading">
+      <img src="icons/renankanu.png" alt="RenanKanu;" />
+    <div id="loader">
+      <div id="shadow"></div>
+      <div id="box"></div>
+    </div>
+    </div>
+    <script>
+      window.addEventListener('load', function () {
+      var loading = document.querySelector('#loading');
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
         }
+      }).then(function (engineInitializer) {
+        loading.classList.add('main_done');
+        return engineInitializer.initializeEngine();
+      }).then(function (appRunner) {
+        loading.classList.add('init_done');
+        return appRunner.runApp();
+      }).then(function (app) {
+        window.setTimeout(function () {
+          loading.remove();
+        }, 200);
       });
     });
-  </script>
-  <img src="web/renankanu.png" alt="RenanKanu;" />
-  <div id="loader">
-    <div id="shadow"></div>
-    <div id="box"></div>
-  </div>
-</body>
+    </script>
+  </body>
 </html>

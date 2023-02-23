@@ -7,7 +7,7 @@ abstract class AppImages {
   //icons
   static const github = 'assets/icons/github.svg';
   static const linkedin = 'assets/icons/linkedin.svg';
-  static const logo = 'assets/icons/icon.png';
+  static const logo = 'assets/icons/icon.svg';
   static const flutter = 'assets/icons/flutter.svg';
   static const dart = 'assets/icons/dart.svg';
   static const firebase = 'assets/icons/firebase.svg';
@@ -25,5 +25,5 @@ abstract class AppImages {
   static const postman = 'assets/icons/postman.svg';
   static const makefile = 'assets/icons/makefile.svg';
   static const vscode = 'assets/icons/vscode.svg';
-  static const renankanu = 'assets/icons/renankanu.png';
+  static const renankanu = 'assets/icons/renankanu.svg';
 }

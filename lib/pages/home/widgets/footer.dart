@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:me_landing_page/shared/utils/app_responsive.dart';
 
@@ -81,10 +82,9 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
+    return SvgPicture.asset(
       AppImages.renankanu,
       height: 20,
-      color: Colors.white.withOpacity(0),
     );
   }
 }

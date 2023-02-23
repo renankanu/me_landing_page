@@ -32,15 +32,27 @@ class AboutMe extends StatelessWidget {
       return Stack(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(padding, 140, padding, 0),
-            child: Image.asset(
-              AppImages.bg,
-              fit: BoxFit.none,
-              height: 460,
-              width: constraints.maxWidth,
-              color: Colors.grey[700]!.withOpacity(0.2),
-            ),
-          ),
+              padding: EdgeInsets.fromLTRB(padding, 140, padding, 0),
+              child: Image(
+                image: const AssetImage(
+                  AppImages.bg,
+                ),
+                fit: BoxFit.none,
+                height: 460,
+                width: constraints.maxWidth,
+                color: Colors.grey[700]!.withOpacity(0.2),
+                excludeFromSemantics: true,
+                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) {
+                    return child;
+                  } else {
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: frame != null ? child : const SizedBox.shrink(),
+                    );
+                  }
+                },
+              )),
           Center(
             child: Container(
               constraints: const BoxConstraints(maxWidth: 1200),
@@ -104,11 +116,25 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                         child: Stack(
                           children: [
                             ClipOval(
-                              child: Image.asset(
-                                AppImages.renanFour,
-                                fit: BoxFit.fill,
-                                height: 406,
-                                width: 406,
+                              child: Image(
+                                image: const AssetImage(
+                                  AppImages.renanFour,
+                                ),
+                                excludeFromSemantics: true,
+                                frameBuilder: (context, child, frame,
+                                    wasSynchronouslyLoaded) {
+                                  if (wasSynchronouslyLoaded) {
+                                    return child;
+                                  } else {
+                                    return AnimatedSwitcher(
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      child: frame != null
+                                          ? child
+                                          : const SizedBox.shrink(),
+                                    );
+                                  }
+                                },
                               ),
                             ),
                             Container(

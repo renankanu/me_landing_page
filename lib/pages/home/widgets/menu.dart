@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
@@ -36,10 +37,10 @@ class Menu extends StatelessWidget {
           child: Row(
             children: [
               const SizedBox(width: 20),
-              Image.asset(
+              SvgPicture.asset(
                 AppImages.logo,
-                width: 36,
-                height: 36,
+                width: 40,
+                height: 40,
               ),
               const SizedBox(width: 20),
               ItemMenu(
