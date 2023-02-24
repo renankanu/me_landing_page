@@ -1,91 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.logo img {
-  width: 300;
-  height: 50px;
-  object-fit: cover;
-}
-.loader {
-  text-align: center;
-  vertical-align: middle;
-  position: relative;
-  display: flex;
-  padding-top: 40px;
-}
-.loader span {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background: #ed595d;
-  border-radius: 50%;
-  margin: 0 5px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-.loader span:nth-child(2) {
-  background: #728cf7;
-}
-
-.loader span:nth-child(3) {
-  background: #e17094;
-}
-
-.loader span:nth-child(4) {
-  background: #ff9b70;
-}
-
-.loader span:not(:last-child) {
-  animation: animate 1.5s linear infinite;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateX(0);
+#loader {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
   }
-
-  100% {
-    transform: translateX(30px);
+  @keyframes loader {
+    0% {
+      left: -100px;
+    }
+    100% {
+      left: 110%;
+    }
   }
-}
-
-.loader span:last-child {
-  animation: jump 1.5s ease-in-out infinite;
-}
-
-@keyframes jump {
-  0% {
-    transform: translate(0, 0);
+  #box {
+    width: 54px;
+    height: 54px;
+    background: #fff;
+    animation: animate 0.5s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    opacity: 0.5;
   }
-  10% {
-    transform: translate(10px, -10px);
+  @keyframes animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 40px;
+    }
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
   }
-  20% {
-    transform: translate(20px, 10px);
+  #shadow {
+    width: 50px;
+    height: 5px;
+    background: #000;
+    opacity: 0.1;
+    position: absolute;
+    top: 59px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow 0.5s linear infinite;
   }
-  30% {
-    transform: translate(30px, -50px);
+  @keyframes shadow {
+    50% {
+      transform: scale(1.2, 1);
+    }
   }
-  70% {
-    transform: translate(-150px, -50px);
+  
+  body {
+    background: #1F2331;
+    overflow: hidden;
   }
-  80% {
-    transform: translate(-140px, 10px);
+  img {
+    position: absolute;
+    top: calc(50% - 80px);
+    left: calc(50% - 150px);
+    margin: 0;
+    width: 300px;
+    opacity: 0.5;
+    color: #fff;
   }
-  90% {
-    transform: translate(-130px, -10px);
-  }
-  100% {
-    transform: translate(-120px, 0);
-  }
-}
+  

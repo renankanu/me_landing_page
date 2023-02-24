@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+migrate_working_dir/
 
 # IntelliJ related
 *.iml
@@ -29,9 +30,7 @@
 .packages
 .pub-cache/
 .pub/
-build/
-
-# Web related
+/build/
 
 # Symbolication related
 app.*.symbols
@@ -43,7 +42,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-build/f553c14f8abc3351f6693900c1547afa
-build/flutter_assets
-build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill
-.env
