@@ -20,6 +20,7 @@ class Config extends StatelessWidget {
   final isExpandedMakefile = ValueNotifier(false);
   final isExpandedVsCodeExt = ValueNotifier(false);
   final isExpandedGit = ValueNotifier(false);
+  final isExpandedZshrc = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +146,7 @@ class Config extends StatelessWidget {
                                             )
                                             .slideX(
                                               begin: 0,
-                                              end: -1.16,
+                                              end: -1.22,
                                               duration: 400.ms,
                                             ),
                                         ExpandedWidget(
@@ -448,6 +449,104 @@ class Config extends StatelessWidget {
                                           child: MarkdownWidget(
                                             shrinkWrap: true,
                                             data: gitConfig,
+                                            config: MarkdownConfig(
+                                              configs: [
+                                                PreConfig(
+                                                  decoration: BoxDecoration(
+                                                    color:
+                                                        const Color(0xFF282a36),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  language: 'bash',
+                                                  theme: draculaTheme,
+                                                  textStyle:
+                                                      GoogleFonts.firaCode(
+                                                    fontWeight: FontWeight.w500,
+                                                    letterSpacing: 1,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ),
+                              ConfigContainer(
+                                child: ValueListenableBuilder(
+                                  valueListenable: isExpandedZshrc,
+                                  builder: (_, expanded, __) {
+                                    return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '.zshrc',
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            SvgPicture.asset(AppImages.terminal,
+                                                width: 30,
+                                                height: 30,
+                                                colorFilter:
+                                                    const ColorFilter.mode(
+                                                  AppColors.cornflowerBlue,
+                                                  BlendMode.srcIn,
+                                                )),
+                                            const Spacer(),
+                                            IconButton(
+                                              onPressed: () {
+                                                isExpandedZshrc.value =
+                                                    !isExpandedZshrc.value;
+                                              },
+                                              icon: AnimatedRotation(
+                                                duration: const Duration(
+                                                    milliseconds: 300),
+                                                turns: isExpandedZshrc.value
+                                                    ? 0
+                                                    : 0.5,
+                                                child: const Icon(
+                                                  Icons.expand_more,
+                                                  size: 30,
+                                                  color:
+                                                      AppColors.cornflowerBlue,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        const Text(
+                                                'Configuração do meu .zshrc, que eu utilizo para deixar o terminal mais bonito e com algumas funcionalidades. Atualmente estou utilizando o oh-my-zsh com Hyper terminal.')
+                                            .animate(
+                                              target: expanded ? 1 : 0,
+                                              onPlay: (controller) {
+                                                if (expanded) {
+                                                  controller.forward();
+                                                } else {
+                                                  controller.reverse();
+                                                }
+                                              },
+                                            )
+                                            .slideX(
+                                              begin: 0,
+                                              end: -1.4,
+                                              duration: 400.ms,
+                                            ),
+                                        ExpandedWidget(
+                                          expand: expanded,
+                                          child: MarkdownWidget(
+                                            shrinkWrap: true,
+                                            data: zshConfig,
                                             config: MarkdownConfig(
                                               configs: [
                                                 PreConfig(
