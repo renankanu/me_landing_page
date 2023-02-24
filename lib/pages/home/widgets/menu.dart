@@ -19,6 +19,7 @@ class Menu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
@@ -37,9 +38,12 @@ class Menu extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(12),
           child: Row(
+            mainAxisAlignment: isMobile
+                ? MainAxisAlignment.spaceAround
+                : MainAxisAlignment.start,
             children: [
-              if (!Responsive.isMobile(context))
-                Column(
+              if (!isMobile)
+                Row(
                   children: [
                     const SizedBox(width: 20),
                     SvgPicture.asset(
@@ -47,9 +51,9 @@ class Menu extends StatelessWidget {
                       width: 40,
                       height: 40,
                     ),
+                    const SizedBox(width: 20),
                   ],
                 ),
-              const SizedBox(width: 20),
               ItemMenu(
                 label: 'Home',
                 onPressed: () {

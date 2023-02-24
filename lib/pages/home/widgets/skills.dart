@@ -36,12 +36,13 @@ class Skills extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
     final start = ValueNotifier(false);
-
+    final isMobile = Responsive.isMobile(context);
     return VisibilityDetector(
       key: const Key('skills'),
       onVisibilityChanged: (visibilityInfo) {
         final visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 15) {
+        int percent = isMobile ? 10 : 20;
+        if (visiblePercentage > percent) {
           start.value = true;
         }
       },
@@ -57,7 +58,7 @@ class Skills extends StatelessWidget {
                   padding: globalPadding(context, padding),
                   child: Padding(
                     padding: EdgeInsets.only(
-                      left: Responsive.isMobile(context) ? 0 : 40,
+                      left: isMobile ? 0 : 40,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,8 +122,8 @@ class Item extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
     return SizedBox(
-      height: isMobile ? 180 : 240,
-      width: isMobile ? 180 : 240,
+      height: isMobile ? 160 : 240,
+      width: isMobile ? 160 : 240,
       child: ValueListenableBuilder(
         valueListenable: start,
         builder: (context, started, _) => Center(
@@ -131,8 +132,8 @@ class Item extends StatelessWidget {
             onEnter: (_) => start.value = true,
             onExit: (_) => start.value = false,
             child: Container(
-              height: isMobile ? 240 : 300,
-              width: isMobile ? 240 : 300,
+              height: isMobile ? 220 : 300,
+              width: isMobile ? 220 : 300,
               margin: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
@@ -166,8 +167,8 @@ class Item extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     skill.image,
-                    width: isMobile ? 80 : 100,
-                    height: isMobile ? 80 : 100,
+                    width: isMobile ? 60 : 100,
+                    height: isMobile ? 60 : 100,
                   ),
                 ],
               ),

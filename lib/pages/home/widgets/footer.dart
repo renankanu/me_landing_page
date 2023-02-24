@@ -16,7 +16,7 @@ class Footer extends StatelessWidget {
         builder: (_, __) {
           if (Responsive.isMobile(context)) {
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: const [

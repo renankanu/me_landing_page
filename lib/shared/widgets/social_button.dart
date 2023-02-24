@@ -35,7 +35,7 @@ class SocialButton extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    width: isMobile ? 180 : 212,
+                    width: isMobile ? 170 : 212,
                     height: 54,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
@@ -46,7 +46,7 @@ class SocialButton extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: isMobile ? 186 : 206,
+                    width: isMobile ? 164 : 206,
                     height: 48,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),

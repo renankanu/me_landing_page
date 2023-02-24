@@ -16,6 +16,7 @@ class AboutMe extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
     return LayoutBuilder(builder: (_, constraints) {
+      final isMobile = Responsive.isMobile(context);
       return Stack(
         children: [
           Padding(
@@ -25,7 +26,7 @@ class AboutMe extends StatelessWidget {
                   AppImages.bg,
                 ),
                 fit: BoxFit.none,
-                height: 460,
+                height: isMobile ? 700 : 460,
                 width: constraints.maxWidth,
                 color: Colors.grey[700]!.withOpacity(0.2),
                 excludeFromSemantics: true,
@@ -138,6 +139,7 @@ class MyDesc extends StatelessWidget {
       crossAxisAlignment:
           isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
+        if (isMobile) const SizedBox(height: 40),
         SelectableText(
           'Renan Santos',
           style: GoogleFonts.poppins(
