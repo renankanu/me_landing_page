@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:me_landing_page/pages/home/widgets/about_me.dart';
-import 'package:me_landing_page/pages/home/widgets/config.dart';
-import 'package:me_landing_page/pages/home/widgets/footer.dart';
-import 'package:me_landing_page/pages/home/widgets/jobs.dart';
-import 'package:me_landing_page/pages/home/widgets/menu.dart';
-import 'package:me_landing_page/pages/home/widgets/skills.dart';
+import 'package:me_landing_page/pages/home/components/about_me.dart';
+import 'package:me_landing_page/pages/home/components/config.dart';
+import 'package:me_landing_page/pages/home/components/footer.dart';
+import 'package:me_landing_page/pages/home/components/jobs.dart';
+import 'package:me_landing_page/pages/home/components/menu.dart';
+import 'package:me_landing_page/pages/home/components/skills.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 

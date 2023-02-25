@@ -2,8 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
-
-import 'flutter_path.dart';
+import 'package:me_landing_page/shared/app_constants.dart';
 
 class AvatarAnimation extends StatefulWidget {
   const AvatarAnimation({
@@ -197,12 +196,16 @@ class Arc2Painter extends CustomPainter {
 
     p.style = PaintingStyle.fill;
     final width = size.width;
-    canvas.drawPath(pathGit.shift(Offset(width * 0.22, width * 0.023)), p);
+    canvas.drawPath(
+        AppConstants.pathGit().shift(Offset(width * 0.22, width * 0.023)), p);
     canvas.rotate(pi / 2);
     canvas.drawPath(
-        pathFlutter.shift(Offset(width * 0.42, -(width * 1.05))), p);
+        AppConstants.pathFlutter().shift(Offset(width * 0.42, -(width * 1.05))),
+        p);
     canvas.rotate(pi / 4);
-    canvas.drawPath(pathDart.shift(Offset(width * 0.47, -(width * 0.82))), p);
+    canvas.drawPath(
+        AppConstants.pathDart().shift(Offset(width * 0.47, -(width * 0.82))),
+        p);
   }
 
   @override

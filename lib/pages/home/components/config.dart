@@ -153,7 +153,7 @@ class Config extends StatelessWidget {
                                           expand: expanded,
                                           child: MarkdownWidget(
                                             shrinkWrap: true,
-                                            data: makeFileConf,
+                                            data: AppConstants.makeFileConf,
                                             config: MarkdownConfig(
                                               configs: [
                                                 PreConfig(
@@ -248,7 +248,7 @@ class Config extends StatelessWidget {
                                           expand: expanded,
                                           child: MarkdownWidget(
                                             shrinkWrap: true,
-                                            data: vsCodeConf,
+                                            data: AppConstants.vsCodeConf,
                                             config: MarkdownConfig(
                                               configs: [
                                                 PreConfig(
@@ -350,7 +350,8 @@ class Config extends StatelessWidget {
                                             padding: const EdgeInsets.all(20),
                                             child: MarkdownWidget(
                                               shrinkWrap: true,
-                                              data: extensionVsCode,
+                                              data:
+                                                  AppConstants.extensionVsCode,
                                               config: MarkdownConfig(
                                                 configs: [
                                                   LinkConfig(
@@ -448,7 +449,7 @@ class Config extends StatelessWidget {
                                           expand: expanded,
                                           child: MarkdownWidget(
                                             shrinkWrap: true,
-                                            data: gitConfig,
+                                            data: AppConstants.gitConfig,
                                             config: MarkdownConfig(
                                               configs: [
                                                 PreConfig(
@@ -546,7 +547,7 @@ class Config extends StatelessWidget {
                                           expand: expanded,
                                           child: MarkdownWidget(
                                             shrinkWrap: true,
-                                            data: zshConfig,
+                                            data: AppConstants.zshConfig,
                                             config: MarkdownConfig(
                                               configs: [
                                                 PreConfig(
