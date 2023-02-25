@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   final _listSections = [
     const AboutMe(),
     const Skills(),
-    Config(),
+    const Config(),
     const Jobs(),
     const Footer(),
   ];
