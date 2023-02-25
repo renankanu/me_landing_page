@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -177,7 +178,10 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
               buttonColor: AppColors.riverBed,
               icon: AppImages.github,
               onTap: () async {
-                await FirebaseAnalytics.instance.logEvent(name: 'Github Click');
+                if (kReleaseMode) {
+                  await FirebaseAnalytics.instance
+                      .logEvent(name: 'Github Click');
+                }
                 final url = Uri.parse('https://github.com/renankanu');
                 if (!await launchUrl(url)) {
                   throw Exception('Could not launch $url');
@@ -190,8 +194,10 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
               buttonColor: AppColors.blueChill,
               icon: AppImages.linkedin,
               onTap: () async {
-                await FirebaseAnalytics.instance
-                    .logEvent(name: 'LinkedIn Click');
+                if (kReleaseMode) {
+                  await FirebaseAnalytics.instance
+                      .logEvent(name: 'LinkedIn Click');
+                }
                 final url =
                     Uri.parse('https://www.linkedin.com/in/renansantosbr/');
                 if (!await launchUrl(url)) {

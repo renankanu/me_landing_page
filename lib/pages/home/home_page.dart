@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/home/components/about_me.dart';
 import 'package:me_landing_page/pages/home/components/config.dart';
@@ -33,6 +35,16 @@ class _HomePageState extends State<HomePage> {
       curve: Curves.fastOutSlowIn,
       alignment: 0.15,
     );
+  }
+
+  @override
+  void initState() {
+    if (kReleaseMode) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        FirebaseAnalytics.instance.logAppOpen();
+      });
+    }
+    super.initState();
   }
 
   @override
