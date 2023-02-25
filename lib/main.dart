@@ -1,10 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/home/home_page.dart';
 import 'package:me_landing_page/theme/app_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   setPathUrlStrategy();
+
   runApp(const MyApp());
 }
 
