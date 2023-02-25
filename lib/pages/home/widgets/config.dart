@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
-import 'package:me_landing_page/shared/string_config.dart';
+import 'package:me_landing_page/shared/app_constants.dart';
 import 'package:me_landing_page/shared/widgets/container_config.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
