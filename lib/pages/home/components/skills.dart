@@ -56,45 +56,39 @@ class Skills extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 80),
                   constraints: const BoxConstraints(minWidth: 1800),
                   padding: globalPadding(context, padding),
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: isMobile ? 0 : 40,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 20),
-                        AppTitleSection(
-                          title: 'Minhas Skills',
-                          started: started,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 20),
+                      AppTitleSection(
+                        title: 'Minhas Skills',
+                        started: started,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white.withOpacity(0.7),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
                         ),
-                        const SizedBox(height: 20),
-                        Text(
-                          'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white.withOpacity(0.7),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
+                      ),
+                      const SizedBox(height: 40),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Wrap(
+                          children: _mySkills.map(
+                            (skill) {
+                              final isEven = _mySkills.indexOf(skill) % 2 == 0;
+                              return Item(
+                                skill: skill,
+                                isEven: isEven,
+                              );
+                            },
+                          ).toList(),
                         ),
-                        const SizedBox(height: 40),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Wrap(
-                            children: _mySkills.map(
-                              (skill) {
-                                final isEven =
-                                    _mySkills.indexOf(skill) % 2 == 0;
-                                return Item(
-                                  skill: skill,
-                                  isEven: isEven,
-                                );
-                              },
-                            ).toList(),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               );
@@ -187,13 +181,11 @@ class Item extends StatelessWidget {
                   begin: 0.0,
                   end: isEven ? 0.01 : -0.01,
                   duration: 400.ms,
-                  curve: Curves.easeInOutBack,
+                  curve: Curves.easeIn,
                 )
                 .scale(
                   begin: const Offset(1, 1),
                   end: const Offset(1.1, 1.1),
-                  duration: 400.ms,
-                  curve: Curves.easeInOutBack,
                 ),
           ),
         ),
