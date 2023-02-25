@@ -21,6 +21,7 @@ dependencies:
   flutter_highlight: ^0.7.0
   visibility_detector: ^0.3.3
   url_launcher: ^6.1.10
+  bonfire: ^2.12.0
 
 dev_dependencies:
   flutter_test:
