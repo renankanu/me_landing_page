@@ -13,11 +13,11 @@ void main() async {
 
   setPathUrlStrategy();
 
-  runApp(const MyApp());
+  runApp(const LandingPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

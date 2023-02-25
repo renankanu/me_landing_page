@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_highlight/themes/dracula.dart';
@@ -92,7 +93,10 @@ class Config extends StatelessWidget {
                                     const SizedBox(width: 20),
                                     const Spacer(),
                                     IconButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await FirebaseAnalytics.instance
+                                            .logEvent(
+                                                name: 'Makefile Config Click');
                                         isExpandedMakefile.value =
                                             !isExpandedMakefile.value;
                                       },
@@ -181,7 +185,10 @@ class Config extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     IconButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await FirebaseAnalytics.instance
+                                            .logEvent(
+                                                name: 'VSCode Settings Click');
                                         isExpandedVsCode.value =
                                             !isExpandedVsCode.value;
                                       },
@@ -269,7 +276,11 @@ class Config extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     IconButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await FirebaseAnalytics.instance
+                                            .logEvent(
+                                                name:
+                                                    'VSCode Extensions Click');
                                         isExpandedVsCodeExt.value =
                                             !isExpandedVsCodeExt.value;
                                       },
@@ -366,7 +377,10 @@ class Config extends StatelessWidget {
                                     ),
                                     const Spacer(),
                                     IconButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await FirebaseAnalytics.instance
+                                            .logEvent(
+                                                name: 'Git Settings Click');
                                         isExpandedGit.value =
                                             !isExpandedGit.value;
                                       },
@@ -456,7 +470,10 @@ class Config extends StatelessWidget {
                                         )),
                                     const Spacer(),
                                     IconButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        await FirebaseAnalytics.instance
+                                            .logEvent(
+                                                name: 'Zshrc Settings Click');
                                         isExpandedZshrc.value =
                                             !isExpandedZshrc.value;
                                       },
