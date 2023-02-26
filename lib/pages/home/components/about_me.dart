@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
@@ -169,6 +170,11 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
           ),
         ),
         const SizedBox(height: 40),
+        TextButton(
+            onPressed: () {
+              context.go('/game');
+            },
+            child: const Text('Abrir Game')),
         Row(
           mainAxisAlignment:
               isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,

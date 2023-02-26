@@ -24,6 +24,7 @@ dependencies:
   bonfire: ^2.12.0
   firebase_analytics: ^10.1.4
   firebase_core: ^2.7.0
+  go_router: ^6.2.0
 
 dev_dependencies:
   flutter_test:

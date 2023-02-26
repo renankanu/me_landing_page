@@ -1,17 +1,14 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:me_landing_page/pages/home/home_page.dart';
+import 'package:me_landing_page/routes/go_router.dart';
 import 'package:me_landing_page/theme/app_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
-
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
   setPathUrlStrategy();
 
@@ -23,10 +20,10 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'RenanKanu;',
       theme: AppTheme.darkTheme(),
-      home: const HomePage(),
+      routerConfig: Routes.router,
     );
   }
 }
