@@ -1,14 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:me_landing_page/pages/game/components/game_split_sheet.dart';
 
-class Player extends SimplePlayer {
-  Player(Vector2 position)
+class MyPlayer extends SimplePlayer {
+  MyPlayer(Vector2 position)
       : super(
           position: position,
-          size: Vector2(32.0, 32.0),
-          life: 100,
-          speed: 100,
-          initDirection: Direction.right,
+          size: Vector2(64, 64),
           animation: SimpleDirectionAnimation(
             idleRight: GameSplitSheet().idleRight,
             runRight: GameSplitSheet().runRight,
