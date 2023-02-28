@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:me_landing_page/pages/game/components/game_split_sheet.dart';
 
-class MyPlayer extends SimplePlayer {
+class MyPlayer extends SimplePlayer with ObjectCollision {
   MyPlayer(Vector2 position)
       : super(
           position: position,
@@ -12,5 +12,17 @@ class MyPlayer extends SimplePlayer {
             idleLeft: GameSplitSheet().idleLeft,
             runLeft: GameSplitSheet().runLeft,
           ),
-        );
+          speed: 60,
+        ) {
+    setupCollision(
+      CollisionConfig(
+        collisions: [
+          CollisionArea.rectangle(
+            size: Vector2(24, 16),
+            align: Vector2(20, 38),
+          ),
+        ],
+      ),
+    );
+  }
 }

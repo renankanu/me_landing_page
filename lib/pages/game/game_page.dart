@@ -32,6 +32,7 @@ class _GamePageState extends State<GamePage> {
         player: MyPlayer(
           Vector2(64, 64),
         ),
+        showCollisionArea: true,
       ),
     );
   }
