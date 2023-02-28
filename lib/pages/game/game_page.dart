@@ -12,18 +12,21 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.red,
-        body: BonfireWidget(
-          joystick: Joystick(
-            directional: JoystickDirectional(),
-          ), // required
-          map: WorldMapByTiled(
-            'map/map.json',
-            forceTileSize: Vector2(
-              32,
-              32,
-            ),
+      backgroundColor: Colors.red,
+      body: BonfireWidget(
+        joystick: Joystick(
+          directional: JoystickDirectional(),
+        ),
+        map: WorldMapByTiled(
+          'map/map.json',
+          forceTileSize: Vector2(
+            32,
+            32,
           ),
-        ));
+        ),
+        player:
+            Player(position: Vector2(3 * 32, 2 * 32), size: Vector2(32, 32)),
+      ),
+    );
   }
 }
