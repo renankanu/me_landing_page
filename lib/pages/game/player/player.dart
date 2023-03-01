@@ -12,7 +12,7 @@ class MyPlayer extends SimplePlayer with ObjectCollision {
             idleLeft: GameSplitSheet().idleLeft,
             runLeft: GameSplitSheet().runLeft,
           ),
-          speed: 400,
+          speed: 500,
         ) {
     setupCollision(
       CollisionConfig(

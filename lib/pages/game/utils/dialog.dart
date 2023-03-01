@@ -3,25 +3,11 @@ import 'package:flutter/material.dart';
 
 abstract class Ballon {
   static Say sayBallon({
-    required String text,
-    String? decorationText,
-    Color? decorationColor,
+    required List<TextSpan> messages,
     Widget? person,
   }) {
     return Say(
-      text: [
-        TextSpan(
-          text: text,
-        ),
-        if (decorationText != null)
-          TextSpan(
-            text: decorationText,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: decorationColor,
-            ),
-          ),
-      ],
+      text: messages,
       person: SizedBox(
         width: 100,
         height: 100,

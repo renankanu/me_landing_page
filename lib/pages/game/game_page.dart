@@ -1,6 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
+import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
 
 import 'components/npcs/intro/intro_npc.dart';
 import 'player/player.dart';
@@ -38,6 +39,9 @@ class _GamePageState extends State<GamePage> {
                   properties.position,
                 ),
             'intro': (properties) => IntroNpc(
+                  properties.position,
+                ),
+            'skill': (properties) => SkillNpc(
                   properties.position,
                 ),
           },

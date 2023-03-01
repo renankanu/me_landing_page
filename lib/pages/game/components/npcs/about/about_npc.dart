@@ -1,5 +1,7 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
 import 'package:me_landing_page/pages/game/utils/dialog.dart';
 
@@ -35,7 +37,7 @@ class AboutNpc extends SimpleNpc
               texturePosition: Vector2(0, 48),
             ),
           ),
-          speed: 400,
+          speed: 10,
         ) {
     setupCollision(
       CollisionConfig(
@@ -57,10 +59,72 @@ class AboutNpc extends SimpleNpc
         TalkDialog.show(
           gameRef.context,
           backgroundColor: AppColors.ebony.withOpacity(0.8),
-          speed: 100,
+          speed: 10,
           [
             Ballon.sayBallon(
-              text: 'Eu sou Adalyn, vou te contar um pouco sobre o Renan.',
+              messages: [
+                TextSpan(
+                  text: 'Eu sou o ',
+                  style: GoogleFonts.vt323(),
+                ),
+                const TextSpan(
+                  text: 'Adalyn ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                  ),
+                ),
+                const TextSpan(
+                  text: ', vou te contar um pouco sobre o Renan',
+                ),
+              ],
+              person: idleRight.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text:
+                      'Ele é um desenvolvedor de aplicativos móveis com uma vasta experiência na área, tendo iniciado sua carreira em 2016. Desde então, você tem se dedicado a aprimorar suas habilidades na criação de aplicativos para Android e iOS. ',
+                ),
+                const TextSpan(
+                  text:
+                      'Nos últimos anos, ele se especializou no uso da plataforma ',
+                ),
+                const TextSpan(
+                  text: 'Flutter. ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+              person: idleRight.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text:
+                      ' Mas não se preocupe, ele também tem experiência com outras tecnologias como ',
+                ),
+                const TextSpan(
+                  text: 'Dart, React Native, Docker, Firebase, Git, Linux ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.blueChill,
+                  ),
+                ),
+                const TextSpan(
+                  text: 'e muito mais. ',
+                ),
+              ],
+              person: idleRight.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text:
+                      'Continue a caminhar entre os NPCs para saber mais sobre ele.',
+                ),
+              ],
               person: idleRight.asWidget(),
             ),
           ],

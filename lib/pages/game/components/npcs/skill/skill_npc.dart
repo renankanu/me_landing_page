@@ -1,36 +1,36 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:me_landing_page/pages/game/components/npcs/intro/intro_controller.dart';
-import 'package:me_landing_page/shared/app_colors.dart';
+import 'package:me_landing_page/pages/game/components/npcs/skill/skill_controller.dart';
 
+import '../../../../../shared/app_colors.dart';
 import '../../../utils/dialog.dart';
 import '../base_npc_sprite.dart';
 
-class IntroNpc extends SimpleNpc
-    with ObjectCollision, UseStateController<IntroController> {
+class SkillNpc extends SimpleNpc
+    with ObjectCollision, UseStateController<SkillController> {
   static final idleLeft = BaseNpcSprite.idleLeft(
-    src: 'npcs/intro.png',
+    src: 'npcs/skill.png',
     amount: 4,
     stepTime: 0.15,
     textureSize: Vector2(24, 24),
     texturePosition: Vector2(96, 0),
   );
-  IntroNpc(Vector2 position)
+  SkillNpc(Vector2 position)
       : super(
           position: position,
           size: Vector2(40, 40),
           initDirection: Direction.left,
           animation: SimpleDirectionAnimation(
             idleRight: BaseNpcSprite.idleRight(
-              src: 'npcs/intro.png',
+              src: 'npcs/skill.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
               texturePosition: Vector2(0, 0),
             ),
             runRight: BaseNpcSprite.runRight(
-              src: 'npcs/intro.png',
+              src: 'npcs/skill.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
@@ -38,14 +38,13 @@ class IntroNpc extends SimpleNpc
             ),
             idleLeft: idleLeft,
             runLeft: BaseNpcSprite.runLeft(
-              src: 'npcs/intro.png',
+              src: 'npcs/skill.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
               texturePosition: Vector2(96, 96),
             ),
           ),
-          speed: 10,
         ) {
     setupCollision(
       CollisionConfig(
@@ -72,28 +71,58 @@ class IntroNpc extends SimpleNpc
             Ballon.sayBallon(
               messages: [
                 const TextSpan(
-                  text: 'Olá, seja bem vindo ao portfólio do ',
+                  text: 'Eu sou o NPC de skills, ',
                 ),
                 const TextSpan(
-                  text: 'Renan!',
+                  text: 'Kael.',
                   style: TextStyle(
-                    color: AppColors.blueChill,
                     fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
+                ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text: 'Aqui sao mostradas algumas das ',
+                ),
+                const TextSpan(
+                  text: 'skills',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.cyan,
                   ),
                 ),
                 const TextSpan(
-                  text: ' Encontre os ',
+                  text: ' do Renan.',
                 ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
                 const TextSpan(
-                  text: 'NPCs',
+                  text:
+                      'Flutter, Dart, Firebase, Kotlin, React Native, Google Play, App Store, AWS, Docker, Git, JavaScript, TypeScript, PHP, Linux e PostMan.',
                   style: TextStyle(
-                    color: AppColors.burntSienna,
                     fontWeight: FontWeight.bold,
+                    color: Colors.deepOrange,
                   ),
+                ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text: 'Essas são as mais importantes que você precisa saber.',
                 ),
                 const TextSpan(
                   text:
-                      ' pelo mapa e converse com eles. Aproveite e cuidado com os inimigos!',
+                      ' Agora vá para o próximo NPC. Tome cuidado com os inimigos.',
+                  style: TextStyle(),
                 ),
               ],
               person: idleLeft.asWidget(),
