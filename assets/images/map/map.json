@@ -214,9 +214,42 @@
          "width":60,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":16,
+         "name":"npcs",
+         "objects":[
+                {
+                 "class":"",
+                 "height":16,
+                 "id":6,
+                 "name":"npc",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":80,
+                 "y":128
+                }, 
+                {
+                 "class":"",
+                 "height":16,
+                 "id":7,
+                 "name":"intro",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":160,
+                 "y":30
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":15,
- "nextobjectid":1,
+ "nextlayerid":17,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

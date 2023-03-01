@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:me_landing_page/pages/game/components/game_split_sheet.dart';
+import 'package:me_landing_page/pages/game/player/game_split_sheet.dart';
 
 class MyPlayer extends SimplePlayer with ObjectCollision {
   MyPlayer(Vector2 position)

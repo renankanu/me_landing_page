@@ -1,7 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
 
-import 'components/player.dart';
+import 'components/npcs/intro/intro_npc.dart';
+import 'player/player.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -20,6 +22,9 @@ class _GamePageState extends State<GamePage> {
       ),
       body: BonfireWidget(
         joystick: Joystick(
+          keyboardConfig: KeyboardConfig(
+            enable: true,
+          ),
           directional: JoystickDirectional(),
         ),
         map: WorldMapByTiled(
@@ -28,11 +33,18 @@ class _GamePageState extends State<GamePage> {
             32,
             32,
           ),
+          objectsBuilder: {
+            'npc': (properties) => AboutNpc(
+                  properties.position,
+                ),
+            'intro': (properties) => IntroNpc(
+                  properties.position,
+                ),
+          },
         ),
         player: MyPlayer(
           Vector2(64, 64),
         ),
-        showCollisionArea: true,
       ),
     );
   }
