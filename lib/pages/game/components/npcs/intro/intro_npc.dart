@@ -75,7 +75,7 @@ class IntroNpc extends SimpleNpc
             ),
             sayBallon(
               text:
-                  'Encontre os NPCs pelo mapa e converse com eles. Aproveite e cuidado com os inimigos! 🧟‍♂️',
+                  'Encontre os NPCs pelo mapa e converse com eles. Aproveite e cuidado com os inimigos! 🧌',
             ),
           ],
           onClose: () {
