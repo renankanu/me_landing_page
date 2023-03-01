@@ -1,9 +1,9 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:me_landing_page/pages/game/components/npcs/intro/intro_controller.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 
+import '../../../utils/dialog.dart';
 import '../base_npc_sprite.dart';
 
 class IntroNpc extends SimpleNpc
@@ -50,8 +50,8 @@ class IntroNpc extends SimpleNpc
       CollisionConfig(
         collisions: [
           CollisionArea.rectangle(
-            size: Vector2(20, 16),
-            align: Vector2(12, 24),
+            size: Vector2(20, 10),
+            align: Vector2(10, 28),
           ),
         ],
       ),
@@ -68,14 +68,16 @@ class IntroNpc extends SimpleNpc
           backgroundColor: AppColors.ebonyClay.withOpacity(0.8),
           speed: 100,
           [
-            sayBallon(
+            Ballon.sayBallon(
               text: 'Olá, seja bem vindo ao portfólio do ',
               decorationText: 'Renan !',
               decorationColor: AppColors.blueChill,
+              person: idleLeft.asWidget(),
             ),
-            sayBallon(
+            Ballon.sayBallon(
               text:
                   'Encontre os NPCs pelo mapa e converse com eles. Aproveite e cuidado com os inimigos! 🧌',
+              person: idleLeft.asWidget(),
             ),
           ],
           onClose: () {
@@ -88,34 +90,6 @@ class IntroNpc extends SimpleNpc
           ],
         );
       },
-    );
-  }
-
-  Say sayBallon({
-    required String text,
-    String? decorationText,
-    Color? decorationColor,
-  }) {
-    return Say(
-      text: [
-        TextSpan(
-          text: text,
-        ),
-        if (decorationText != null)
-          TextSpan(
-            text: decorationText,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: decorationColor,
-            ),
-          ),
-      ],
-      person: SizedBox(
-        width: 100,
-        height: 100,
-        child: idleLeft.asWidget(),
-      ),
-      personSayDirection: PersonSayDirection.RIGHT,
     );
   }
 }

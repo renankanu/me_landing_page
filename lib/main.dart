@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
 import 'package:me_landing_page/routes/go_router.dart';
 import 'package:me_landing_page/theme/app_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -13,6 +14,7 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   BonfireInjector().putFactory((i) => IntroController());
+  BonfireInjector().putFactory((i) => AboutController());
 
   setPathUrlStrategy();
 
