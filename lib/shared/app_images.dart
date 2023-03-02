@@ -27,4 +27,5 @@ abstract class AppImages {
   static const vscode = 'assets/icons/vscode.svg';
   static const terminal = 'assets/icons/terminal.svg';
   static const renankanu = 'assets/icons/renankanu.svg';
+  static const play = 'assets/icons/play.svg';
 }

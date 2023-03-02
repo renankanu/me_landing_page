@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/interface/bar_life_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
@@ -14,14 +15,16 @@ import 'package:me_landing_page/routes/go_router.dart';
 import 'package:me_landing_page/theme/app_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
 
+import 'firebase_options.dart';
 import 'pages/game/components/npcs/intro/intro_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   BonfireInjector().putFactory((i) => MyPlayerController());
   BonfireInjector().putFactory((i) => IntroController());
   BonfireInjector().putFactory((i) => AboutController());

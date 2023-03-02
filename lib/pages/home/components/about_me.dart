@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -170,11 +171,38 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
           ),
         ),
         const SizedBox(height: 40),
-        TextButton(
-            onPressed: () {
+        Text(
+          'Acessa portfolio modo game',
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: isMobile ? 14 : 18,
+          ),
+        ),
+        const SizedBox(height: 10),
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              saveLogClickGame();
               context.go('/game');
             },
-            child: const Text('Abrir Game')),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: AppColors.blueChill,
+                  width: 2,
+                ),
+              ),
+              child: SvgPicture.asset(
+                AppImages.play,
+                height: 20,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 40),
         Row(
           mainAxisAlignment:
               isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,
@@ -215,5 +243,11 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
         ),
       ],
     );
+  }
+
+  void saveLogClickGame() async {
+    if (kReleaseMode) {
+      await FirebaseAnalytics.instance.logEvent(name: 'Game Click');
+    }
   }
 }
