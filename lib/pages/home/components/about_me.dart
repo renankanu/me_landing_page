@@ -162,7 +162,7 @@ class MyDesc extends StatelessWidget {
         const SizedBox(height: 20),
         SelectableText(
           '''Sou desenvolvedor na Megaleios, sou de Cianorte-PR.
-Trabalho com desenvolvimento desde 2016,
+Trabalho com desenvolvimento desde 2015,
 conheço algumas tecnologias mas hoje estou focado em Flutter.''',
           style: GoogleFonts.poppins(
             color: Colors.white,

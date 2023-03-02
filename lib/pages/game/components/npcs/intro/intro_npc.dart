@@ -45,7 +45,7 @@ class IntroNpc extends SimpleNpc
               texturePosition: Vector2(96, 96),
             ),
           ),
-          speed: 10,
+          speed: 5,
         ) {
     setupCollision(
       CollisionConfig(
@@ -67,7 +67,7 @@ class IntroNpc extends SimpleNpc
         TalkDialog.show(
           gameRef.context,
           backgroundColor: AppColors.ebonyClay.withOpacity(0.8),
-          speed: 10,
+          speed: 5,
           [
             Ballon.sayBallon(
               messages: [
@@ -93,7 +93,7 @@ class IntroNpc extends SimpleNpc
                 ),
                 const TextSpan(
                   text:
-                      ' pelo mapa e converse com eles. Aproveite e cuidado com os inimigos!',
+                      ' pelo mapa e converse com eles. Aproveite e cuidado com os inimigos!(Barra de espaço ou Enter para continuar)',
                 ),
               ],
               person: idleLeft.asWidget(),

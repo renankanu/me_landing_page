@@ -1,10 +1,10 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
+import 'package:me_landing_page/pages/game/components/npcs/config/config_npc.dart';
 
-class SkillController extends StateController<SkillNpc> {
+class ConfigController extends StateController<ConfigNpc> {
   bool canShowDialog = false;
   @override
-  void update(double dt, SkillNpc component) {
+  void update(double dt, ConfigNpc component) {
     bool seePlayer = component.checkInterval('seePlayer', 250, dt);
     if (seePlayer) {
       component.seePlayer(

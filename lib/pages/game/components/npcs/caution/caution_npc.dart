@@ -45,7 +45,7 @@ class CautionNpc extends SimpleNpc
               texturePosition: Vector2(96, 96),
             ),
           ),
-          speed: 10,
+          speed: 5,
         ) {
     setupCollision(
       CollisionConfig(
@@ -67,7 +67,7 @@ class CautionNpc extends SimpleNpc
         TalkDialog.show(
           gameRef.context,
           backgroundColor: AppColors.ebonyClay.withOpacity(0.8),
-          speed: 10,
+          speed: 5,
           [
             Ballon.sayBallon(
               messages: [

@@ -11,6 +11,7 @@ class AboutController extends StateController<AboutNpc> {
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,
+          notObserved: _handleNotObservationPlayer,
           observed: (player) => _handleObservationPlayer(player));
     }
   }
@@ -20,5 +21,9 @@ class AboutController extends StateController<AboutNpc> {
       canShowDialog = true;
       component?.execShowTalk(player);
     }
+  }
+
+  void _handleNotObservationPlayer() {
+    canShowDialog = false;
   }
 }

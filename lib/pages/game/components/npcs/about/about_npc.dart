@@ -1,7 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
 import 'package:me_landing_page/pages/game/utils/dialog.dart';
 
@@ -37,7 +36,7 @@ class AboutNpc extends SimpleNpc
               texturePosition: Vector2(0, 48),
             ),
           ),
-          speed: 10,
+          speed: 5,
         ) {
     setupCollision(
       CollisionConfig(
@@ -59,13 +58,12 @@ class AboutNpc extends SimpleNpc
         TalkDialog.show(
           gameRef.context,
           backgroundColor: AppColors.ebony.withOpacity(0.8),
-          speed: 10,
+          speed: 5,
           [
             Ballon.sayBallon(
               messages: [
-                TextSpan(
+                const TextSpan(
                   text: 'Eu sou o ',
-                  style: GoogleFonts.vt323(),
                 ),
                 const TextSpan(
                   text: 'Adalyn ',
@@ -75,7 +73,7 @@ class AboutNpc extends SimpleNpc
                   ),
                 ),
                 const TextSpan(
-                  text: ', vou te contar um pouco sobre o Renan',
+                  text: ', vou te contar um pouco sobre o Renan.',
                 ),
               ],
               person: idleRight.asWidget(),
@@ -84,15 +82,16 @@ class AboutNpc extends SimpleNpc
               messages: [
                 const TextSpan(
                   text:
-                      'Ele é um desenvolvedor de aplicativos móveis com uma vasta experiência na área, tendo iniciado sua carreira em 2016. Desde então, você tem se dedicado a aprimorar suas habilidades na criação de aplicativos para Android e iOS. ',
+                      'Ele é um desenvolvedor de aplicativos móveis com uma vasta experiência na área, tendo iniciado sua carreira em 2015. Desde então, você tem se dedicado a aprimorar suas habilidades na criação de aplicativos para Android e iOS. ',
                 ),
                 const TextSpan(
                   text:
-                      'Nos últimos anos, ele se especializou no uso da plataforma ',
+                      'Nos últimos anos, ele se especializou no uso do framework ',
                 ),
                 const TextSpan(
                   text: 'Flutter. ',
                   style: TextStyle(
+                    color: Colors.blue,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

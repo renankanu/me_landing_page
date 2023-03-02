@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:me_landing_page/pages/game/components/interface/my_player_interface.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
@@ -7,6 +8,7 @@ import 'package:me_landing_page/pages/game/components/orc/orc.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 
 import 'components/npcs/caution/caution_npc.dart';
+import 'components/npcs/config/config_npc.dart';
 import 'components/npcs/intro/intro_npc.dart';
 import 'components/npcs/megaleios/megaleios_npc.dart';
 import 'player/player.dart';
@@ -59,6 +61,9 @@ class _GamePageState extends State<GamePage> {
             'caution': (properties) => CautionNpc(
                   properties.position,
                 ),
+            'config': (properties) => ConfigNpc(
+                  properties.position,
+                ),
             'job_one': (properties) => SisterraNpc(
                   properties.position,
                 ),
@@ -70,6 +75,7 @@ class _GamePageState extends State<GamePage> {
                 ),
           },
         ),
+        interface: MyPlayerInterface(),
         player: MyPlayer(
           Vector2(64, 64),
         ),

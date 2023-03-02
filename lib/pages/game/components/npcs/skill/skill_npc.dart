@@ -66,7 +66,7 @@ class SkillNpc extends SimpleNpc
         TalkDialog.show(
           gameRef.context,
           backgroundColor: AppColors.ebonyClay.withOpacity(0.8),
-          speed: 10,
+          speed: 5,
           [
             Ballon.sayBallon(
               messages: [
@@ -89,20 +89,23 @@ class SkillNpc extends SimpleNpc
                   text: 'Aqui sao mostradas algumas das ',
                 ),
                 const TextSpan(
-                  text: 'skills',
+                  text: ' tecnologias ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.cyan,
                   ),
                 ),
                 const TextSpan(
-                  text: ' do Renan.',
+                  text: ' que o Renan sabe.',
                 ),
               ],
               person: idleLeft.asWidget(),
             ),
             Ballon.sayBallon(
               messages: [
+                const TextSpan(
+                  text: 'Essas sao as tecnologias:',
+                ),
                 const TextSpan(
                   text:
                       'Flutter, Dart, Firebase, Kotlin, React Native, Google Play, App Store, AWS, Docker, Git, JavaScript, TypeScript, PHP, Linux e PostMan.',

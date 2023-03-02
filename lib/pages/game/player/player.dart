@@ -15,7 +15,7 @@ class MyPlayer extends SimplePlayer
             idleLeft: GameSplitSheet().idleLeft,
             runLeft: GameSplitSheet().runLeft,
           ),
-          speed: 500,
+          speed: 200,
         ) {
     setupCollision(
       CollisionConfig(
@@ -35,6 +35,28 @@ class MyPlayer extends SimplePlayer
       controller.onReceiveDamage(damage);
     }
     super.receiveDamage(attacker, damage, identify);
+  }
+
+  void execShowEmote() {
+    if (hasGameRef) {
+      add(
+        AnimatedFollowerObject(
+          animation: SpriteAnimation.load(
+            "players/emote_exclamation.png",
+            SpriteAnimationData.sequenced(
+              amount: 8,
+              stepTime: 0.1,
+              textureSize: Vector2(32, 32),
+            ),
+          ),
+          size: Vector2.all(width / 2),
+          positionFromTarget: Vector2(
+            18,
+            -6,
+          ),
+        ),
+      );
+    }
   }
 
   void execShowDamage(double damage) {

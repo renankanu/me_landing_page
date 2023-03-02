@@ -1151,7 +1151,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -1437,6 +1436,46 @@
          "animation":[
                 {
                  "duration":150,
+                 "tileid":328
+                }, 
+                {
+                 "duration":150,
+                 "tileid":329
+                }, 
+                {
+                 "duration":150,
+                 "tileid":330
+                }, 
+                {
+                 "duration":150,
+                 "tileid":331
+                }, 
+                {
+                 "duration":150,
+                 "tileid":332
+                }, 
+                {
+                 "duration":150,
+                 "tileid":333
+                }, 
+                {
+                 "duration":150,
+                 "tileid":334
+                }, 
+                {
+                 "duration":150,
+                 "tileid":335
+                }, 
+                {
+                 "duration":150,
+                 "tileid":336
+                }],
+         "id":328
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":150,
                  "tileid":353
                 }, 
                 {
@@ -1455,7 +1494,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -1475,6 +1513,46 @@
              "x":0,
              "y":0
             }
+        }, 
+        {
+         "animation":[
+                {
+                 "duration":150,
+                 "tileid":360
+                }, 
+                {
+                 "duration":150,
+                 "tileid":361
+                }, 
+                {
+                 "duration":150,
+                 "tileid":362
+                }, 
+                {
+                 "duration":150,
+                 "tileid":363
+                }, 
+                {
+                 "duration":150,
+                 "tileid":364
+                }, 
+                {
+                 "duration":150,
+                 "tileid":365
+                }, 
+                {
+                 "duration":150,
+                 "tileid":366
+                }, 
+                {
+                 "duration":150,
+                 "tileid":367
+                }, 
+                {
+                 "duration":150,
+                 "tileid":368
+                }],
+         "id":360
         }, 
         {
          "animation":[
@@ -1959,7 +2037,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -1985,7 +2062,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2011,7 +2087,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2062,7 +2137,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2088,7 +2162,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2114,7 +2187,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2212,7 +2284,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2238,7 +2309,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -2264,7 +2334,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {

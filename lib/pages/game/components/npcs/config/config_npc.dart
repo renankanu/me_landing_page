@@ -1,36 +1,36 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_controller.dart';
+import 'package:me_landing_page/pages/game/components/npcs/config/config_controller.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 
 import '../../../utils/dialog.dart';
 import '../base_npc_sprite.dart';
 
-class SisterraNpc extends SimpleNpc
-    with ObjectCollision, UseStateController<SisterraController> {
+class ConfigNpc extends SimpleNpc
+    with ObjectCollision, UseStateController<ConfigController> {
   static final idleLeft = BaseNpcSprite.idleLeft(
-    src: 'npcs/dragon_.png',
+    src: 'npcs/intro.png',
     amount: 4,
     stepTime: 0.15,
     textureSize: Vector2(24, 24),
     texturePosition: Vector2(96, 0),
   );
-  SisterraNpc(Vector2 position)
+  ConfigNpc(Vector2 position)
       : super(
           position: position,
           size: Vector2(40, 40),
           initDirection: Direction.left,
           animation: SimpleDirectionAnimation(
             idleRight: BaseNpcSprite.idleRight(
-              src: 'npcs/dragon_.png',
+              src: 'npcs/intro.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
               texturePosition: Vector2(0, 0),
             ),
             runRight: BaseNpcSprite.runRight(
-              src: 'npcs/dragon_.png',
+              src: 'npcs/intro.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
@@ -38,7 +38,7 @@ class SisterraNpc extends SimpleNpc
             ),
             idleLeft: idleLeft,
             runLeft: BaseNpcSprite.runLeft(
-              src: 'npcs/dragon_.png',
+              src: 'npcs/intro.png',
               amount: 4,
               stepTime: 0.15,
               textureSize: Vector2(24, 24),
@@ -72,37 +72,34 @@ class SisterraNpc extends SimpleNpc
             Ballon.sayBallon(
               messages: [
                 const TextSpan(
-                  text: 'Sou o ',
+                  text: 'Olá, sou o ',
                 ),
                 const TextSpan(
-                  text: 'Merrick! ',
+                  text: 'Elowen! ',
                   style: TextStyle(
-                    color: AppColors.blueChill,
+                    color: Colors.amber,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const TextSpan(
                   text:
-                      ' Vou contar sobre a jornada do Renan empresa Sisterra.',
+                      'Para agilizar o desenvolvimento com Flutter no macOS, o Renan utiliza algumas configurações e ferramentas adicionais:',
                 ),
               ],
               person: idleLeft.asWidget(),
             ),
             Ballon.sayBallon(
               messages: [
+                const TextSpan(
+                  text: '• Makefile: ',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const TextSpan(
                   text:
-                      'O Renan começou a jornada na sisterra, em 2015. Começou trabalhando com  ',
-                ),
-                const TextSpan(
-                  text: 'Java.',
-                  style: TextStyle(
-                    color: Colors.greenAccent,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const TextSpan(
-                  text: ' para aplicativos mobile e back-end.',
+                      ' O Makefile é um arquivo que automatiza tarefas repetitivas no terminal. É possível criar um Makefile para compilar o projeto Flutter, rodar testes e executar outras tarefas. Isso pode economizar tempo e reduzir erros manuais.',
                 ),
               ],
               person: idleLeft.asWidget(),
@@ -110,82 +107,19 @@ class SisterraNpc extends SimpleNpc
             Ballon.sayBallon(
               messages: [
                 const TextSpan(
-                  text: 'Logo depois, ele começou a trabalhar com  ',
-                ),
-                const TextSpan(
-                  text: 'Kotlin.',
+                  text: '• VSCode extension: ',
                   style: TextStyle(
-                    color: Colors.lime,
+                    color: Colors.amber,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const TextSpan(
-                  text: ' também para aplicativos mobile.',
-                ),
-              ],
-              person: idleLeft.asWidget(),
-            ),
-            Ballon.sayBallon(
-              messages: [
-                const TextSpan(
-                  text: 'Logo depois, ele começou a trabalhar com  ',
-                ),
-                const TextSpan(
-                  text: 'PHP.',
-                  style: TextStyle(
-                    color: Colors.yellow,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const TextSpan(
-                  text: ' para back-end, utilizando o padrão ',
-                ),
-                const TextSpan(
-                  text: 'DDD e CQRS ',
-                  style: TextStyle(
-                    color: Colors.yellow,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const TextSpan(
-                  text: 'e aplicando testes unitários com cobertura de 100%.',
-                ),
-              ],
-              person: idleLeft.asWidget(),
-            ),
-            Ballon.sayBallon(
-              messages: [
                 const TextSpan(
                   text:
-                      'Nesse mesmo período, ele começou atuar com alguns serviços da ',
+                      'Ele utiliza algumas extensões para facilitar o desenvolvimento com Flutter no VSCode. Uma delas é a ',
                 ),
                 const TextSpan(
-                  text: 'AWS ',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const TextSpan(
-                  text: ', tais como: ',
-                ),
-                const TextSpan(
-                  text: 'EC2, S3, RDS, Lambda, SNS, SQS, SES',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-              person: idleLeft.asWidget(),
-            ),
-            Ballon.sayBallon(
-              messages: [
-                const TextSpan(
-                  text: 'E também trabalhou com ',
-                ),
-                const TextSpan(
-                  text: 'Docker.',
+                  text:
+                      'Awesome Flutter Snippets, Flutter, Dart, GitLens, Tokyo Night Theme, Material Icon Theme, Bloc ',
                   style: TextStyle(
                     color: Colors.blueAccent,
                     fontWeight: FontWeight.bold,
@@ -193,7 +127,62 @@ class SisterraNpc extends SimpleNpc
                 ),
                 const TextSpan(
                   text:
-                      ' para automatizar a criação de ambientes de desenvolvimento e produção.',
+                      'entre outras. Para saber mais sobre as extensões, volte ao site e verifique a seção ',
+                ),
+                const TextSpan(
+                  text: 'Config.',
+                  style: TextStyle(
+                    color: AppColors.blueChill,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text: '• VSCode settings: ',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const TextSpan(
+                  text:
+                      'As configurações do Visual Studio Code podem ser personalizadas para atender às necessidades específicas do desenvolvedor. É possível adicionar atalhos de teclado personalizados, definir configurações de formatação de código e ajustar as configurações de depuração',
+                ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text: '• Git config: ',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const TextSpan(
+                  text:
+                      'O Git é uma ferramenta importante para o controle de versão de projetos. É possível configurar o Git para melhorar o fluxo de trabalho do desenvolvedor, incluindo a configuração de aliases para comandos frequentemente usados e a configuração de merge e diferenças padrão.',
+                ),
+              ],
+              person: idleLeft.asWidget(),
+            ),
+            Ballon.sayBallon(
+              messages: [
+                const TextSpan(
+                  text: '• .zshrc: ',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const TextSpan(
+                  text:
+                      'O arquivo .zshrc é um arquivo de configuração do terminal que pode ser personalizado para adicionar atalhos de terminal personalizados, exportar variáveis de ambiente e definir funções personalizadas. Isso pode tornar o fluxo de trabalho do desenvolvedor mais eficiente e produtivo.',
                 ),
               ],
               person: idleLeft.asWidget(),
