@@ -8,6 +8,7 @@ import 'package:me_landing_page/shared/app_colors.dart';
 
 import 'components/npcs/caution/caution_npc.dart';
 import 'components/npcs/intro/intro_npc.dart';
+import 'components/npcs/megaleios/megaleios_npc.dart';
 import 'player/player.dart';
 
 class GamePage extends StatefulWidget {
@@ -59,6 +60,9 @@ class _GamePageState extends State<GamePage> {
                   properties.position,
                 ),
             'job_one': (properties) => SisterraNpc(
+                  properties.position,
+                ),
+            'job_two': (properties) => MegaleiosNpc(
                   properties.position,
                 ),
             'orc': (properties) => MyOrc(

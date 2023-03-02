@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/caution/caution_controller.dart';
+import 'package:me_landing_page/pages/game/components/npcs/megaleios/megaleios_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_controller.dart';
 import 'package:me_landing_page/pages/game/components/orc/orc_controller.dart';
@@ -24,6 +25,7 @@ void main() async {
   BonfireInjector().putFactory((i) => SkillController());
   BonfireInjector().putFactory((i) => CautionController());
   BonfireInjector().putFactory((i) => SisterraController());
+  BonfireInjector().putFactory((i) => MegaleiosController());
   BonfireInjector().putFactory((i) => OrcController());
 
   setPathUrlStrategy();
