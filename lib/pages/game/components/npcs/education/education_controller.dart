@@ -1,10 +1,10 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:me_landing_page/pages/game/components/npcs/intro/intro_npc.dart';
+import 'package:me_landing_page/pages/game/components/npcs/education/education_npc.dart';
 
-class IntroController extends StateController<IntroNpc> {
+class EducationController extends StateController<EducationNpc> {
   bool canShowDialog = false;
   @override
-  void update(double dt, IntroNpc component) {
+  void update(double dt, EducationNpc component) {
     bool seePlayer = component.checkInterval('seePlayer', 150, dt);
     if (seePlayer) {
       component.seePlayer(

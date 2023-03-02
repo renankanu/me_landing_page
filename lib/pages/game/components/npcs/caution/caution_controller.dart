@@ -5,7 +5,7 @@ class CautionController extends StateController<CautionNpc> {
   bool canShowDialog = false;
   @override
   void update(double dt, CautionNpc component) {
-    bool seePlayer = component.checkInterval('seePlayer', 250, dt);
+    bool seePlayer = component.checkInterval('seePlayer', 150, dt);
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,

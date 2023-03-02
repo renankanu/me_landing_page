@@ -4,6 +4,7 @@ import 'package:me_landing_page/pages/game/components/interface/bar_life_control
 import 'package:me_landing_page/pages/game/components/npcs/about/about_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/caution/caution_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/config/config_controller.dart';
+import 'package:me_landing_page/pages/game/components/npcs/education/education_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/megaleios/megaleios_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_controller.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_controller.dart';
@@ -29,6 +30,7 @@ void main() async {
   BonfireInjector().putFactory((i) => ConfigController());
   BonfireInjector().putFactory((i) => SisterraController());
   BonfireInjector().putFactory((i) => MegaleiosController());
+  BonfireInjector().putFactory((i) => EducationController());
   BonfireInjector().putFactory((i) => OrcController());
   BonfireInjector().put((i) => BarLifeController());
 

@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/interface/my_player_interface.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
+import 'package:me_landing_page/pages/game/components/npcs/education/education_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
 import 'package:me_landing_page/pages/game/components/orc/orc.dart';
@@ -27,7 +28,6 @@ class _GamePageState extends State<GamePage> {
       backgroundColor: AppColors.ebonyClay,
       appBar: AppBar(
         backgroundColor: AppColors.ebonyClay,
-        title: const Text('Game', style: TextStyle(color: Colors.white)),
         elevation: 3,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -68,6 +68,9 @@ class _GamePageState extends State<GamePage> {
                   properties.position,
                 ),
             'job_two': (properties) => MegaleiosNpc(
+                  properties.position,
+                ),
+            'education': (properties) => EducationNpc(
                   properties.position,
                 ),
             'orc': (properties) => MyOrc(

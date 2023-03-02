@@ -104,7 +104,7 @@ class SkillNpc extends SimpleNpc
             Ballon.sayBallon(
               messages: [
                 const TextSpan(
-                  text: 'Essas sao as tecnologias:',
+                  text: 'Essas sao as tecnologias: ',
                 ),
                 const TextSpan(
                   text:

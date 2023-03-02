@@ -4,7 +4,7 @@ import 'package:me_landing_page/pages/game/player/player.dart';
 class MyPlayerController extends StateController<MyPlayer> {
   @override
   void update(double dt, MyPlayer component) {
-    final seeOrcInterval = component.checkInterval('seeEnemy', 250, dt);
+    final seeOrcInterval = component.checkInterval('seeEnemy', 150, dt);
     if (seeOrcInterval) {
       component.seeEnemy(
         radiusVision: component.width * 2,

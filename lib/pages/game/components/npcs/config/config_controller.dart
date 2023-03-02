@@ -5,7 +5,7 @@ class ConfigController extends StateController<ConfigNpc> {
   bool canShowDialog = false;
   @override
   void update(double dt, ConfigNpc component) {
-    bool seePlayer = component.checkInterval('seePlayer', 250, dt);
+    bool seePlayer = component.checkInterval('seePlayer', 150, dt);
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,

@@ -83,7 +83,7 @@ class ConfigNpc extends SimpleNpc
                 ),
                 const TextSpan(
                   text:
-                      'Para agilizar o desenvolvimento com Flutter no macOS, o Renan utiliza algumas configurações e ferramentas adicionais:',
+                      'Para agilizar o desenvolvimento com Flutter no macOS, o Renan utiliza algumas configurações e ferramentas adicionais: ',
                 ),
               ],
               person: idleLeft.asWidget(),
