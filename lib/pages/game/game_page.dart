@@ -1,6 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
+import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
 import 'package:me_landing_page/pages/game/components/orc/orc.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -55,6 +56,9 @@ class _GamePageState extends State<GamePage> {
                   properties.position,
                 ),
             'caution': (properties) => CautionNpc(
+                  properties.position,
+                ),
+            'job_one': (properties) => SisterraNpc(
                   properties.position,
                 ),
             'orc': (properties) => MyOrc(
