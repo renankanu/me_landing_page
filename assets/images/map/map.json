@@ -261,8 +261,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":16,
-                 "x":864,
-                 "y":469.5
+                 "x":544,
+                 "y":608.166666666667
                 }, 
                 {
                  "class":"",
@@ -272,8 +272,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":16,
-                 "x":496.666666666667,
-                 "y":624
+                 "x":399.333333333334,
+                 "y":464
                 }, 
                 {
                  "class":"",
@@ -283,8 +283,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":16,
-                 "x":864,
-                 "y":351.333333333333
+                 "x":865.333333333333,
+                 "y":463.333333333333
                 }, 
                 {
                  "class":"",
@@ -294,8 +294,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":16,
-                 "x":31.6666666666667,
-                 "y":480
+                 "x":112.333333333333,
+                 "y":479.333333333333
                 }, 
                 {
                  "class":"",
@@ -417,6 +417,50 @@
                  "width":16,
                  "x":489,
                  "y":50.5
+                }, 
+                {
+                 "class":"",
+                 "height":16,
+                 "id":24,
+                 "name":"orc",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":512,
+                 "y":255.333333333333
+                }, 
+                {
+                 "class":"",
+                 "height":16,
+                 "id":26,
+                 "name":"orc",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":606,
+                 "y":335.333333333333
+                }, 
+                {
+                 "class":"",
+                 "height":16,
+                 "id":27,
+                 "name":"orc",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":752.666666666667,
+                 "y":306
+                }, 
+                {
+                 "class":"",
+                 "height":16,
+                 "id":29,
+                 "name":"caution",
+                 "rotation":0,
+                 "visible":true,
+                 "width":16,
+                 "x":847.333333333333,
+                 "y":384
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -425,7 +469,7 @@
          "y":0
         }],
  "nextlayerid":17,
- "nextobjectid":24,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

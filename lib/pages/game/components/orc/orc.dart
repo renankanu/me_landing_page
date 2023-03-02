@@ -41,17 +41,11 @@ class MyOrc extends SimpleEnemy
       return;
     }
     simpleAttackMelee(
-      damage: 0.0,
-      interval: 200,
+      damage: 0,
+      interval: 1000,
       size: Vector2(16, 16),
       sizePush: 8,
     );
-  }
-
-  void execAttackRange(double damage) {
-    if (gameRef.player != null && gameRef.player?.isDead == true) {
-      return;
-    }
   }
 
   @override

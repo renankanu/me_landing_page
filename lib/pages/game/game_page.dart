@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
 import 'package:me_landing_page/pages/game/components/orc/orc.dart';
+import 'package:me_landing_page/shared/app_colors.dart';
 
+import 'components/npcs/caution/caution_npc.dart';
 import 'components/npcs/intro/intro_npc.dart';
 import 'player/player.dart';
 
@@ -18,11 +20,18 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: AppColors.ebonyClay,
       appBar: AppBar(
-        title: const Text('Game'),
+        backgroundColor: AppColors.ebonyClay,
+        title: const Text('Game', style: TextStyle(color: Colors.white)),
+        elevation: 3,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: BonfireWidget(
+        backgroundColor: AppColors.ebonyClay,
         joystick: Joystick(
           keyboardConfig: KeyboardConfig(
             enable: true,
@@ -43,6 +52,9 @@ class _GamePageState extends State<GamePage> {
                   properties.position,
                 ),
             'skill': (properties) => SkillNpc(
+                  properties.position,
+                ),
+            'caution': (properties) => CautionNpc(
                   properties.position,
                 ),
             'orc': (properties) => MyOrc(
