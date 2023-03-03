@@ -5,7 +5,7 @@ class IntroController extends StateController<IntroNpc> {
   bool canShowDialog = false;
   @override
   void update(double dt, IntroNpc component) {
-    bool seePlayer = component.checkInterval('seePlayer', 150, dt);
+    bool seePlayer = component.checkInterval('seePlayer', 250, dt);
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,

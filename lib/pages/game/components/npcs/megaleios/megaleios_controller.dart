@@ -6,7 +6,7 @@ class MegaleiosController extends StateController<MegaleiosNpc> {
   bool canShowDialog = false;
   @override
   void update(double dt, MegaleiosNpc component) {
-    bool seePlayer = component.checkInterval('seePlayer', 150, dt);
+    bool seePlayer = component.checkInterval('seePlayer', 250, dt);
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,

@@ -54,7 +54,7 @@ class AboutNpc extends SimpleNpc
     gameRef.player?.idle();
     gameRef.camera.moveToTargetAnimated(
       first,
-      zoom: 2,
+      zoom: 1,
       finish: () {
         TalkDialog.show(
           gameRef.context,

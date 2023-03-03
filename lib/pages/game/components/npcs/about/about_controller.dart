@@ -7,7 +7,7 @@ class AboutController extends StateController<AboutNpc> {
 
   @override
   void update(double dt, AboutNpc component) {
-    bool seePlayer = component.checkInterval('seePlayer', 150, dt);
+    bool seePlayer = component.checkInterval('seePlayer', 250, dt);
     if (seePlayer) {
       component.seePlayer(
           radiusVision: component.width * 3,
