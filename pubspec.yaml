@@ -41,6 +41,7 @@ flutter:
     - assets/images/map/
     - assets/images/players/
     - assets/images/npcs/
+    - assets/images/orcs/
   # fonts:
   #   - family: Schyler
   #     fonts:
