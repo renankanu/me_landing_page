@@ -16,7 +16,7 @@ class MyOrc extends SimpleEnemy
           animation: OrcSpriteSheet.simpleDirectionAnimation,
           position: position,
           size: Vector2(40, 40),
-          speed: 100,
+          speed: 50,
           life: 100,
         ) {
     setupCollision(
