@@ -1,6 +1,5 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:me_landing_page/pages/game/components/interface/my_player_interface.dart';
 import 'package:me_landing_page/pages/game/components/npcs/about/about_npc.dart';
 import 'package:me_landing_page/pages/game/components/npcs/education/education_npc.dart';
@@ -8,7 +7,6 @@ import 'package:me_landing_page/pages/game/components/npcs/sisterra/sisterra_npc
 import 'package:me_landing_page/pages/game/components/npcs/skill/skill_npc.dart';
 import 'package:me_landing_page/pages/game/components/orc/orc.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
-import 'package:me_landing_page/shared/utils/app_responsive.dart';
 
 import 'components/npcs/caution/caution_npc.dart';
 import 'components/npcs/config/config_npc.dart';
@@ -24,28 +22,6 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  @override
-  void initState() {
-    if (Responsive.isMobile(context)) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ]);
-    }
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    if (Responsive.isMobile(context)) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
-    }
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

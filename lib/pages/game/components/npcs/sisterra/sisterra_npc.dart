@@ -60,6 +60,7 @@ class SisterraNpc extends SimpleNpc
   }
 
   void execShowTalk(GameComponent player) {
+    gameRef.player?.idle();
     gameRef.camera.moveToTargetAnimated(
       player,
       zoom: 2,

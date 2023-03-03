@@ -51,6 +51,7 @@ class AboutNpc extends SimpleNpc
   }
 
   void execShowTalk(GameComponent first) {
+    gameRef.player?.idle();
     gameRef.camera.moveToTargetAnimated(
       first,
       zoom: 2,
