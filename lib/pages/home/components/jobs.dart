@@ -17,87 +17,97 @@ class Jobs extends StatelessWidget {
     double padding = width * 0.03;
     final start = ValueNotifier(false);
 
-    return VisibilityDetector(
-      key: const Key('jobs'),
-      onVisibilityChanged: (visibilityInfo) {
-        final visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 10) {
-          start.value = true;
-        }
-      },
-      child: LayoutBuilder(
-        builder: (_, __) {
-          return ValueListenableBuilder(
-            valueListenable: start,
-            builder: (_, started, __) {
-              return Center(
-                child: Container(
-                  constraints: const BoxConstraints(minWidth: 1800),
-                  padding: globalPadding(context, padding),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AppTitleSection(
-                        title: 'Experiência Profissional',
-                        started: started,
-                      ),
-                      const SizedBox(height: 40),
-                      if (Responsive.isMobile(context))
-                        Column(
-                          children: const [
-                            Work(),
-                            SizedBox(height: 40),
-                            Knowledge(),
-                          ],
-                        )
-                      else
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Expanded(
-                              child: Work(),
-                            )
-                                .animate(
-                                  target: started ? 1.0 : 0.0,
-                                  onPlay: (controller) {
-                                    if (started) {
-                                      controller.forward();
-                                    }
-                                  },
-                                )
-                                .moveX(
-                                  begin: -100,
-                                  end: 0,
-                                  duration: 1.seconds,
-                                  curve: Curves.easeInOut,
-                                ),
-                            const SizedBox(width: 40),
-                            const Expanded(
-                              child: Knowledge(),
-                            )
-                                .animate(
-                                  target: started ? 1.0 : 0.0,
-                                  onPlay: (controller) {
-                                    if (started) {
-                                      controller.forward();
-                                    }
-                                  },
-                                )
-                                .moveX(
-                                  begin: 100,
-                                  end: 0,
-                                  duration: 1.seconds,
-                                  curve: Curves.easeInOut,
-                                ),
-                          ],
-                        ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
+    return Container(
+      color: AppColors.ebony.withOpacity(0.4),
+      padding: const EdgeInsets.only(top: 80),
+      child: VisibilityDetector(
+        key: const Key('jobs'),
+        onVisibilityChanged: (visibilityInfo) {
+          final visiblePercentage = visibilityInfo.visibleFraction * 100;
+          if (visiblePercentage > 20) {
+            start.value = true;
+          }
         },
+        child: LayoutBuilder(
+          builder: (_, __) {
+            return ValueListenableBuilder(
+              valueListenable: start,
+              builder: (_, started, __) {
+                return Center(
+                  child: Container(
+                    constraints: const BoxConstraints(minWidth: 1800),
+                    padding: globalPadding(context, padding),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppTitleSection(
+                          title: 'Experiência Profissional',
+                          started: started,
+                        ),
+                        const SizedBox(height: 40),
+                        if (Responsive.isMobile(context))
+                          Column(
+                            children: const [
+                              Work(),
+                              SizedBox(height: 40),
+                              Knowledge(),
+                            ],
+                          )
+                        else
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Expanded(
+                                child: Work(),
+                              )
+                                  .animate(
+                                    target: started ? 1.0 : 0.0,
+                                    onPlay: (controller) {
+                                      if (started) {
+                                        controller.forward();
+                                      }
+                                    },
+                                  )
+                                  .moveX(
+                                    begin: -100,
+                                    end: 0,
+                                    duration: 1.seconds,
+                                    curve: Curves.fastOutSlowIn,
+                                  )
+                                  .fadeIn(
+                                    begin: 0,
+                                  ),
+                              const SizedBox(width: 40),
+                              const Expanded(
+                                child: Knowledge(),
+                              )
+                                  .animate(
+                                    target: started ? 1.0 : 0.0,
+                                    onPlay: (controller) {
+                                      if (started) {
+                                        controller.forward();
+                                      }
+                                    },
+                                  )
+                                  .moveX(
+                                    begin: 100,
+                                    end: 0,
+                                    duration: 1.seconds,
+                                    curve: Curves.fastOutSlowIn,
+                                  )
+                                  .fadeIn(
+                                    begin: 0,
+                                  ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

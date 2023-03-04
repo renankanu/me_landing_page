@@ -25,7 +25,7 @@ class AboutMe extends StatelessWidget {
       return Stack(
         children: [
           Padding(
-              padding: EdgeInsets.fromLTRB(padding, 140, padding, 0),
+              padding: EdgeInsets.fromLTRB(padding, 140, padding, 40),
               child: Image(
                 image: const AssetImage(
                   AppImages.bg,
@@ -50,7 +50,7 @@ class AboutMe extends StatelessWidget {
             child: Container(
               constraints: const BoxConstraints(maxWidth: 1200),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(padding, 160, 8, 0),
+                padding: EdgeInsets.fromLTRB(padding, 160, 8, 60),
                 child: Visibility(
                   visible: Responsive.isDesktop(context),
                   replacement: Column(
