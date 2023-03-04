@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,8 +54,8 @@ class AboutMe extends StatelessWidget {
                 child: Visibility(
                   visible: Responsive.isDesktop(context),
                   replacement: Column(
-                    children: const [
-                      MyAvatar(
+                    children: [
+                      const MyAvatar(
                         size: 306,
                       ),
                       MyDesc(
@@ -64,11 +65,11 @@ class AboutMe extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Expanded(
                         child: MyDesc(),
                       ),
-                      MyAvatar(),
+                      const MyAvatar(),
                     ],
                   ),
                 ),
@@ -131,11 +132,12 @@ class MyAvatar extends StatelessWidget {
 }
 
 class MyDesc extends StatelessWidget {
-  const MyDesc({
+  MyDesc({
     super.key,
     this.isMobile = false,
   });
   final bool isMobile;
+  final startAnimation = ValueNotifier(false);
 
   @override
   Widget build(BuildContext context) {
@@ -179,28 +181,52 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
           ),
         ),
         const SizedBox(height: 10),
-        MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () {
-              saveLogClickGame();
-              context.go('/game');
-            },
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: AppColors.blueChill,
-                  width: 2,
+        ValueListenableBuilder(
+          valueListenable: startAnimation,
+          builder: (_, started, __) {
+            return MouseRegion(
+              cursor: SystemMouseCursors.click,
+              onHover: (_) => startAnimation.value = true,
+              onExit: (_) => startAnimation.value = false,
+              child: GestureDetector(
+                onTap: () {
+                  saveLogClickGame();
+                  context.go('/game');
+                },
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: AppColors.blueChill,
+                      width: 2,
+                    ),
+                  ),
+                  child: SvgPicture.asset(
+                    AppImages.play,
+                    height: 20,
+                  )
+                      .animate(
+                        target: started ? 1 : 0,
+                        onPlay: (controller) {
+                          if (started) {
+                            controller.forward();
+                          } else {
+                            controller.reverse();
+                          }
+                        },
+                      )
+                      .move(
+                        duration: 300.ms,
+                        curve: Curves.elasticInOut,
+                        begin: const Offset(-6, -4),
+                        end: const Offset(0, 0),
+                      ),
                 ),
               ),
-              child: SvgPicture.asset(
-                AppImages.play,
-                height: 20,
-              ),
-            ),
-          ),
+            );
+          },
         ),
         const SizedBox(height: 40),
         Row(
@@ -240,7 +266,18 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
               },
             ),
           ],
-        ),
+        )
+            .animate()
+            .moveY(
+              duration: 1.seconds,
+              curve: Curves.fastOutSlowIn,
+              begin: 80,
+              end: 0,
+            )
+            .fadeIn(
+              duration: 1.seconds,
+              curve: Curves.fastOutSlowIn,
+            ),
       ],
     );
   }
