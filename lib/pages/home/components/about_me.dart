@@ -172,7 +172,7 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
         ),
         const SizedBox(height: 40),
         Text(
-          'Acessa portfolio modo game',
+          'Acessar portfolio modo game',
           style: GoogleFonts.poppins(
             color: Colors.white,
             fontSize: isMobile ? 14 : 18,
