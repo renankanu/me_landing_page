@@ -2,7 +2,6 @@ import 'package:flutter/painting.dart';
 
 abstract class AppConstants {
   static const String makeFileConf = r'''
-```makefile
 .PHONY: f_release f_clear_pod 
 FULL_VERSION := $(shell (cat pubspec.yaml | grep "version" | awk '{print $$2}'))
 STRING_VERSION := $(shell (echo $(FULL_VERSION) | awk -F+ '{print $$1}'))
@@ -39,11 +38,9 @@ f_prod: f_upgrade_version ## This is flutter build appbundle step.
 	@flutter build appbundle
 	@open "build/app/outputs/bundle/release"
 	@echo "Done ✅"
-```
 ''';
 
   static const String vsCodeConf = r'''
-```json
 {
   "workbench.iconTheme" : "material-icon-theme",
   "[dart]" : {
@@ -119,8 +116,7 @@ f_prod: f_upgrade_version ## This is flutter build appbundle step.
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false
-}
-```
+} 
 ''';
 
   static const String extensionVsCode = r'''
