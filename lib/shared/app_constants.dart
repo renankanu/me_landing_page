@@ -165,7 +165,6 @@ A extensão [Dev Containers](https://marketplace.visualstudio.com/items?itemName
 ''';
 
   static const String gitConfig = r'''
-```bash
 [core]
 	editor = code --wait
 [user]
@@ -183,11 +182,9 @@ A extensão [Dev Containers](https://marketplace.visualstudio.com/items?itemName
 	followTags = true
 [merge "ours"]
 	driver = true
-```
 ''';
 
   static const String zshConfig = r'''
-```bash
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
@@ -257,7 +254,6 @@ zinit light zsh-users/zsh-completions
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-```
 ''';
 
   static Path pathGit() {

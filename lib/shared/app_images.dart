@@ -31,4 +31,12 @@ abstract class AppImages {
   static const folderConfig = 'assets/icons/folder_config.svg';
   static const json = 'assets/icons/json.svg';
   static const console = 'assets/icons/console.svg';
+  static const files = 'assets/icons/files.svg';
+  static const search = 'assets/icons/search.svg';
+  static const debug = 'assets/icons/debug-alt.svg';
+  static const remoteExplorer = 'assets/icons/remote-explorer.svg';
+  static const beaker = 'assets/icons/beaker.svg';
+  static const githubVsCode = 'assets/icons/github_vsCode.svg';
+  static const account = 'assets/icons/account.svg';
+  static const gear = 'assets/icons/gear.svg';
 }

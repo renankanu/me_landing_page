@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:me_landing_page/shared/app_images.dart';
 
 import '../../../../shared/app_colors.dart';
 
@@ -34,18 +36,50 @@ class NavigationLeft extends StatelessWidget {
                 ),
               ),
             ),
-            child: const Icon(
-              Icons.code,
+            child: const ItemIcon(
+              icon: AppImages.files,
               color: AppColors.comet,
-              size: 24,
             ),
           ),
-          const Icon(
-            Icons.code,
-            color: AppColors.tuna,
-            size: 24,
-          ),
+          const ItemIcon(icon: AppImages.search),
+          const ItemIcon(icon: AppImages.debug),
+          const ItemIcon(icon: AppImages.remoteExplorer),
+          const ItemIcon(icon: AppImages.beaker),
+          const ItemIcon(icon: AppImages.githubVsCode),
+          const Spacer(),
+          const ItemIcon(icon: AppImages.account),
+          const ItemIcon(icon: AppImages.gear),
         ],
+      ),
+    );
+  }
+}
+
+class ItemIcon extends StatelessWidget {
+  const ItemIcon({
+    super.key,
+    required this.icon,
+    this.color,
+  });
+
+  final String icon;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      width: 48,
+      child: Center(
+        child: SvgPicture.asset(
+          icon,
+          colorFilter: ColorFilter.mode(
+            color ?? AppColors.tuna,
+            BlendMode.srcIn,
+          ),
+          width: 24,
+          height: 24,
+        ),
       ),
     );
   }
