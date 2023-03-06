@@ -11,15 +11,16 @@ class NavigationLeft extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Container(
-      height: 600,
+      height: height,
       width: 50,
       decoration: const BoxDecoration(
         color: AppColors.woodsmoke,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(8),
           topRight: Radius.circular(0),
-          bottomLeft: Radius.circular(8),
+          bottomLeft: Radius.circular(0),
           bottomRight: Radius.circular(0),
         ),
       ),
@@ -67,18 +68,21 @@ class ItemIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48,
-      width: 48,
-      child: Center(
-        child: SvgPicture.asset(
-          icon,
-          colorFilter: ColorFilter.mode(
-            color ?? AppColors.tuna,
-            BlendMode.srcIn,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: SizedBox(
+        height: 48,
+        width: 48,
+        child: Center(
+          child: SvgPicture.asset(
+            icon,
+            colorFilter: ColorFilter.mode(
+              color ?? AppColors.tuna,
+              BlendMode.srcIn,
+            ),
+            width: 24,
+            height: 24,
           ),
-          width: 24,
-          height: 24,
         ),
       ),
     );

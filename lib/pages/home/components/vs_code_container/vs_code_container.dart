@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/model/file_config.dart';
+import 'package:me_landing_page/pages/home/components/vs_code_container/bottom_container.dart';
 import 'package:me_landing_page/pages/home/components/vs_code_container/tab_file_name.dart';
 import 'package:me_landing_page/pages/home/components/vs_code_container/top_container.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
@@ -18,6 +19,7 @@ class VsCodeContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     final padding = width * 0.03;
     final fileSelected = ValueNotifier(FileConfig.files[0]);
     final scrollController = ScrollController();
@@ -45,7 +47,7 @@ class VsCodeContainer extends StatelessWidget {
                   children: [
                     const TopContainer(),
                     Container(
-                      height: 600,
+                      height: height,
                       decoration: const BoxDecoration(
                         color: AppColors.steelGray,
                         borderRadius: BorderRadius.only(
@@ -59,7 +61,7 @@ class VsCodeContainer extends StatelessWidget {
                         children: [
                           const NavigationLeft(),
                           Container(
-                            height: 600,
+                            height: height,
                             width: 200,
                             decoration: const BoxDecoration(
                               color: AppColors.woodsmoke,
@@ -205,7 +207,8 @@ class VsCodeContainer extends StatelessWidget {
                           )
                         ],
                       ),
-                    )
+                    ),
+                    const BottomContainer()
                   ],
                 ),
               ),

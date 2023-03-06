@@ -39,4 +39,5 @@ abstract class AppImages {
   static const githubVsCode = 'assets/icons/github_vsCode.svg';
   static const account = 'assets/icons/account.svg';
   static const gear = 'assets/icons/gear.svg';
+  static const remote = 'assets/icons/remote.svg';
 }

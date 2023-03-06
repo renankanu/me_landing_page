@@ -17,4 +17,5 @@ abstract class AppColors {
   static const comet = Color(0xFF616379);
   static const tuna = Color(0xFF303240);
   static const tunaBorder = Color(0xFF3D3F44);
+  static const sanMarino = Color(0xFF43589C);
 }
