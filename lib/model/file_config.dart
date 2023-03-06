@@ -8,12 +8,14 @@ class FileConfig {
   final String name;
   final TypeFile typeFile;
   final String fileContent;
+  bool isExpanded;
 
   FileConfig({
     required this.icon,
     required this.name,
     required this.typeFile,
     required this.fileContent,
+    this.isExpanded = false,
   });
 
   @override
