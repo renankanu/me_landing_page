@@ -28,7 +28,7 @@ abstract class AppImages {
   static const terminal = 'assets/icons/terminal.svg';
   static const renankanu = 'assets/icons/renankanu.svg';
   static const play = 'assets/icons/play.svg';
-  static const folderConfig = 'assets/icons/folder_config.svg';
+  static const folderConfig = 'assets/icons/folder-config.svg';
   static const json = 'assets/icons/json.svg';
   static const console = 'assets/icons/console.svg';
   static const files = 'assets/icons/files.svg';

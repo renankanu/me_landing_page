@@ -19,9 +19,7 @@ class VsCodeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    final padding = width * 0.03;
     final fileSelected = ValueNotifier<FileConfig>(FileConfig.files[0]);
     final scrollController = ScrollController();
     final isMobile = Responsive.isMobile(context);
@@ -32,66 +30,61 @@ class VsCodeContainer extends StatelessWidget {
             child: ValueListenableBuilder(
               valueListenable: fileSelected,
               builder: (_, fileConfig, __) => Container(
-                constraints: const BoxConstraints(minWidth: 1800),
-                padding: globalPadding(context, padding),
-                color: AppColors.ebony.withOpacity(0.3),
-                child: Container(
-                    decoration: !isMobile
-                        ? BoxDecoration(
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(8),
-                            ),
-                            border: Border.all(
-                              color: AppColors.tunaBorder,
-                              width: 1,
-                            ),
-                          )
-                        : null,
-                    child: Column(
-                      children: [
-                        const TopContainer(),
-                        Container(
-                          height: height,
-                          decoration: const BoxDecoration(
-                            color: AppColors.steelGray,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
-                              bottomLeft: Radius.circular(8),
-                              bottomRight: Radius.circular(8),
-                            ),
+                  decoration: !isMobile
+                      ? BoxDecoration(
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(8),
                           ),
-                          child: Row(
-                            children: [
-                              const NavigationLeft(),
-                              NavigationFiles(
-                                height: height,
-                                scrollController: scrollController,
-                                fileSelected: fileSelected,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    TabFileName(
-                                      fileConfig: fileConfig,
-                                    ),
-                                    Expanded(
-                                      child: ContentFile(
-                                        scrollController: scrollController,
-                                        fileConfig: fileConfig,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                          border: Border.all(
+                            color: AppColors.tunaBorder,
+                            width: 1,
+                          ),
+                        )
+                      : null,
+                  child: Column(
+                    children: [
+                      const TopContainer(),
+                      Container(
+                        height: height,
+                        decoration: const BoxDecoration(
+                          color: AppColors.steelGray,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(0),
+                            topRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
                           ),
                         ),
-                        const BottomContainer()
-                      ],
-                    )),
-              ),
+                        child: Row(
+                          children: [
+                            const NavigationLeft(),
+                            NavigationFiles(
+                              height: height,
+                              scrollController: scrollController,
+                              fileSelected: fileSelected,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TabFileName(
+                                    fileConfig: fileConfig,
+                                  ),
+                                  Expanded(
+                                    child: ContentFile(
+                                      scrollController: scrollController,
+                                      fileConfig: fileConfig,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const BottomContainer()
+                    ],
+                  )),
             ),
           );
         }

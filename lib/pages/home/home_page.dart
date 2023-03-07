@@ -8,7 +8,6 @@ import 'package:me_landing_page/pages/home/components/footer.dart';
 import 'package:me_landing_page/pages/home/components/jobs.dart';
 import 'package:me_landing_page/pages/home/components/menu.dart';
 import 'package:me_landing_page/pages/home/components/skills.dart';
-import 'package:me_landing_page/pages/home/components/vs_code_container/vs_code_container.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -24,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   final _scrollListener = ItemPositionsListener.create();
   final _listSections = [
     const AboutMe(),
-    const VsCodeContainer(),
     const Skills(),
     const Config(),
     const Jobs(),
