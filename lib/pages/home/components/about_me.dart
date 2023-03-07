@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -94,38 +96,27 @@ class MyAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AvatarAnimation(
       size: size + 80,
-      child: Stack(
-        children: [
-          ClipOval(
-            child: Image(
-              image: const AssetImage(
-                AppImages.renanFour,
-              ),
-              excludeFromSemantics: true,
-              frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-                if (wasSynchronouslyLoaded) {
-                  return child;
-                } else {
-                  return AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
-                    child: frame != null ? child : const SizedBox.shrink(),
-                  );
-                }
-              },
+      child: Transform(
+        alignment: Alignment.center,
+        transform: Matrix4.rotationY(pi),
+        child: ClipOval(
+          child: Image(
+            image: const AssetImage(
+              AppImages.kanu,
             ),
+            excludeFromSemantics: true,
+            frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+              if (wasSynchronouslyLoaded) {
+                return child;
+              } else {
+                return AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+                  child: frame != null ? child : const SizedBox.shrink(),
+                );
+              }
+            },
           ),
-          Container(
-            height: size,
-            width: size,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(300),
-              border: Border.all(
-                color: AppColors.blueChill,
-                width: 6,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
