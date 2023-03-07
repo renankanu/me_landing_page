@@ -10,6 +10,7 @@ import 'package:me_landing_page/shared/widgets/expanded_widget.dart';
 
 import '../../../../shared/utils/app_responsive.dart';
 import 'content_file.dart';
+import 'item_config.dart';
 import 'navigation_files.dart';
 import 'navigation_left.dart';
 
@@ -26,79 +27,76 @@ class VsCodeContainer extends StatelessWidget {
     final isMobile = Responsive.isMobile(context);
     return LayoutBuilder(
       builder: (_, constraints) {
-        return Center(
-          child: ValueListenableBuilder(
-            valueListenable: fileSelected,
-            builder: (_, fileConfig, __) => Container(
-              constraints: const BoxConstraints(minWidth: 1800),
-              padding: globalPadding(context, padding),
-              color: AppColors.ebony.withOpacity(0.3),
-              child: Container(
-                decoration: !isMobile
-                    ? BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(8),
-                        ),
-                        border: Border.all(
-                          color: AppColors.tunaBorder,
-                          width: 1,
-                        ),
-                      )
-                    : null,
-                child: !isMobile
-                    ? Column(
-                        children: [
-                          const TopContainer(),
-                          Container(
-                            height: height,
-                            decoration: const BoxDecoration(
-                              color: AppColors.steelGray,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(0),
-                                topRight: Radius.circular(0),
-                                bottomLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                              ),
+        if (!isMobile) {
+          return Center(
+            child: ValueListenableBuilder(
+              valueListenable: fileSelected,
+              builder: (_, fileConfig, __) => Container(
+                constraints: const BoxConstraints(minWidth: 1800),
+                padding: globalPadding(context, padding),
+                color: AppColors.ebony.withOpacity(0.3),
+                child: Container(
+                    decoration: !isMobile
+                        ? BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(8),
                             ),
-                            child: Row(
-                              children: [
-                                const NavigationLeft(),
-                                NavigationFiles(
-                                  height: height,
-                                  scrollController: scrollController,
-                                  fileSelected: fileSelected,
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      TabFileName(
-                                        fileConfig: fileConfig,
-                                      ),
-                                      Expanded(
-                                        child: ContentFile(
-                                          scrollController: scrollController,
-                                          fileConfig: fileConfig,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
+                            border: Border.all(
+                              color: AppColors.tunaBorder,
+                              width: 1,
+                            ),
+                          )
+                        : null,
+                    child: Column(
+                      children: [
+                        const TopContainer(),
+                        Container(
+                          height: height,
+                          decoration: const BoxDecoration(
+                            color: AppColors.steelGray,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8),
                             ),
                           ),
-                          const BottomContainer()
-                        ],
-                      )
-                    : MobileContainer(
-                        fileSelected: fileSelected,
-                        scrollController: scrollController,
-                        fileConfig: fileConfig,
-                      ),
+                          child: Row(
+                            children: [
+                              const NavigationLeft(),
+                              NavigationFiles(
+                                height: height,
+                                scrollController: scrollController,
+                                fileSelected: fileSelected,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TabFileName(
+                                      fileConfig: fileConfig,
+                                    ),
+                                    Expanded(
+                                      child: ContentFile(
+                                        scrollController: scrollController,
+                                        fileConfig: fileConfig,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        const BottomContainer()
+                      ],
+                    )),
               ),
             ),
-          ),
+          );
+        }
+        return MobileContainer(
+          scrollController: scrollController,
         );
       },
     );
@@ -108,84 +106,82 @@ class VsCodeContainer extends StatelessWidget {
 class MobileContainer extends StatelessWidget {
   const MobileContainer({
     super.key,
-    required this.fileSelected,
     required this.scrollController,
-    required this.fileConfig,
   });
 
-  final ValueNotifier<FileConfig> fileSelected;
   final ScrollController scrollController;
-  final FileConfig fileConfig;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: FileConfig.files.map(
-        (itemFile) {
-          final isFirstItem = FileConfig.files.first == itemFile;
-          final isLastItem = FileConfig.files.last == itemFile;
-          return Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: itemFile == fileConfig
-                  ? AppColors.woodsmoke
-                  : AppColors.woodsmokeBorder,
-              borderRadius: BorderRadius.vertical(
-                top: isFirstItem ? const Radius.circular(8) : Radius.zero,
-                bottom: isLastItem ? const Radius.circular(8) : Radius.zero,
+    return ValueListenableBuilder(
+      valueListenable: ItemConfig.listConfigs,
+      builder: (_, listConfig, __) => Column(
+        children: listConfig.map(
+          (itemFile) {
+            final isFirstItem = FileConfig.files.first == itemFile;
+            final isLastItem = FileConfig.files.last == itemFile;
+            return Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: itemFile.isExpanded
+                    ? AppColors.woodsmoke
+                    : AppColors.woodsmokeBorder,
+                borderRadius: BorderRadius.vertical(
+                  top: isFirstItem ? const Radius.circular(8) : Radius.zero,
+                  bottom: isLastItem ? const Radius.circular(8) : Radius.zero,
+                ),
               ),
-            ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(itemFile.icon),
-                    const SizedBox(width: 5),
-                    Text(
-                      itemFile.name,
-                      style: GoogleFonts.sourceCodePro(
-                        color: itemFile == fileConfig
-                            ? AppColors.boulder
-                            : AppColors.comet,
-                        fontSize: 16,
-                        fontWeight:
-                            itemFile == fileConfig ? FontWeight.w600 : null,
-                      ),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        itemFile.isExpanded = !itemFile.isExpanded;
-                        fileSelected.value = itemFile;
-                      },
-                      child: AnimatedRotation(
-                        duration: const Duration(milliseconds: 300),
-                        turns: fileConfig.isExpanded ? 0 : 0.5,
-                        child: Icon(
-                          Icons.expand_more,
-                          color: fileConfig.isExpanded
-                              ? Colors.white
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      SvgPicture.asset(itemFile.icon),
+                      const SizedBox(width: 5),
+                      Text(
+                        itemFile.name,
+                        style: GoogleFonts.sourceCodePro(
+                          color: itemFile.isExpanded
+                              ? AppColors.boulder
                               : AppColors.comet,
+                          fontSize: 16,
+                          fontWeight:
+                              itemFile.isExpanded ? FontWeight.w600 : null,
                         ),
                       ),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 10),
-                ExpandedWidget(
-                  expand: fileConfig.isExpanded,
-                  child: ContentFile(
-                    scrollController: scrollController,
-                    fileConfig: fileConfig,
-                    isShrinkWrap: true,
-                    scrollPhysics: const NeverScrollableScrollPhysics(),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          ItemConfig.changeValueExpanded(itemFile);
+                        },
+                        child: AnimatedRotation(
+                          duration: const Duration(milliseconds: 300),
+                          turns: itemFile.isExpanded ? 0 : 0.5,
+                          child: Icon(
+                            Icons.expand_more,
+                            color: itemFile.isExpanded
+                                ? Colors.white
+                                : AppColors.comet,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
-          );
-        },
-      ).toList(),
+                  const SizedBox(height: 10),
+                  ExpandedWidget(
+                    expand: itemFile.isExpanded,
+                    child: ContentFile(
+                      scrollController: scrollController,
+                      fileConfig: itemFile,
+                      isShrinkWrap: true,
+                      scrollPhysics: const NeverScrollableScrollPhysics(),
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        ).toList(),
+      ),
     );
   }
 }
