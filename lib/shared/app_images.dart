@@ -2,6 +2,7 @@ abstract class AppImages {
   static const bg = 'assets/images/bg.png';
   static const renanThree = 'assets/images/renan_three.jpeg';
   static const renanFour = 'assets/images/renan_four.jpeg';
+  static const kanu = 'assets/images/kanu.png';
   static const dot = 'assets/images/dot.svg';
 
   //icons
