@@ -35,6 +35,12 @@ class Menu extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+            border: const Border(
+              bottom: BorderSide(
+                color: AppColors.ebony,
+                width: 1,
+              ),
+            ),
           ),
           padding: const EdgeInsets.all(12),
           child: Row(

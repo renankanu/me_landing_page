@@ -11,7 +11,7 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.woodsmoke.withOpacity(0.2),
+      color: AppColors.woodsmoke.withOpacity(0.5),
       child: LayoutBuilder(
         builder: (_, __) {
           if (Responsive.isMobile(context)) {

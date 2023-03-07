@@ -36,65 +36,67 @@ class Skills extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
     final start = ValueNotifier(false);
-    final isMobile = Responsive.isMobile(context);
-    return VisibilityDetector(
-      key: const Key('skills'),
-      onVisibilityChanged: (visibilityInfo) {
-        final visiblePercentage = visibilityInfo.visibleFraction * 100;
-        int percent = isMobile ? 10 : 20;
-        if (visiblePercentage > percent) {
-          start.value = true;
-        }
-      },
-      child: ValueListenableBuilder(
-        valueListenable: start,
-        builder: (_, started, __) {
-          return LayoutBuilder(
-            builder: (_, constraints) {
-              return Center(
-                child: Container(
-                  margin: const EdgeInsets.only(top: 80),
-                  constraints: const BoxConstraints(minWidth: 1800),
-                  padding: globalPadding(context, padding),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 20),
-                      AppTitleSection(
-                        title: 'Minhas Skills',
-                        started: started,
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white.withOpacity(0.7),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 40),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Wrap(
-                          children: _mySkills.map(
-                            (skill) {
-                              final isEven = _mySkills.indexOf(skill) % 2 == 0;
-                              return Item(
-                                skill: skill,
-                                isEven: isEven,
-                              );
-                            },
-                          ).toList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
+    return Container(
+      color: AppColors.ebony.withOpacity(0.4),
+      child: VisibilityDetector(
+        key: const Key('skills'),
+        onVisibilityChanged: (visibilityInfo) {
+          final visiblePercentage = visibilityInfo.visibleFraction * 100;
+          if (visiblePercentage > 12) {
+            start.value = true;
+          }
         },
+        child: ValueListenableBuilder(
+          valueListenable: start,
+          builder: (_, started, __) {
+            return LayoutBuilder(
+              builder: (_, constraints) {
+                return Center(
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 80),
+                    constraints: const BoxConstraints(minWidth: 1800),
+                    padding: globalPadding(context, padding),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 20),
+                        AppTitleSection(
+                          title: 'Minhas Skills',
+                          started: started,
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white.withOpacity(0.7),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 40),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Wrap(
+                            children: _mySkills.map(
+                              (skill) {
+                                final isEven =
+                                    _mySkills.indexOf(skill) % 2 == 0;
+                                return Item(
+                                  skill: skill,
+                                  isEven: isEven,
+                                );
+                              },
+                            ).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

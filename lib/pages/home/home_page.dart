@@ -1,6 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:me_landing_page/pages/home/components/about_me.dart';
 import 'package:me_landing_page/pages/home/components/config.dart';
 import 'package:me_landing_page/pages/home/components/footer.dart';
@@ -65,7 +66,17 @@ class _HomePageState extends State<HomePage> {
             onSelected: (index) {
               scrollToIndex(index);
             },
-          ),
+          )
+              .animate()
+              .moveY(
+                begin: -30,
+                end: 0,
+                duration: 1.seconds,
+                curve: Curves.fastOutSlowIn,
+              )
+              .fadeIn(
+                begin: 0,
+              ),
         ],
       ),
     );

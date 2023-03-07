@@ -2,7 +2,6 @@ import 'package:flutter/painting.dart';
 
 abstract class AppConstants {
   static const String makeFileConf = r'''
-```makefile
 .PHONY: f_release f_clear_pod 
 FULL_VERSION := $(shell (cat pubspec.yaml | grep "version" | awk '{print $$2}'))
 STRING_VERSION := $(shell (echo $(FULL_VERSION) | awk -F+ '{print $$1}'))
@@ -39,11 +38,9 @@ f_prod: f_upgrade_version ## This is flutter build appbundle step.
 	@flutter build appbundle
 	@open "build/app/outputs/bundle/release"
 	@echo "Done ✅"
-```
 ''';
 
   static const String vsCodeConf = r'''
-```json
 {
   "workbench.iconTheme" : "material-icon-theme",
   "[dart]" : {
@@ -119,8 +116,7 @@ f_prod: f_upgrade_version ## This is flutter build appbundle step.
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "diffEditor.ignoreTrimWhitespace": false
-}
-```
+} 
 ''';
 
   static const String extensionVsCode = r'''
@@ -169,7 +165,6 @@ A extensão [Dev Containers](https://marketplace.visualstudio.com/items?itemName
 ''';
 
   static const String gitConfig = r'''
-```bash
 [core]
 	editor = code --wait
 [user]
@@ -187,11 +182,9 @@ A extensão [Dev Containers](https://marketplace.visualstudio.com/items?itemName
 	followTags = true
 [merge "ours"]
 	driver = true
-```
 ''';
 
   static const String zshConfig = r'''
-```bash
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
@@ -261,7 +254,6 @@ zinit light zsh-users/zsh-completions
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-```
 ''';
 
   static Path pathGit() {
