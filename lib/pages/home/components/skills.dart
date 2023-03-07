@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/model/skill.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
@@ -35,68 +34,51 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
-    final start = ValueNotifier(false);
     return Container(
       color: AppColors.ebony.withOpacity(0.4),
-      child: VisibilityDetector(
-        key: const Key('skills'),
-        onVisibilityChanged: (visibilityInfo) {
-          final visiblePercentage = visibilityInfo.visibleFraction * 100;
-          if (visiblePercentage > 12) {
-            start.value = true;
-          }
-        },
-        child: ValueListenableBuilder(
-          valueListenable: start,
-          builder: (_, started, __) {
-            return LayoutBuilder(
-              builder: (_, constraints) {
-                return Center(
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 80),
-                    constraints: const BoxConstraints(minWidth: 1800),
-                    padding: globalPadding(context, padding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(height: 20),
-                        AppTitleSection(
-                          title: 'Minhas Skills',
-                          started: started,
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white.withOpacity(0.7),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 40),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Wrap(
-                            children: _mySkills.map(
-                              (skill) {
-                                final isEven =
-                                    _mySkills.indexOf(skill) % 2 == 0;
-                                return Item(
-                                  skill: skill,
-                                  isEven: isEven,
-                                );
-                              },
-                            ).toList(),
-                          ),
-                        ),
-                      ],
+      child: LayoutBuilder(
+        builder: (_, constraints) {
+          return Center(
+            child: Container(
+              margin: const EdgeInsets.only(top: 80),
+              constraints: const BoxConstraints(minWidth: 1800),
+              padding: globalPadding(context, padding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 20),
+                  const AppTitleSection(
+                    title: 'Minhas Skills',
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.7),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
                     ),
                   ),
-                );
-              },
-            );
-          },
-        ),
+                  const SizedBox(height: 40),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Wrap(
+                      children: _mySkills.map(
+                        (skill) {
+                          final isEven = _mySkills.indexOf(skill) % 2 == 0;
+                          return Item(
+                            skill: skill,
+                            isEven: isEven,
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

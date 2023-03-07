@@ -40,9 +40,8 @@ class Jobs extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppTitleSection(
+                        const AppTitleSection(
                           title: 'Experiência Profissional',
-                          started: started,
                         ),
                         const SizedBox(height: 40),
                         if (Responsive.isMobile(context))
