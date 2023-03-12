@@ -118,7 +118,16 @@ class MyAvatar extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
+        .animate()
+        .fadeIn(
+          duration: 1.seconds,
+          curve: Curves.fastOutSlowIn,
+        )
+        .slideX(
+          begin: 1,
+          end: 0,
+        );
   }
 }
 
@@ -214,7 +223,18 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
                         begin: const Offset(-6, -4),
                         end: const Offset(0, 0),
                       ),
-                ),
+                )
+                    .animate()
+                    .fadeIn(
+                      duration: 1.seconds,
+                      curve: Curves.fastOutSlowIn,
+                    )
+                    .slideX(
+                      begin: -1,
+                      end: 0,
+                      duration: 1.seconds,
+                      curve: Curves.fastOutSlowIn,
+                    ),
               ),
             );
           },
