@@ -12,17 +12,20 @@ import '../../../shared/widgets/app_title_section.dart';
 class Skills extends StatelessWidget {
   const Skills({Key? key}) : super(key: key);
 
-  List<Skill> get _mySkills => [
+  List<Skill> get _actualSkills => [
         Skill(name: 'Flutter', image: AppImages.flutter),
         Skill(name: 'Dart', image: AppImages.dart),
         Skill(name: 'Firebase', image: AppImages.firebase),
-        Skill(name: 'Kotlin', image: AppImages.kotlin),
-        Skill(name: 'React Native', image: AppImages.rn),
         Skill(name: 'Google Play', image: AppImages.googlePlay),
         Skill(name: 'App Store', image: AppImages.appStore),
+        Skill(name: 'Git', image: AppImages.git),
+        Skill(name: 'React Native', image: AppImages.rn),
+      ];
+
+  List<Skill> get _mySkills => [
+        Skill(name: 'Kotlin', image: AppImages.kotlin),
         Skill(name: 'AWS', image: AppImages.aws),
         Skill(name: 'Docker', image: AppImages.docker),
-        Skill(name: 'Git', image: AppImages.git),
         Skill(name: 'JavaScript', image: AppImages.js),
         Skill(name: 'TypeScript', image: AppImages.ts),
         Skill(name: 'PHP', image: AppImages.php),
@@ -52,7 +55,31 @@ class Skills extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Aqui são algumas das minhas skills, atualmente com foco em Flutter e Dart. Mas também tenho experiência com outras tecnologias.',
+                    'Aqui são algumas das minhas skills, aqui são as tecnologias que trabalho diariamente:',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.7),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Wrap(
+                      children: _actualSkills.map(
+                        (skill) {
+                          final isEven = _actualSkills.indexOf(skill) % 2 == 0;
+                          return Item(
+                            skill: skill,
+                            isEven: isEven,
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  Text(
+                    'Aqui estão algumas das tecnologias que já trabalhei:',
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
                       fontWeight: FontWeight.w500,
