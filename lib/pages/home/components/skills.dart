@@ -8,6 +8,8 @@ import 'package:me_landing_page/shared/app_images.dart';
 
 import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
+import 'github_stats/languages_git.dart';
+import 'github_stats/profile_info.dart';
 
 class Skills extends StatelessWidget {
   const Skills({Key? key}) : super(key: key);
@@ -101,6 +103,19 @@ class Skills extends StatelessWidget {
                       ).toList(),
                     ),
                   ),
+                  const SizedBox(height: 40),
+                  Text(
+                    '# GitHub Stats:',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.7),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  const ProfileGitInfoInfo(),
+                  const SizedBox(height: 20),
+                  const LanguagesGit(),
                 ],
               ),
             ),

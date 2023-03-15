@@ -14,8 +14,6 @@ import 'package:me_landing_page/shared/widgets/avatar_animation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../shared/widgets/social_button.dart';
-import 'github_stats/languages_git.dart';
-import 'github_stats/profile_info.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({Key? key}) : super(key: key);
@@ -35,7 +33,7 @@ class AboutMe extends StatelessWidget {
                   AppImages.bg,
                 ),
                 fit: BoxFit.none,
-                height: isMobile ? 700 : 800,
+                height: isMobile ? 700 : 460,
                 width: constraints.maxWidth,
                 color: Colors.grey[700]!.withOpacity(0.2),
                 excludeFromSemantics: true,
@@ -65,32 +63,15 @@ class AboutMe extends StatelessWidget {
                       MyDesc(
                         isMobile: true,
                       ),
-                      const SizedBox(height: 40),
-                      const ProfileGitInfoInfo(),
-                      const SizedBox(height: 20),
-                      const LanguagesGit(),
                     ],
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Expanded(
-                            child: MyDesc(),
-                          ),
-                          const MyAvatar(),
-                        ],
+                      Expanded(
+                        child: MyDesc(),
                       ),
-                      const SizedBox(height: 40),
-                      Row(
-                        children: const [
-                          ProfileGitInfoInfo(),
-                          SizedBox(width: 40),
-                          LanguagesGit(),
-                        ],
-                      )
+                      const MyAvatar(),
                     ],
                   ),
                 ),
