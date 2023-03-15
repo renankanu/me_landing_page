@@ -7,12 +7,11 @@ class ProfileGitInfoInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: 200,
-      color: Colors.red,
-      child: const AppCustomImage(
-        'https://avatars.githubusercontent.com/u/16825387?v=4',
+    return const SizedBox(
+      height: 195,
+      width: 467,
+      child: AppCustomImage(
+        'https://github-readme-stats.vercel.app/api?username=renankanu&show_icons=true&theme=dracula&locale=pt-br',
       ),
     );
   }

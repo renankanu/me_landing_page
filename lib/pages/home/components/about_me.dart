@@ -14,6 +14,8 @@ import 'package:me_landing_page/shared/widgets/avatar_animation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../shared/widgets/social_button.dart';
+import 'github_stats/languages_git.dart';
+import 'github_stats/profile_info.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({Key? key}) : super(key: key);
@@ -63,15 +65,28 @@ class AboutMe extends StatelessWidget {
                       MyDesc(
                         isMobile: true,
                       ),
+                      const SizedBox(height: 40),
+                      const ProfileGitInfoInfo(),
+                      const SizedBox(height: 20),
+                      const LanguagesGit(),
                     ],
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: MyDesc(),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Expanded(
+                            child: MyDesc(),
+                          ),
+                          const MyAvatar(),
+                        ],
                       ),
-                      const MyAvatar(),
+                      const SizedBox(height: 40),
+                      const ProfileGitInfoInfo(),
+                      const SizedBox(height: 20),
+                      const LanguagesGit(),
                     ],
                   ),
                 ),
