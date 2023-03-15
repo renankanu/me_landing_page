@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/model/skill.dart';
+import 'package:me_landing_page/pages/home/components/github_stats/profile_info.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
@@ -49,6 +50,8 @@ class Skills extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
+                  const ProfileGitInfoInfo(),
                   const SizedBox(height: 20),
                   const AppTitleSection(
                     title: 'Minhas Skills',
