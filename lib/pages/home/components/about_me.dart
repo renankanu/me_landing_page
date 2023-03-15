@@ -35,7 +35,7 @@ class AboutMe extends StatelessWidget {
                   AppImages.bg,
                 ),
                 fit: BoxFit.none,
-                height: isMobile ? 700 : 460,
+                height: isMobile ? 700 : 800,
                 width: constraints.maxWidth,
                 color: Colors.grey[700]!.withOpacity(0.2),
                 excludeFromSemantics: true,
@@ -84,9 +84,13 @@ class AboutMe extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 40),
-                      const ProfileGitInfoInfo(),
-                      const SizedBox(height: 20),
-                      const LanguagesGit(),
+                      Row(
+                        children: const [
+                          ProfileGitInfoInfo(),
+                          SizedBox(width: 40),
+                          LanguagesGit(),
+                        ],
+                      )
                     ],
                   ),
                 ),
