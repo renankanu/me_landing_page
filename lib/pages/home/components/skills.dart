@@ -53,11 +53,11 @@ class Skills extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   const AppTitleSection(
-                    title: 'Minhas Skills',
+                    title: 'Tecnologias e Skills',
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Aqui são algumas das minhas skills, aqui são as tecnologias que trabalho diariamente:',
+                    'Aqui são algumas das minhas skills e tecnologias que trabalho diariamente:',
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
                       fontWeight: FontWeight.w500,
@@ -66,8 +66,9 @@ class Skills extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Align(
-                    alignment: Alignment.center,
+                    alignment: Alignment.centerLeft,
                     child: Wrap(
+                      alignment: WrapAlignment.start,
                       children: _actualSkills.map(
                         (skill) {
                           final isEven = _actualSkills.indexOf(skill) % 2 == 0;
@@ -90,8 +91,9 @@ class Skills extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   Align(
-                    alignment: Alignment.center,
+                    alignment: Alignment.centerLeft,
                     child: Wrap(
+                      alignment: WrapAlignment.start,
                       children: _mySkills.map(
                         (skill) {
                           final isEven = _mySkills.indexOf(skill) % 2 == 0;
@@ -140,10 +142,9 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = Responsive.isMobile(context);
     return SizedBox(
-      height: isMobile ? 160 : 240,
-      width: isMobile ? 160 : 240,
+      height: 100,
+      width: 218,
       child: ValueListenableBuilder(
         valueListenable: start,
         builder: (context, started, _) => Center(
@@ -152,18 +153,13 @@ class Item extends StatelessWidget {
             onEnter: (_) => start.value = true,
             onExit: (_) => start.value = false,
             child: Container(
-              height: isMobile ? 220 : 300,
-              width: isMobile ? 220 : 300,
-              margin: const EdgeInsets.all(16),
+              height: 100,
+              width: 218,
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(20),
-                border: started
-                    ? Border.all(
-                        color: Colors.white.withOpacity(0.2),
-                        width: 2,
-                      )
-                    : null,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
@@ -172,23 +168,22 @@ class Item extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Column(
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  SvgPicture.asset(
+                    skill.image,
+                    width: 40,
+                    height: 40,
+                  ),
+                  const SizedBox(width: 10),
                   Text(
                     skill.name,
                     style: GoogleFonts.poppins(
                       color: Colors.white,
-                      fontSize: isMobile ? 14 : 20,
-                      fontWeight: isMobile ? FontWeight.w400 : FontWeight.w700,
-                      letterSpacing: 3,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
-                  ),
-                  SvgPicture.asset(
-                    skill.image,
-                    width: isMobile ? 60 : 100,
-                    height: isMobile ? 60 : 100,
                   ),
                 ],
               ),
@@ -203,15 +198,11 @@ class Item extends StatelessWidget {
                     }
                   },
                 )
-                .rotate(
-                  begin: 0.0,
-                  end: isEven ? 0.01 : -0.01,
-                  duration: 400.ms,
-                  curve: Curves.easeIn,
-                )
                 .scale(
                   begin: const Offset(1, 1),
                   end: const Offset(1.1, 1.1),
+                  duration: 300.ms,
+                  curve: Curves.fastOutSlowIn,
                 ),
           ),
         ),
