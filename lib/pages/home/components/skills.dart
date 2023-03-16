@@ -68,6 +68,8 @@ class Skills extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Wrap(
+                      runSpacing: 20,
+                      spacing: 20,
                       alignment: WrapAlignment.start,
                       children: _actualSkills.map(
                         (skill) {
@@ -93,6 +95,8 @@ class Skills extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Wrap(
+                      runSpacing: 20,
+                      spacing: 20,
                       alignment: WrapAlignment.start,
                       children: _mySkills.map(
                         (skill) {
@@ -156,7 +160,6 @@ class Item extends StatelessWidget {
               height: 100,
               width: 218,
               padding: const EdgeInsets.all(20),
-              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(20),
