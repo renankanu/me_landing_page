@@ -53,11 +53,11 @@ class Skills extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   const AppTitleSection(
-                    title: 'Minhas Skills',
+                    title: 'Tecnologias e Skills',
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Aqui são algumas das minhas skills, aqui são as tecnologias que trabalho diariamente:',
+                    'Aqui são algumas das minhas skills e tecnologias que trabalho diariamente:',
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
                       fontWeight: FontWeight.w500,
