@@ -16,7 +16,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../shared/widgets/social_button.dart';
 
 class AboutMe extends StatelessWidget {
-  const AboutMe({Key? key}) : super(key: key);
+  const AboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -293,7 +293,7 @@ conheço algumas tecnologias mas hoje estou focado em Flutter.''',
     );
   }
 
-  void saveLogClickGame() async {
+  Future<void> saveLogClickGame() async {
     if (kReleaseMode) {
       await FirebaseAnalytics.instance.logEvent(name: 'Game Click');
     }

@@ -42,7 +42,7 @@ class MyPlayer extends SimplePlayer
       add(
         AnimatedFollowerObject(
           animation: SpriteAnimation.load(
-            "players/emote_exclamation.png",
+            'players/emote_exclamation.png',
             SpriteAnimationData.sequenced(
               amount: 8,
               stepTime: 0.1,

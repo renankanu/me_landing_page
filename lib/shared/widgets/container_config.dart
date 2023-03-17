@@ -3,9 +3,9 @@ import 'package:me_landing_page/shared/app_colors.dart';
 
 class ConfigContainer extends StatelessWidget {
   const ConfigContainer({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

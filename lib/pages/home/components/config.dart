@@ -6,7 +6,7 @@ import '../../../shared/utils/app_responsive.dart';
 import '../../../shared/widgets/app_title_section.dart';
 
 class Config extends StatelessWidget {
-  const Config({Key? key}) : super(key: key);
+  const Config({super.key});
 
   @override
   Widget build(BuildContext context) {

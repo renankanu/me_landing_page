@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class ExpandedWidget extends StatefulWidget {
   final Widget child;
   final bool expand;
-  const ExpandedWidget({Key? key, this.expand = false, required this.child})
-      : super(key: key);
+  const ExpandedWidget({super.key, this.expand = false, required this.child});
 
   @override
   ExpandedWidgetState createState() => ExpandedWidgetState();

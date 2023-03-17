@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:me_landing_page/shared/widgets/app_custom_image.dart';
 
 class LanguagesGit extends StatelessWidget {
-  const LanguagesGit({Key? key}) : super(key: key);
+  const LanguagesGit({super.key});
 
   @override
   Widget build(BuildContext context) {

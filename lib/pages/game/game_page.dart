@@ -15,7 +15,7 @@ import 'components/npcs/megaleios/megaleios_npc.dart';
 import 'player/player.dart';
 
 class GamePage extends StatefulWidget {
-  const GamePage({Key? key}) : super(key: key);
+  const GamePage({super.key});
 
   @override
   State<GamePage> createState() => _GamePageState();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
-  static darkTheme() {
+  static ThemeData darkTheme() {
     return ThemeData.dark().copyWith(
       useMaterial3: true,
       primaryColor: Colors.blue,

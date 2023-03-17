@@ -6,12 +6,12 @@ import 'package:me_landing_page/shared/utils/app_responsive.dart';
 
 class SocialButton extends StatelessWidget {
   SocialButton({
-    Key? key,
+    super.key,
     required this.buttonColor,
     required this.name,
     required this.icon,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final Color buttonColor;
   final String name;

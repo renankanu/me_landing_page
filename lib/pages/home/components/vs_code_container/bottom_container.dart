@@ -4,7 +4,7 @@ import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
 class BottomContainer extends StatelessWidget {
-  const BottomContainer({Key? key}) : super(key: key);
+  const BottomContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

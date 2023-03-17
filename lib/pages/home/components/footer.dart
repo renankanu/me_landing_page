@@ -6,7 +6,7 @@ import 'package:me_landing_page/shared/utils/app_responsive.dart';
 import '../../../shared/app_colors.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,8 @@ class Footer extends StatelessWidget {
 
 class Email extends StatelessWidget {
   const Email({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +66,8 @@ class Email extends StatelessWidget {
 
 class Copyright extends StatelessWidget {
   const Copyright({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +89,8 @@ class Copyright extends StatelessWidget {
 
 class Logo extends StatelessWidget {
   const Logo({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
