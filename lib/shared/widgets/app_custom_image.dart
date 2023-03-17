@@ -7,8 +7,8 @@ import 'package:flutter/widgets.dart';
 class AppCustomImage extends StatefulWidget {
   const AppCustomImage(
     this.src, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String src;
 
@@ -24,7 +24,7 @@ class _AppCustomImageState extends State<AppCustomImage> {
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
       '__webImageViewType__${widget.src}__',
-      (int viewId) {
+      (viewId) {
         _element = html.ImageElement(src: widget.src)
           ..style.width = '100%'
           ..style.height = '100%'

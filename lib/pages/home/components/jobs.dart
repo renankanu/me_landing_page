@@ -9,7 +9,7 @@ import 'package:me_landing_page/shared/widgets/app_title_section.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class Jobs extends StatelessWidget {
-  const Jobs({Key? key}) : super(key: key);
+  const Jobs({super.key});
 
   @override
   Widget build(BuildContext context) {

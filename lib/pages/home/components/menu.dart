@@ -11,9 +11,9 @@ import '../../../shared/utils/app_responsive.dart';
 
 class Menu extends StatelessWidget {
   const Menu({
-    Key? key,
+    super.key,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   final Function(int) onSelected;
 

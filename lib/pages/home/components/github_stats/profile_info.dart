@@ -4,7 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../../../shared/widgets/app_custom_image.dart';
 
 class ProfileGitInfoInfo extends StatelessWidget {
-  const ProfileGitInfoInfo({Key? key}) : super(key: key);
+  const ProfileGitInfoInfo({super.key});
 
   @override
   Widget build(BuildContext context) {

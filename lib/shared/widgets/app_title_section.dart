@@ -6,9 +6,9 @@ import 'package:visibility_detector/visibility_detector.dart';
 
 class AppTitleSection extends StatelessWidget {
   const AppTitleSection({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String title;
 

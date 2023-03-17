@@ -12,7 +12,7 @@ import 'github_stats/languages_git.dart';
 import 'github_stats/profile_info.dart';
 
 class Skills extends StatelessWidget {
-  const Skills({Key? key}) : super(key: key);
+  const Skills({super.key});
 
   List<Skill> get _actualSkills => [
         Skill(name: 'Flutter', image: AppImages.flutter),

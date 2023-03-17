@@ -5,8 +5,8 @@ import 'bar_life_component.dart';
 class BarLifeController extends StateController<BarLifeInterface> {
   double _maxLife = 100;
   double _maxStamina = 100;
-  get maxLife => _maxLife;
-  get maxStamina => _maxStamina;
+  double get maxLife => _maxLife;
+  double get maxStamina => _maxStamina;
 
   double _life = 0;
   double _stamina = 0;

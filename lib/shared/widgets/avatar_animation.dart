@@ -6,7 +6,7 @@ import 'package:me_landing_page/shared/app_constants.dart';
 
 class AvatarAnimation extends StatefulWidget {
   const AvatarAnimation({
-    Key? key,
+    super.key,
     required this.child,
     this.outerIconsSize = 3,
     this.innerIconsSize = 3,
@@ -18,7 +18,7 @@ class AvatarAnimation extends StatefulWidget {
     this.outerAnimationSeconds = 30,
     this.innerAnimation = Curves.linear,
     this.outerAnimation = Curves.linear,
-  }) : super(key: key);
+  });
 
   final double outerIconsSize;
   final double innerIconsSize;

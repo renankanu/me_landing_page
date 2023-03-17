@@ -15,7 +15,7 @@ import 'navigation_files.dart';
 import 'navigation_left.dart';
 
 class VsCodeContainer extends StatelessWidget {
-  const VsCodeContainer({Key? key}) : super(key: key);
+  const VsCodeContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

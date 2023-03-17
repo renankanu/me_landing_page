@@ -2,7 +2,7 @@ import 'package:bonfire/bonfire.dart';
 
 class OrcSpriteSheet {
   static Future<SpriteAnimation> get idleLeft => SpriteAnimation.load(
-        "orcs/orc_.png",
+        'orcs/orc_.png',
         SpriteAnimationData.sequenced(
           amount: 4,
           stepTime: 0.1,
@@ -12,7 +12,7 @@ class OrcSpriteSheet {
       );
 
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "orcs/orc_.png",
+        'orcs/orc_.png',
         SpriteAnimationData.sequenced(
           amount: 4,
           stepTime: 0.1,
@@ -22,7 +22,7 @@ class OrcSpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "orcs/orc_.png",
+        'orcs/orc_.png',
         SpriteAnimationData.sequenced(
           amount: 4,
           stepTime: 0.1,
@@ -32,7 +32,7 @@ class OrcSpriteSheet {
       );
 
   static Future<SpriteAnimation> get runLeft => SpriteAnimation.load(
-        "orcs/orc_.png",
+        'orcs/orc_.png',
         SpriteAnimationData.sequenced(
           amount: 4,
           stepTime: 0.1,
