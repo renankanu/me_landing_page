@@ -24,61 +24,65 @@ class AboutMe extends StatelessWidget {
     final padding = width * 0.03;
     return LayoutBuilder(builder: (_, constraints) {
       final isMobile = Responsive.isMobile(context);
-      return Stack(
-        children: [
-          Padding(
-              padding: EdgeInsets.fromLTRB(padding, 140, padding, 40),
-              child: Image(
-                image: const AssetImage(
-                  AppImages.bg,
-                ),
-                fit: BoxFit.none,
-                height: isMobile ? 700 : 460,
-                width: constraints.maxWidth,
-                color: Colors.grey[700]!.withOpacity(0.2),
-                excludeFromSemantics: true,
-                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-                  if (wasSynchronouslyLoaded) {
-                    return child;
-                  } else {
-                    return AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: frame != null ? child : const SizedBox.shrink(),
-                    );
-                  }
-                },
-              )),
-          Center(
-            child: Container(
-              constraints: const BoxConstraints(maxWidth: 1200),
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(padding, 160, 8, 60),
-                child: Visibility(
-                  visible: Responsive.isDesktop(context),
-                  replacement: Column(
-                    children: [
-                      const MyAvatar(
-                        size: 306,
-                      ),
-                      MyDesc(
-                        isMobile: true,
-                      ),
-                    ],
+      return Container(
+        color: AppColors.ebonyClay,
+        child: Stack(
+          children: [
+            Padding(
+                padding: EdgeInsets.fromLTRB(padding, 140, padding, 40),
+                child: Image(
+                  image: const AssetImage(
+                    AppImages.bg,
                   ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(
-                        child: MyDesc(),
-                      ),
-                      const MyAvatar(),
-                    ],
+                  fit: BoxFit.none,
+                  height: isMobile ? 700 : 460,
+                  width: constraints.maxWidth,
+                  color: Colors.grey[700]!.withOpacity(0.2),
+                  excludeFromSemantics: true,
+                  frameBuilder:
+                      (context, child, frame, wasSynchronouslyLoaded) {
+                    if (wasSynchronouslyLoaded) {
+                      return child;
+                    } else {
+                      return AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 300),
+                        child: frame != null ? child : const SizedBox.shrink(),
+                      );
+                    }
+                  },
+                )),
+            Center(
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 1200),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(padding, 160, 8, 60),
+                  child: Visibility(
+                    visible: Responsive.isDesktop(context),
+                    replacement: Column(
+                      children: [
+                        const MyAvatar(
+                          size: 306,
+                        ),
+                        MyDesc(
+                          isMobile: true,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Expanded(
+                          child: MyDesc(),
+                        ),
+                        const MyAvatar(),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       );
     });
   }
