@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/model/file_config.dart';
-import 'package:me_landing_page/pages/home/components/vs_code_container/bottom_container.dart';
-import 'package:me_landing_page/pages/home/components/vs_code_container/tab_file_name.dart';
-import 'package:me_landing_page/pages/home/components/vs_code_container/top_container.dart';
+import 'package:me_landing_page/pages/home/sections/config/components/vs_code_container/bottom_container.dart';
+import 'package:me_landing_page/pages/home/sections/config/components/vs_code_container/tab_file_name.dart';
+import 'package:me_landing_page/pages/home/sections/config/components/vs_code_container/top_container.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/widgets/expanded_widget.dart';
 
-import '../../../../shared/utils/app_responsive.dart';
+import '../../../../../../shared/utils/app_responsive.dart';
 import 'content_file.dart';
 import 'item_config.dart';
 import 'navigation_files.dart';

@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
-import '../../../shared/utils/app_responsive.dart';
+import '../../../../shared/utils/app_responsive.dart';
 
 class Menu extends StatelessWidget {
   const Menu({

@@ -13,7 +13,7 @@ import 'package:me_landing_page/shared/utils/app_responsive.dart';
 import 'package:me_landing_page/shared/widgets/avatar_animation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../shared/widgets/social_button.dart';
+import '../../../../shared/widgets/social_button.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});

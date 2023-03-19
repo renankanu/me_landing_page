@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import '../../../../shared/widgets/app_custom_image.dart';
+import '../../../../../../shared/widgets/app_custom_image.dart';
 
 class ProfileGitInfoInfo extends StatelessWidget {
   const ProfileGitInfoInfo({super.key});

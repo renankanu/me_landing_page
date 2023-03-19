@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../model/file_config.dart';
-import '../../../../shared/app_colors.dart';
-import '../../../../shared/app_images.dart';
+import '../../../../../../model/file_config.dart';
+import '../../../../../../shared/app_colors.dart';
+import '../../../../../../shared/app_images.dart';
 import 'item_file.dart';
 
 class NavigationFiles extends StatelessWidget {

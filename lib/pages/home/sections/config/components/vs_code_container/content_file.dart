@@ -5,8 +5,8 @@ import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/dracula.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../model/file_config.dart';
-import '../../../../shared/app_colors.dart';
+import '../../../../../../model/file_config.dart';
+import '../../../../../../shared/app_colors.dart';
 
 class ContentFile extends StatelessWidget {
   const ContentFile({

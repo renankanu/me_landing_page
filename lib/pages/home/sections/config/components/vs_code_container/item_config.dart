@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../model/file_config.dart';
+import '../../../../../../model/file_config.dart';
 
 class ItemConfig extends ValueNotifier {
   ItemConfig(super.value);

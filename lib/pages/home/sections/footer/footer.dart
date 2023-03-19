@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 import 'package:me_landing_page/shared/utils/app_responsive.dart';
 
-import '../../../shared/app_colors.dart';
+import '../../../../shared/app_colors.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});

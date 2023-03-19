@@ -6,10 +6,10 @@ import 'package:me_landing_page/model/skill.dart';
 import 'package:me_landing_page/shared/app_colors.dart';
 import 'package:me_landing_page/shared/app_images.dart';
 
-import '../../../shared/utils/app_responsive.dart';
-import '../../../shared/widgets/app_title_section.dart';
-import 'github_stats/languages_git.dart';
-import 'github_stats/profile_info.dart';
+import '../../../../shared/utils/app_responsive.dart';
+import '../../../../shared/widgets/app_title_section.dart';
+import 'components/github_stats/languages_git.dart';
+import 'components/github_stats/profile_info.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});

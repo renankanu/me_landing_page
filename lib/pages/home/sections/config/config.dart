@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:me_landing_page/pages/home/components/vs_code_container/vs_code_container.dart';
+import 'package:me_landing_page/pages/home/sections/config/components/vs_code_container/vs_code_container.dart';
 
-import '../../../shared/utils/app_responsive.dart';
-import '../../../shared/widgets/app_title_section.dart';
+import '../../../../shared/utils/app_responsive.dart';
+import '../../../../shared/widgets/app_title_section.dart';
 
 class Config extends StatelessWidget {
   const Config({super.key});
