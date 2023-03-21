@@ -48,10 +48,12 @@
   <body>
     <style>
       body {
-        background-color: #030303;
+        background: #1f2331;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
       }
-    </style>
-    <style>
       #loader {
         position: absolute;
         top: calc(50% - 20px);
@@ -110,11 +112,6 @@
           transform: scale(1.2, 1);
         }
       }
-
-      body {
-        background: #1f2331;
-        overflow: hidden;
-      }
       #logo {
         position: absolute;
         top: calc(50% - 80px);
@@ -124,33 +121,40 @@
         opacity: 0.5;
         color: #fff;
       }
+      #loading {
+        transition: opacity 0.6s ease-in-out;
+      }
     </style>
     <div id="loading">
       <img id="logo" src="icons/renankanu.png" alt="RenanKanu;" />
-    <div id="loader">
-      <div id="shadow"></div>
-      <div id="box"></div>
-    </div>
+      <div id="loader">
+        <div id="shadow"></div>
+        <div id="box"></div>
+      </div>
     </div>
     <script>
-      window.addEventListener('load', function () {
-      var loading = document.querySelector('#loading');
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        loading.classList.add('main_done');
-        return engineInitializer.initializeEngine();
-      }).then(function (appRunner) {
-        loading.classList.add('init_done');
-        return appRunner.runApp();
-      }).then(function (app) {
-        window.setTimeout(function () {
-          loading.remove();
-        }, 200);
-      });
-    });
+      window
+        .addEventListener("load", function () {
+          var loading = document.querySelector("#loading");
+          _flutter.loader
+            .loadEntrypoint({
+              serviceWorker: {
+                serviceWorkerVersion: serviceWorkerVersion,
+              },
+            })
+            .then(function (engineInitializer) {
+              return engineInitializer.initializeEngine();
+            })
+            .then(function (appRunner) {
+              loading.style.opacity = 0;
+              return appRunner.runApp();
+            });
+        })
+        .then(function () {
+          setTimeout(function () {
+            loading.style.display = "none";
+          }, 600);
+        });
     </script>
   </body>
 </html>
