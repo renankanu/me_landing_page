@@ -1,5 +1,5 @@
 ## RenanKanu Landing Page
-![Screenshot 2023-02-23 at 22 11 23](https://user-images.githubusercontent.com/7094345/221067550-62e32ad3-d372-4c30-8a02-8bf359549b10.png)
+![Screenshot 2023-02-23 at 22 11 23](https://user-images.githubusercontent.com/7094345/225891276-02da1da0-bba8-4ef7-84fc-9e21a9fc3e0a.png)
 
 
 Este é o repositório da Landing Page do RenanKanu, onde você pode encontrar informações sobre o meu trabalho e meus projetos.
@@ -29,3 +29,6 @@ Em seguinda, clone o repositório e execute o comando `flutter run` na pasta do 
 [visibility_detector](https://pub.dev/packages/visibility_detector) - Para detectar quando os widgets estão visíveis na tela
 
 [url_launcher](https://pub.dev/packages/url_launcher) - Para abrir links externos
+[bonfire](https://pub.dev/packages/bonfire) - Para criar o portfólio modo game.
+[firebase_analytics](https://pub.dev/packages/firebase_analytics) - Para o analytics do Firebase
+[flutter_syntax_view](https://pub.dev/packages/flutter_syntax_view) - Para renderizar o código fonte no estilo do vscode
