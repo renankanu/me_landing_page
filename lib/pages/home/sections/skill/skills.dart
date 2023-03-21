@@ -146,9 +146,10 @@ class Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
     return SizedBox(
-      height: 100,
-      width: 218,
+      height: isMobile ? 80 : 100,
+      width: isMobile ? 190 : 218,
       child: ValueListenableBuilder(
         valueListenable: start,
         builder: (context, started, _) => Center(
@@ -157,8 +158,8 @@ class Item extends StatelessWidget {
             onEnter: (_) => start.value = true,
             onExit: (_) => start.value = false,
             child: Container(
-              height: 100,
-              width: 218,
+              height: isMobile ? 80 : 100,
+              width: isMobile ? 190 : 218,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
