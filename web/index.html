@@ -49,6 +49,9 @@
     <style>
       body {
         background-color: #030303;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
       }
     </style>
     <style>
@@ -140,15 +143,9 @@
           serviceWorkerVersion: serviceWorkerVersion,
         }
       }).then(function (engineInitializer) {
-        loading.classList.add('main_done');
         return engineInitializer.initializeEngine();
       }).then(function (appRunner) {
-        loading.classList.add('init_done');
         return appRunner.runApp();
-      }).then(function (app) {
-        window.setTimeout(function () {
-          loading.remove();
-        }, 200);
       });
     });
     </script>
