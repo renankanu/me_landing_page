@@ -127,27 +127,40 @@
         opacity: 0.5;
         color: #fff;
       }
+      #loading {
+        transition: opacity 0.6s ease-in-out;
+      }
     </style>
     <div id="loading">
       <img id="logo" src="icons/renankanu.png" alt="RenanKanu;" />
-    <div id="loader">
-      <div id="shadow"></div>
-      <div id="box"></div>
-    </div>
+      <div id="loader">
+        <div id="shadow"></div>
+        <div id="box"></div>
+      </div>
     </div>
     <script>
-      window.addEventListener('load', function () {
-      var loading = document.querySelector('#loading');
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function (appRunner) {
-        return appRunner.runApp();
-      });
-    });
+      window
+        .addEventListener("load", function () {
+          var loading = document.querySelector("#loading");
+          _flutter.loader
+            .loadEntrypoint({
+              serviceWorker: {
+                serviceWorkerVersion: serviceWorkerVersion,
+              },
+            })
+            .then(function (engineInitializer) {
+              return engineInitializer.initializeEngine();
+            })
+            .then(function (appRunner) {
+              loading.style.opacity = 0;
+              return appRunner.runApp();
+            });
+        })
+        .then(function () {
+          setTimeout(function () {
+            loading.style.display = "none";
+          }, 600);
+        });
     </script>
   </body>
 </html>
