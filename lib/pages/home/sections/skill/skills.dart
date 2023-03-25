@@ -39,6 +39,7 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final padding = width * 0.03;
+    final isMobile = Responsive.isMobile(context);
     return Container(
       color: AppColors.ebony.withOpacity(0.4),
       child: LayoutBuilder(
@@ -68,8 +69,8 @@ class Skills extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Wrap(
-                      runSpacing: 20,
-                      spacing: 20,
+                      runSpacing: isMobile ? 10 : 20,
+                      spacing: isMobile ? 10 : 20,
                       alignment: WrapAlignment.start,
                       children: _actualSkills.map(
                         (skill) {
@@ -95,8 +96,8 @@ class Skills extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Wrap(
-                      runSpacing: 20,
-                      spacing: 20,
+                      runSpacing: isMobile ? 10 : 20,
+                      spacing: isMobile ? 10 : 20,
                       alignment: WrapAlignment.start,
                       children: _mySkills.map(
                         (skill) {
@@ -149,7 +150,7 @@ class Item extends StatelessWidget {
     final isMobile = Responsive.isMobile(context);
     return SizedBox(
       height: isMobile ? 80 : 100,
-      width: isMobile ? 190 : 218,
+      width: isMobile ? 168 : 218,
       child: ValueListenableBuilder(
         valueListenable: start,
         builder: (context, started, _) => Center(
@@ -159,7 +160,7 @@ class Item extends StatelessWidget {
             onExit: (_) => start.value = false,
             child: Container(
               height: isMobile ? 80 : 100,
-              width: isMobile ? 190 : 218,
+              width: isMobile ? 168 : 218,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: AppColors.boulder.withOpacity(0.3),
@@ -177,10 +178,10 @@ class Item extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     skill.image,
-                    width: 40,
-                    height: 40,
+                    width: isMobile ? 30 : 40,
+                    height: isMobile ? 30 : 40,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: isMobile ? 8 : 10),
                   Text(
                     skill.name,
                     style: GoogleFonts.poppins(
