@@ -1,4 +1,5 @@
 {
+    "dart.flutterHotReloadOnSave": "never",
     "cSpell.words": [
         "Adalyn",
         "appbundle",
