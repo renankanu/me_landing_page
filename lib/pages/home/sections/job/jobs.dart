@@ -142,8 +142,8 @@ class ContainerMobile extends StatelessWidget {
           start.value = true;
         }
       },
-      child: Column(
-        children: const [
+      child: const Column(
+        children: [
           Work(),
           SizedBox(height: 40),
           Knowledge(),

@@ -42,10 +42,10 @@ class Knowledge extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
               child: Column(
-                children: const [
+                children: [
                   ItemWorkKnowledge(
                     title: 'Universidade Paranaense(UNIPAR) - 2015',
                     description: '- Análise e Desenvolvimento de Sistemas',
