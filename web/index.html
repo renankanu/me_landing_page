@@ -149,6 +149,11 @@
               loading.style.opacity = 0;
               return appRunner.runApp();
             });
+        })
+        .then(function () {
+          setTimeout(function () {
+            loading.style.display = "none";
+          }, 600);
         });
     </script>
   </body>
