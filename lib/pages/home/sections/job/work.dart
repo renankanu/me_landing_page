@@ -42,10 +42,10 @@ class Work extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
               child: Column(
-                children: const [
+                children: [
                   ItemWorkKnowledge(
                     title: 'Megaleios - 2019 até o momento',
                     description:
