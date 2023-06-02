@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:me_landing_page/pages/game/game_page.dart';
+import 'package:me_landing_page/modules/game/game_page.dart';
 
-import '../pages/home/home_page.dart';
+import '../modules/home/home_page.dart';
 
 abstract class Routes {
   static GoRouter router = GoRouter(
