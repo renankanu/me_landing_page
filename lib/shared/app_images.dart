@@ -41,4 +41,5 @@ abstract class AppImages {
   static const account = 'assets/icons/account.svg';
   static const gear = 'assets/icons/gear.svg';
   static const remote = 'assets/icons/remote.svg';
+  static const googlePlayBadge = 'icons/google-play-badge.svg';
 }

@@ -5,6 +5,7 @@ import 'package:me_landing_page/model/my_app.dart';
 import '../../../../../shared/app_colors.dart';
 import '../../../../../shared/utils/app_responsive.dart';
 import '../../../../../shared/widgets/app_title_section.dart';
+import 'item_app.dart';
 
 class ListApp extends StatelessWidget {
   const ListApp({
@@ -37,7 +38,7 @@ class ListApp extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            ...myApps.map((e) => Text(e.name)),
+            ...myApps.map((app) => ItemApp(myApp: app)),
           ],
         ),
       ),
