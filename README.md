@@ -13,13 +13,21 @@ Em seguinda, clone o repositório e execute o comando `flutter run` na pasta do 
 
 
 ### Libs utilizadas
+
 [scrollable_positioned_list](https://pub.dev/packages/scrollable_positioned_list) - Para a lista de projetos
+
 [google_fonts](https://pub.dev/packages/google_fonts) - Para os fonts do Google
+
 [flutter_svg](https://pub.dev/packages/flutter_svg) - Para renderizar os SVGs
+
 [flutter_animate](https://pub.dev/packages/flutter_animate) - Para animar os widgets de forma mais simples
+
 [markdown_widget](https://pub.dev/packages/markdown_widget) - Para renderizar o strings no formato Markdown
+
 [flutter_highlight](https://pub.dev/packages/flutter_highlight) - Para renderizar o código fonte no estilo do vscode
+
 [visibility_detector](https://pub.dev/packages/visibility_detector) - Para detectar quando os widgets estão visíveis na tela
+
 [url_launcher](https://pub.dev/packages/url_launcher) - Para abrir links externos
 [bonfire](https://pub.dev/packages/bonfire) - Para criar o portfólio modo game.
 [firebase_analytics](https://pub.dev/packages/firebase_analytics) - Para o analytics do Firebase
