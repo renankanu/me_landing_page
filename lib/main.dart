@@ -26,10 +26,6 @@ import 'modules/game/components/npcs/intro/intro_controller.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: '.env');
-  await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
-    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
-  );
 
   if (kIsWeb) {
     await Firebase.initializeApp(
@@ -50,6 +46,11 @@ void main() async {
   BonfireInjector().put((i) => BarLifeController());
 
   setPathUrlStrategy();
+
+  await Supabase.initialize(
+    url: dotenv.env['SUPABASE_URL']!,
+    anonKey: dotenv.env['SUPABASE_KEY']!,
+  );
 
   runApp(const LandingPage());
 }
