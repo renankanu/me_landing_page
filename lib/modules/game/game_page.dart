@@ -26,14 +26,6 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.ebonyClay,
-      appBar: AppBar(
-        backgroundColor: AppColors.ebonyClay,
-        elevation: 3,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
       body: BonfireWidget(
         backgroundColor: AppColors.ebonyClay,
         joystick: Joystick(
